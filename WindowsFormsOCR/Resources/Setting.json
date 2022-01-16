@@ -1,0 +1,14 @@
+{
+  "local": {},
+  "baiduCloud": {
+    "type": "general_basic",
+    "access_token": "",
+    "client_id": "",
+    "client_secret":  ""
+  },
+  "tencentCloud": {
+    "type": "GeneralBasicOCR",
+    "SECRET_ID": "",
+    "SECRET_KEY": ""
+  }
+}
