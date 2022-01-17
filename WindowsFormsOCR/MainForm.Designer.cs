@@ -32,9 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.截图识别ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.translateButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.ocrButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitButton = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,46 +49,57 @@
             // contextMenuStrip
             // 
             this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.截图识别ToolStripMenuItem,
-            this.设置ToolStripMenuItem,
-            this.退出ToolStripMenuItem});
+            this.translateButton,
+            this.ocrButton,
+            this.settingButton,
+            this.exitButton});
             this.contextMenuStrip.Name = "contextMenuStrip1";
-            this.contextMenuStrip.Size = new System.Drawing.Size(146, 70);
+            this.contextMenuStrip.Size = new System.Drawing.Size(181, 114);
             // 
-            // 截图识别ToolStripMenuItem
+            // translateButton
             // 
-            this.截图识别ToolStripMenuItem.Name = "截图识别ToolStripMenuItem";
-            this.截图识别ToolStripMenuItem.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.截图识别ToolStripMenuItem.ShortcutKeyDisplayString = "";
-            this.截图识别ToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F4;
-            this.截图识别ToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
-            this.截图识别ToolStripMenuItem.Text = "截图识别";
+            this.translateButton.Name = "translateButton";
+            this.translateButton.ShortcutKeyDisplayString = "F2";
+            this.translateButton.Size = new System.Drawing.Size(180, 22);
+            this.translateButton.Text = "划词/截图翻译";
+            this.translateButton.Click += new System.EventHandler(this.Translate_Click);
             // 
-            // 设置ToolStripMenuItem
+            // ocrButton
             // 
-            this.设置ToolStripMenuItem.Name = "设置ToolStripMenuItem";
-            this.设置ToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
-            this.设置ToolStripMenuItem.Text = "设置";
-            this.设置ToolStripMenuItem.Click += new System.EventHandler(this.Setting_Click);
+            this.ocrButton.Name = "ocrButton";
+            this.ocrButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.ocrButton.ShortcutKeyDisplayString = "F4";
+            this.ocrButton.Size = new System.Drawing.Size(180, 22);
+            this.ocrButton.Text = "截图文字识别";
+            this.ocrButton.Click += new System.EventHandler(this.OcrButton_Click);
             // 
-            // 退出ToolStripMenuItem
+            // settingButton
             // 
-            this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
-            this.退出ToolStripMenuItem.Text = "退出";
-            this.退出ToolStripMenuItem.Click += new System.EventHandler(this.Exit_Click);
+            this.settingButton.Name = "settingButton";
+            this.settingButton.Size = new System.Drawing.Size(180, 22);
+            this.settingButton.Text = "设置";
+            this.settingButton.Click += new System.EventHandler(this.Setting_Click);
             // 
-            // Main
+            // exitButton
+            // 
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(180, 22);
+            this.exitButton.Text = "退出";
+            this.exitButton.Click += new System.EventHandler(this.Exit_Click);
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(294, 271);
             this.ControlBox = false;
-            this.Name = "Main";
+            this.Name = "MainForm";
             this.Opacity = 0D;
             this.ShowInTaskbar = false;
             this.Text = "Main";
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -97,9 +109,10 @@
 
         private System.Windows.Forms.NotifyIcon notifyIcon;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
-        private System.Windows.Forms.ToolStripMenuItem 设置ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 截图识别ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 退出ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem settingButton;
+        private System.Windows.Forms.ToolStripMenuItem ocrButton;
+        private System.Windows.Forms.ToolStripMenuItem exitButton;
+        private System.Windows.Forms.ToolStripMenuItem translateButton;
     }
 }
 

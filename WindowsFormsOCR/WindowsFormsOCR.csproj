@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalConfig.cs" />
+    <Compile Include="HotKey.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

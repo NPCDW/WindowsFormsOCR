@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -34,5 +35,51 @@ namespace WindowsFormsOCR
         {
             Application.Exit();
         }
+
+        /// <summary>
+        /// 热键的功能
+        /// </summary>
+        /// <param name="m"></param>
+        protected override void WndProc(ref Message m)
+        {
+            switch (m.Msg)
+            {
+                case 0x0312: //这个是window消息定义的 注册的热键消息
+                    if (m.WParam.ToString().Equals("1712")) //如果是我们注册的那个热键
+                    {
+                        this.Translate_Click(null, null);
+                    }
+                    if (m.WParam.ToString().Equals("1713")) //如果是我们注册的那个热键
+                    {
+                        this.OcrButton_Click(null, null);
+                    }
+                    break;
+            }
+            base.WndProc(ref m);
+        }
+        private void Translate_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("划词/截图翻译");
+        }
+
+        private void OcrButton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("截图文字识别");
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            GlobalConfig.GetConfig();
+
+            HotKey.RegisterHotKey(this.Handle, 1712, HotKey.KeyModifiers.None, Keys.F2);
+            HotKey.RegisterHotKey(this.Handle, 1713, HotKey.KeyModifiers.None, Keys.F4);
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            HotKey.UnregisterHotKey(this.Handle, 1712);
+            HotKey.UnregisterHotKey(this.Handle, 1713);
+        }
+
     }
 }
