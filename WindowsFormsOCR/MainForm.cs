@@ -59,7 +59,7 @@ namespace WindowsFormsOCR
         }
         private void Translate_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("划词/截图翻译");
+            MessageBox.Show(GetWords.Get());
         }
 
         private void OcrButton_Click(object sender, EventArgs e)
