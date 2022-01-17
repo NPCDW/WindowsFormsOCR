@@ -10,16 +10,24 @@ using System.Windows.Forms;
 
 namespace WindowsFormsOCR
 {
-    public partial class Main : Form
+    public partial class MainForm : Form
     {
-        public Main()
+        public MainForm()
         {
             InitializeComponent();
         }
 
         private void Setting_Click(object sender, EventArgs e)
         {
-            new Setting().Show();
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form is SettingForm)
+                {
+                    form.Focus();
+                    return;
+                }
+            }
+            new SettingForm().Show();
         }
 
         private void Exit_Click(object sender, EventArgs e)
