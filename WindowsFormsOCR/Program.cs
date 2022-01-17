@@ -16,7 +16,8 @@ namespace WindowsFormsOCR
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Main());
+            GlobalConfig.GetConfig();
+            Application.Run(new MainForm());
         }
     }
 }

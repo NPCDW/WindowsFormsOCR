@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsOCR
 {
-    partial class Main
+    partial class MainForm
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.截图识别ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,7 +52,7 @@
             this.设置ToolStripMenuItem,
             this.退出ToolStripMenuItem});
             this.contextMenuStrip.Name = "contextMenuStrip1";
-            this.contextMenuStrip.Size = new System.Drawing.Size(181, 92);
+            this.contextMenuStrip.Size = new System.Drawing.Size(146, 70);
             // 
             // 截图识别ToolStripMenuItem
             // 
@@ -60,20 +60,20 @@
             this.截图识别ToolStripMenuItem.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.截图识别ToolStripMenuItem.ShortcutKeyDisplayString = "";
             this.截图识别ToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F4;
-            this.截图识别ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.截图识别ToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.截图识别ToolStripMenuItem.Text = "截图识别";
             // 
             // 设置ToolStripMenuItem
             // 
             this.设置ToolStripMenuItem.Name = "设置ToolStripMenuItem";
-            this.设置ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.设置ToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.设置ToolStripMenuItem.Text = "设置";
             this.设置ToolStripMenuItem.Click += new System.EventHandler(this.Setting_Click);
             // 
             // 退出ToolStripMenuItem
             // 
             this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.退出ToolStripMenuItem.Text = "退出";
             this.退出ToolStripMenuItem.Click += new System.EventHandler(this.Exit_Click);
             // 
@@ -81,7 +81,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(294, 271);
             this.ControlBox = false;
             this.Name = "Main";
             this.Opacity = 0D;
