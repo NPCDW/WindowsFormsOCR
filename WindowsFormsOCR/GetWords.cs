@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsOCR
 {
-    public partial class GetWords
+    public class GetWords
     {
         [DllImport("User32.dll")]
         private static extern bool SetForegroundWindow(IntPtr hWnd);
@@ -18,7 +18,8 @@ namespace WindowsFormsOCR
         private static extern IntPtr GetForegroundWindow();
 
         [DllImport("user32.dll")]
-        private static extern void keybd_event(byte bVk, byte bScan, uint dwFlags, uint dwExtraInfo);
+        private static extern void keybd_event(Keys vk, byte bScan, uint dwFlags, uint dwExtraInfo);
+
         public static String Get()
         {
             SendCtrlC();
@@ -27,20 +28,18 @@ namespace WindowsFormsOCR
             return text;
         }
 
-        public static void SendCtrlC()
+        private static void SendCtrlC()
         {
-            IntPtr hWnd = GetForegroundWindow();
+            //IntPtr hWnd = GetForegroundWindow();
+            //SetForegroundWindow(hWnd);
             uint KEYEVENTF_KEYUP = 2;
-            byte VK_CONTROL = 0x11;
-            SetForegroundWindow(hWnd);
-            keybd_event(VK_CONTROL, 0, 0, 0);
-            keybd_event(0x43, 0, 0, 0);
-            //Send the C key (43 is "C")
-            keybd_event(0x43, 0, KEYEVENTF_KEYUP, 0);
-            keybd_event(VK_CONTROL, 0, KEYEVENTF_KEYUP, 0);// 'Left Control Up
+            keybd_event(Keys.ControlKey, 0, 0, 0);
+            keybd_event(Keys.C, 0, 0, 0);
+            keybd_event(Keys.C, 0, KEYEVENTF_KEYUP, 0);
+            keybd_event(Keys.ControlKey, 0, KEYEVENTF_KEYUP, 0);// 'Left Control Up
         }
 
-        public static String GetDataFromClipboard()
+        private static String GetDataFromClipboard()
         {
             if (Clipboard.ContainsText()) //检查是否存在文本
             {

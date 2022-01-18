@@ -45,11 +45,11 @@ namespace WindowsFormsOCR
             switch (m.Msg)
             {
                 case 0x0312: //这个是window消息定义的 注册的热键消息
-                    if (m.WParam.ToString().Equals("1712")) //如果是我们注册的那个热键
+                    if (m.WParam.ToString().Equals("845")) //如果是我们注册的那个热键
                     {
                         this.Translate_Click(null, null);
                     }
-                    if (m.WParam.ToString().Equals("1713")) //如果是我们注册的那个热键
+                    if (m.WParam.ToString().Equals("846")) //如果是我们注册的那个热键
                     {
                         this.OcrButton_Click(null, null);
                     }
@@ -71,14 +71,14 @@ namespace WindowsFormsOCR
         {
             GlobalConfig.GetConfig();
 
-            HotKey.RegisterHotKey(this.Handle, 1712, HotKey.KeyModifiers.None, Keys.F2);
-            HotKey.RegisterHotKey(this.Handle, 1713, HotKey.KeyModifiers.None, Keys.F4);
+            HotKey.RegisterHotKey(this.Handle, 845, HotKey.KeyModifiers.None, Keys.F2);
+            HotKey.RegisterHotKey(this.Handle, 846, HotKey.KeyModifiers.None, Keys.F4);
         }
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            HotKey.UnregisterHotKey(this.Handle, 1712);
-            HotKey.UnregisterHotKey(this.Handle, 1713);
+            HotKey.UnregisterHotKey(this.Handle, 845);
+            HotKey.UnregisterHotKey(this.Handle, 846);
         }
 
     }
