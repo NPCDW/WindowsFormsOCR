@@ -22,9 +22,14 @@ namespace WindowsFormsOCR
 
         public static String Get()
         {
+            String beforeText = GetDataFromClipboard();
             SendCtrlC();
             Thread.Sleep(200);
             String text = GetDataFromClipboard();
+            if (beforeText != null && beforeText.Equals(text))
+            {
+                return null;
+            }
             return text;
         }
 

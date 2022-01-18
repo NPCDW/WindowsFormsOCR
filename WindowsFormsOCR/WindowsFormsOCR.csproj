@@ -66,6 +66,12 @@
     <Compile Include="SettingForm.Designer.cs">
       <DependentUpon>SettingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TranslateAndOCR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TranslateAndOCR.Designer.cs">
+      <DependentUpon>TranslateAndOCR.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -80,6 +86,9 @@
     </Compile>
     <EmbeddedResource Include="SettingForm.resx">
       <DependentUpon>SettingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TranslateAndOCR.resx">
+      <DependentUpon>TranslateAndOCR.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

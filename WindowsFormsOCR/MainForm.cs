@@ -24,7 +24,7 @@ namespace WindowsFormsOCR
             {
                 if (form is SettingForm)
                 {
-                    form.Focus();
+                    form.Activate();
                     return;
                 }
             }
@@ -57,9 +57,31 @@ namespace WindowsFormsOCR
             }
             base.WndProc(ref m);
         }
+
         private void Translate_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(GetWords.Get());
+            String getWordsResult = GetWords.Get();
+            if (string.IsNullOrEmpty(getWordsResult))
+            {
+                return;
+            }
+            TranslateAndOcrForm form = null;
+            foreach (Form item in Application.OpenForms)
+            {
+                if (item is TranslateAndOcrForm)
+                {
+                    form = (TranslateAndOcrForm)item;
+                    form.Activate();
+                    break;
+                }
+            }
+            if (form == null)
+            {
+                form = new TranslateAndOcrForm();
+                form.Show();
+            }
+            form.ocrTextBox.Text = getWordsResult;
+            form.translate();
         }
 
         private void OcrButton_Click(object sender, EventArgs e)
