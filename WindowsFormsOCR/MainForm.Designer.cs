@@ -43,7 +43,7 @@
             // 
             this.notifyIcon.ContextMenuStrip = this.contextMenuStrip;
             this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
-            this.notifyIcon.Text = "notifyIcon";
+            this.notifyIcon.Text = "OCR";
             this.notifyIcon.Visible = true;
             // 
             // contextMenuStrip
@@ -54,13 +54,13 @@
             this.settingButton,
             this.exitButton});
             this.contextMenuStrip.Name = "contextMenuStrip1";
-            this.contextMenuStrip.Size = new System.Drawing.Size(181, 114);
+            this.contextMenuStrip.Size = new System.Drawing.Size(175, 92);
             // 
             // translateButton
             // 
             this.translateButton.Name = "translateButton";
             this.translateButton.ShortcutKeyDisplayString = "F2";
-            this.translateButton.Size = new System.Drawing.Size(180, 22);
+            this.translateButton.Size = new System.Drawing.Size(174, 22);
             this.translateButton.Text = "划词/截图翻译";
             this.translateButton.Click += new System.EventHandler(this.Translate_Click);
             // 
@@ -69,21 +69,21 @@
             this.ocrButton.Name = "ocrButton";
             this.ocrButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.ocrButton.ShortcutKeyDisplayString = "F4";
-            this.ocrButton.Size = new System.Drawing.Size(180, 22);
+            this.ocrButton.Size = new System.Drawing.Size(174, 22);
             this.ocrButton.Text = "截图文字识别";
             this.ocrButton.Click += new System.EventHandler(this.OcrButton_Click);
             // 
             // settingButton
             // 
             this.settingButton.Name = "settingButton";
-            this.settingButton.Size = new System.Drawing.Size(180, 22);
+            this.settingButton.Size = new System.Drawing.Size(174, 22);
             this.settingButton.Text = "设置";
             this.settingButton.Click += new System.EventHandler(this.Setting_Click);
             // 
             // exitButton
             // 
             this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(180, 22);
+            this.exitButton.Size = new System.Drawing.Size(174, 22);
             this.exitButton.Text = "退出";
             this.exitButton.Click += new System.EventHandler(this.Exit_Click);
             // 

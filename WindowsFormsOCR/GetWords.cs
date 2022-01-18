@@ -22,7 +22,9 @@ namespace WindowsFormsOCR
         public static String Get()
         {
             SendCtrlC();
-            return GetDataFromClipboard();
+            Thread.Sleep(200);
+            String text = GetDataFromClipboard();
+            return text;
         }
 
         public static void SendCtrlC()
@@ -40,20 +42,12 @@ namespace WindowsFormsOCR
 
         public static String GetDataFromClipboard()
         {
-            IDataObject iData = Clipboard.GetDataObject();
-            if (null != iData)
+            if (Clipboard.ContainsText()) //检查是否存在文本
             {
-                if (iData.GetDataPresent(DataFormats.Text)) //检查是否存在文本
+                string res = Clipboard.GetText();
+                if (!string.IsNullOrWhiteSpace(res))
                 {
-                    for (int i = 0; i < 6; i++)
-                    {
-                        Thread.Sleep(500);
-                        string res = (String)iData.GetData(DataFormats.Text);
-                        if (!string.IsNullOrWhiteSpace(res))
-                        {
-                            return res;
-                        }
-                    }
+                    return res;
                 }
             }
             return null;
