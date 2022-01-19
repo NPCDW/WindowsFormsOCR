@@ -20,27 +20,27 @@ namespace WindowsFormsOCR
             InitializeComponent();
         }
 
-        private void AccessTokenPasswordShowCheckbox_CheckedChanged(object sender, EventArgs e)
+        private void BaiduCloud_AccessTokenPasswordShowCheckbox_CheckedChanged(object sender, EventArgs e)
         {
-            if (AccessTokenPasswordShowCheckbox.Checked)
+            if (BaiduCloud_AccessTokenPasswordShowCheckbox.Checked)
             {
-                AccessTokenInput.PasswordChar = '\0';
+                BaiduCloud_AccessTokenInput.PasswordChar = '\0';
             }
             else
             {
-                AccessTokenInput.PasswordChar = '*';
+                BaiduCloud_AccessTokenInput.PasswordChar = '*';
             }
         }
 
-        private void SecretKeyPasswordShowCheckbox_CheckedChanged(object sender, EventArgs e)
+        private void BaiduCloud_SecretKeyPasswordShowCheckbox_CheckedChanged(object sender, EventArgs e)
         {
-            if (SecretKeyPasswordShowCheckbox.Checked)
+            if (BaiduCloud_SecretKeyPasswordShowCheckbox.Checked)
             {
-                SecretKeyInput.PasswordChar = '\0';
+                BaiduCloud_SecretKeyInput.PasswordChar = '\0';
             }
             else
             {
-                SecretKeyInput.PasswordChar = '*';
+                BaiduCloud_SecretKeyInput.PasswordChar = '*';
             }
         }
 
@@ -53,12 +53,28 @@ namespace WindowsFormsOCR
                     if (radioButton.Tag.Equals(GlobalConfig.BaiduCloud.type))
                     {
                         radioButton.Checked = true;
+                        break;
                     }
                 }
             }
-            this.AccessTokenInput.Text = GlobalConfig.BaiduCloud.access_token;
-            this.APIKeyInput.Text = GlobalConfig.BaiduCloud.client_id;
-            this.SecretKeyInput.Text = GlobalConfig.BaiduCloud.client_secret;
+            this.BaiduCloud_AccessTokenInput.Text = GlobalConfig.BaiduCloud.access_token;
+            this.BaiduCloud_APIKeyInput.Text = GlobalConfig.BaiduCloud.client_id;
+            this.BaiduCloud_SecretKeyInput.Text = GlobalConfig.BaiduCloud.client_secret;
+
+            foreach (Control control in this.tencentTypePanel.Controls)
+            {
+                if (control is RadioButton)
+                {
+                    RadioButton radioButton = (RadioButton)control;
+                    if (radioButton.Tag.Equals(GlobalConfig.TencentCloud.type))
+                    {
+                        radioButton.Checked = true;
+                        break;
+                    }
+                }
+            }
+            this.TencentCloud_SecretIdInput.Text = GlobalConfig.TencentCloud.secret_id;
+            this.TencentCloud_SecretKeyInput.Text = GlobalConfig.TencentCloud.secret_key;
         }
 
         private void SettingForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -82,20 +98,68 @@ namespace WindowsFormsOCR
             }
         }
 
-        private void AccessTokenInput_TextChanged(object sender, EventArgs e)
+        private void BaiduCloud_AccessTokenInput_TextChanged(object sender, EventArgs e)
         {
-            GlobalConfig.BaiduCloud.access_token = this.AccessTokenInput.Text;
+            GlobalConfig.BaiduCloud.access_token = this.BaiduCloud_AccessTokenInput.Text;
         }
 
-        private void APIKeyInput_TextChanged(object sender, EventArgs e)
+        private void BaiduCloud_APIKeyInput_TextChanged(object sender, EventArgs e)
         {
-            GlobalConfig.BaiduCloud.client_id = this.APIKeyInput.Text;
+            GlobalConfig.BaiduCloud.client_id = this.BaiduCloud_APIKeyInput.Text;
         }
 
-        private void SecretKeyInput_TextChanged(object sender, EventArgs e)
+        private void BaiduCloud_SecretKeyInput_TextChanged(object sender, EventArgs e)
         {
-            GlobalConfig.BaiduCloud.client_secret = this.SecretKeyInput.Text;
+            GlobalConfig.BaiduCloud.client_secret = this.BaiduCloud_SecretKeyInput.Text;
         }
 
+        private void TencentCloudType_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton4.Checked)
+            {
+                GlobalConfig.TencentCloud.type = radioButton4.Tag.ToString();
+            }
+            else if (radioButton5.Checked)
+            {
+                GlobalConfig.TencentCloud.type = radioButton5.Tag.ToString();
+            }
+            else if (radioButton6.Checked)
+            {
+                GlobalConfig.TencentCloud.type = radioButton6.Tag.ToString();
+            }
+        }
+
+        private void TencentCloud_SecretKeyPasswordShow_CheckedChanged(object sender, EventArgs e)
+        {
+            if (TencentCloud_SecretKeyPasswordShow.Checked)
+            {
+                TencentCloud_SecretKeyInput.PasswordChar = '\0';
+            }
+            else
+            {
+                TencentCloud_SecretKeyInput.PasswordChar = '*';
+            }
+        }
+
+        private void TencentCloud_SecretIdInput_TextChanged(object sender, EventArgs e)
+        {
+            GlobalConfig.TencentCloud.secret_id = this.TencentCloud_SecretIdInput.Text;
+        }
+
+        private void TencentCloud_SecretKeyInput_TextChanged(object sender, EventArgs e)
+        {
+            GlobalConfig.TencentCloud.secret_key = this.TencentCloud_SecretKeyInput.Text;
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/NPCDW/WindowsFormsOCR");
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Clipboard.SetDataObject("chenyongli0520@qq.com");
+            MessageBox.Show("已复制邮件地址");
+        }
     }
 }
