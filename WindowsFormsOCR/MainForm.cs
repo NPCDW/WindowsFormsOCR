@@ -53,6 +53,10 @@ namespace WindowsFormsOCR
                     {
                         this.OcrButton_Click(null, null);
                     }
+                    if (m.WParam.ToString().Equals("847")) //如果是我们注册的那个热键
+                    {
+                        this.ScreenshotTranslation_Click(null, null);
+                    }
                     break;
             }
             base.WndProc(ref m);
@@ -61,10 +65,6 @@ namespace WindowsFormsOCR
         private void Translate_Click(object sender, EventArgs e)
         {
             String getWordsResult = GetWords.Get();
-            if (string.IsNullOrEmpty(getWordsResult))
-            {
-                return;
-            }
             TranslateAndOcrForm form = null;
             foreach (Form item in Application.OpenForms)
             {
@@ -79,9 +79,19 @@ namespace WindowsFormsOCR
             {
                 form = new TranslateAndOcrForm();
                 form.Show();
+                form.Activate();
+            }
+            if (string.IsNullOrEmpty(getWordsResult))
+            {
+                return;
             }
             form.ocrTextBox.Text = getWordsResult;
             form.translate();
+        }
+
+        private void ScreenshotTranslation_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("截图翻译");
         }
 
         private void OcrButton_Click(object sender, EventArgs e)
@@ -95,12 +105,14 @@ namespace WindowsFormsOCR
 
             HotKey.RegisterHotKey(this.Handle, 845, HotKey.KeyModifiers.None, Keys.F2);
             HotKey.RegisterHotKey(this.Handle, 846, HotKey.KeyModifiers.None, Keys.F4);
+            HotKey.RegisterHotKey(this.Handle, 847, HotKey.KeyModifiers.Ctrl, Keys.F2);
         }
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             HotKey.UnregisterHotKey(this.Handle, 845);
             HotKey.UnregisterHotKey(this.Handle, 846);
+            HotKey.UnregisterHotKey(this.Handle, 847);
         }
 
     }
