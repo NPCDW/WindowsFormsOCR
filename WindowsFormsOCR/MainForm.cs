@@ -16,6 +16,12 @@ namespace WindowsFormsOCR
         public MainForm()
         {
             InitializeComponent();
+
+            GlobalConfig.GetConfig();
+
+            HotKey.RegisterHotKey(this.Handle, 845, HotKey.KeyModifiers.None, Keys.F2);
+            HotKey.RegisterHotKey(this.Handle, 846, HotKey.KeyModifiers.None, Keys.F4);
+            HotKey.RegisterHotKey(this.Handle, 847, HotKey.KeyModifiers.Ctrl, Keys.F2);
         }
 
         private void Setting_Click(object sender, EventArgs e)
@@ -33,6 +39,9 @@ namespace WindowsFormsOCR
 
         private void Exit_Click(object sender, EventArgs e)
         {
+            HotKey.UnregisterHotKey(this.Handle, 845);
+            HotKey.UnregisterHotKey(this.Handle, 846);
+            HotKey.UnregisterHotKey(this.Handle, 847);
             Application.Exit();
         }
 
@@ -96,23 +105,12 @@ namespace WindowsFormsOCR
 
         private void OcrButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("截图文字识别");
-        }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            GlobalConfig.GetConfig();
-
-            HotKey.RegisterHotKey(this.Handle, 845, HotKey.KeyModifiers.None, Keys.F2);
-            HotKey.RegisterHotKey(this.Handle, 846, HotKey.KeyModifiers.None, Keys.F4);
-            HotKey.RegisterHotKey(this.Handle, 847, HotKey.KeyModifiers.Ctrl, Keys.F2);
-        }
-
-        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            HotKey.UnregisterHotKey(this.Handle, 845);
-            HotKey.UnregisterHotKey(this.Handle, 846);
-            HotKey.UnregisterHotKey(this.Handle, 847);
+            Image img = new Bitmap(Screen.AllScreens[0].Bounds.Width, Screen.AllScreens[0].Bounds.Height);
+            Graphics g = Graphics.FromImage(img);
+            g.CopyFromScreen(new Point(0, 0), new Point(0, 0), Screen.AllScreens[0].Bounds.Size);
+            Screenshot body = new Screenshot();
+            body.BackgroundImage = img;
+            body.Show();
         }
 
     }
