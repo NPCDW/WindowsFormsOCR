@@ -105,11 +105,16 @@ namespace WindowsFormsOCR
 
         private void OcrButton_Click(object sender, EventArgs e)
         {
-            Image img = new Bitmap(Screen.AllScreens[0].Bounds.Width, Screen.AllScreens[0].Bounds.Height);
-            Graphics g = Graphics.FromImage(img);
-            g.CopyFromScreen(new Point(0, 0), new Point(0, 0), Screen.AllScreens[0].Bounds.Size);
-            Screenshot body = new Screenshot();
-            body.BackgroundImage = img;
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form is ScreenshotForm)
+                {
+                    form.Activate();
+                    return;
+                }
+            }
+            ScreenshotForm body = new ScreenshotForm();
+            body.Size = Screen.PrimaryScreen.Bounds.Size;
             body.Show();
         }
 
