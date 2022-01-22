@@ -16,17 +16,17 @@ namespace WindowsFormsOCR
 {
     public partial class ScreenshotForm : Form
     {
-        [DllImport("kernel32.dll")]
-        private static extern bool SetProcessWorkingSetSize(IntPtr process, int minSize, int maxSize);
-
         private Graphics MainPainter;   //主画面
         private Image baseImage;        //基本图形(原来的画面)
         private Rectangle Rect = new Rectangle();         //就是要保存的矩形
         private Point downPoint;        //鼠标按下的点
         private bool down = false;         //鼠标是否被按下
+        private String goal = "ocr";
 
-        public ScreenshotForm()
+        public ScreenshotForm(String goal = "ocr")
         {
+            this.goal = goal;
+
             SetStyle(ControlStyles.UserPaint, true);
             SetStyle(ControlStyles.AllPaintingInWmPaint, true);
             SetStyle(ControlStyles.DoubleBuffer, true);
@@ -50,18 +50,7 @@ namespace WindowsFormsOCR
             if (e.KeyCode == Keys.Escape)
             {
                 this.Close();
-                FlushMemory();
-            }
-        }
-
-        //刷新存储器
-        private static void FlushMemory()
-        {
-            GC.Collect();
-            GC.WaitForPendingFinalizers();
-            if (Environment.OSVersion.Platform == PlatformID.Win32NT)
-            {
-                SetProcessWorkingSetSize(Process.GetCurrentProcess().Handle, -1, -1);
+                Utils.FlushMemory();
             }
         }
 
@@ -70,7 +59,7 @@ namespace WindowsFormsOCR
             if (e.Button == MouseButtons.Right)
             {
                 this.Close();
-                FlushMemory();
+                Utils.FlushMemory();
                 return;
             }
             Rect.X = e.X;
@@ -87,7 +76,33 @@ namespace WindowsFormsOCR
             Graphics g = Graphics.FromImage(bmpOut);
             g.CopyFromScreen(new Point(0, 0), new Point(0, 0), Screen.PrimaryScreen.Bounds.Size);
             g.DrawImage(baseImage, new Rectangle(0, 0, Rect.Width, Rect.Height), Rect, GraphicsUnit.Pixel);
-            //Clipboard.SetImage(bmpOut);
+
+            this.Dispose();
+
+            TranslateAndOcrForm form = null;
+            foreach (Form item in Application.OpenForms)
+            {
+                if (item is TranslateAndOcrForm)
+                {
+                    form = (TranslateAndOcrForm)item;
+                    form.Activate();
+                    break;
+                }
+            }
+            if (form == null)
+            {
+                form = new TranslateAndOcrForm();
+                form.Show();
+                form.Activate();
+            }
+            if (goal.Equals("translate"))
+            {
+                form.screenshotTranslate(bmpOut);
+            }
+            else
+            {
+                form.ocr(bmpOut);
+            }
         }
 
         private void Screenshot_MouseMove(object sender, MouseEventArgs e)
@@ -97,7 +112,7 @@ namespace WindowsFormsOCR
                 Image NewImage = DrawRect(e.X, e.Y);
                 MainPainter.DrawImage(NewImage, 0, 0);
                 NewImage.Dispose();
-                FlushMemory();
+                Utils.FlushMemory();
             }
         }
 

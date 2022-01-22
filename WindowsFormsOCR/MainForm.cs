@@ -100,7 +100,17 @@ namespace WindowsFormsOCR
 
         private void ScreenshotTranslation_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("截图翻译");
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form is ScreenshotForm)
+                {
+                    form.Activate();
+                    return;
+                }
+            }
+            ScreenshotForm body = new ScreenshotForm("translate");
+            body.Size = Screen.PrimaryScreen.Bounds.Size;
+            body.Show();
         }
 
         private void OcrButton_Click(object sender, EventArgs e)
