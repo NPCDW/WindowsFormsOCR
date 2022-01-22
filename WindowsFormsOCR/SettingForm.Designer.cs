@@ -80,7 +80,7 @@
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(479, 453);
@@ -91,9 +91,9 @@
             // 
             this.tabPage1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tabPage1.Location = new System.Drawing.Point(4, 26);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage1.Size = new System.Drawing.Size(471, 423);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "本地识别";
@@ -112,9 +112,9 @@
             this.tabPage2.Controls.Add(this.label6);
             this.tabPage2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tabPage2.Location = new System.Drawing.Point(4, 26);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage2.Size = new System.Drawing.Size(471, 423);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "百度云";
@@ -129,7 +129,7 @@
             this.baiduTypePanel.Controls.Add(this.radioButton2);
             this.baiduTypePanel.Controls.Add(this.radioButton3);
             this.baiduTypePanel.Location = new System.Drawing.Point(8, 25);
-            this.baiduTypePanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.baiduTypePanel.Margin = new System.Windows.Forms.Padding(4);
             this.baiduTypePanel.Name = "baiduTypePanel";
             this.baiduTypePanel.Size = new System.Drawing.Size(453, 29);
             this.baiduTypePanel.TabIndex = 13;
@@ -148,7 +148,7 @@
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.Location = new System.Drawing.Point(123, 4);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(50, 21);
             this.radioButton1.TabIndex = 1;
@@ -162,7 +162,7 @@
             // 
             this.radioButton2.AutoSize = true;
             this.radioButton2.Location = new System.Drawing.Point(188, 4);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton2.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(62, 21);
             this.radioButton2.TabIndex = 2;
@@ -176,7 +176,7 @@
             // 
             this.radioButton3.AutoSize = true;
             this.radioButton3.Location = new System.Drawing.Point(267, 4);
-            this.radioButton3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton3.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(62, 21);
             this.radioButton3.TabIndex = 3;
@@ -192,7 +192,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.BaiduCloud_SecretKeyPasswordShowCheckbox.AutoSize = true;
             this.BaiduCloud_SecretKeyPasswordShowCheckbox.Location = new System.Drawing.Point(431, 171);
-            this.BaiduCloud_SecretKeyPasswordShowCheckbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BaiduCloud_SecretKeyPasswordShowCheckbox.Margin = new System.Windows.Forms.Padding(4);
             this.BaiduCloud_SecretKeyPasswordShowCheckbox.Name = "BaiduCloud_SecretKeyPasswordShowCheckbox";
             this.BaiduCloud_SecretKeyPasswordShowCheckbox.Size = new System.Drawing.Size(15, 14);
             this.BaiduCloud_SecretKeyPasswordShowCheckbox.TabIndex = 12;
@@ -205,7 +205,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.BaiduCloud_AccessTokenPasswordShowCheckbox.AutoSize = true;
             this.BaiduCloud_AccessTokenPasswordShowCheckbox.Location = new System.Drawing.Point(431, 80);
-            this.BaiduCloud_AccessTokenPasswordShowCheckbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BaiduCloud_AccessTokenPasswordShowCheckbox.Margin = new System.Windows.Forms.Padding(4);
             this.BaiduCloud_AccessTokenPasswordShowCheckbox.Name = "BaiduCloud_AccessTokenPasswordShowCheckbox";
             this.BaiduCloud_AccessTokenPasswordShowCheckbox.Size = new System.Drawing.Size(15, 14);
             this.BaiduCloud_AccessTokenPasswordShowCheckbox.TabIndex = 11;
@@ -217,7 +217,7 @@
             this.BaiduCloud_SecretKeyInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.BaiduCloud_SecretKeyInput.Location = new System.Drawing.Point(131, 166);
-            this.BaiduCloud_SecretKeyInput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BaiduCloud_SecretKeyInput.Margin = new System.Windows.Forms.Padding(4);
             this.BaiduCloud_SecretKeyInput.Name = "BaiduCloud_SecretKeyInput";
             this.BaiduCloud_SecretKeyInput.PasswordChar = '*';
             this.BaiduCloud_SecretKeyInput.Size = new System.Drawing.Size(319, 23);
@@ -229,7 +229,7 @@
             this.BaiduCloud_AccessTokenInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.BaiduCloud_AccessTokenInput.Location = new System.Drawing.Point(131, 75);
-            this.BaiduCloud_AccessTokenInput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BaiduCloud_AccessTokenInput.Margin = new System.Windows.Forms.Padding(4);
             this.BaiduCloud_AccessTokenInput.Name = "BaiduCloud_AccessTokenInput";
             this.BaiduCloud_AccessTokenInput.PasswordChar = '*';
             this.BaiduCloud_AccessTokenInput.Size = new System.Drawing.Size(319, 23);
@@ -241,7 +241,7 @@
             this.BaiduCloud_APIKeyInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.BaiduCloud_APIKeyInput.Location = new System.Drawing.Point(131, 119);
-            this.BaiduCloud_APIKeyInput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BaiduCloud_APIKeyInput.Margin = new System.Windows.Forms.Padding(4);
             this.BaiduCloud_APIKeyInput.Name = "BaiduCloud_APIKeyInput";
             this.BaiduCloud_APIKeyInput.Size = new System.Drawing.Size(319, 23);
             this.BaiduCloud_APIKeyInput.TabIndex = 8;
@@ -287,9 +287,9 @@
             this.tabPage3.Controls.Add(this.tencentTypePanel);
             this.tabPage3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tabPage3.Location = new System.Drawing.Point(4, 26);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage3.Size = new System.Drawing.Size(471, 423);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "腾讯云";
@@ -301,7 +301,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TencentCloud_SecretKeyPasswordShow.AutoSize = true;
             this.TencentCloud_SecretKeyPasswordShow.Location = new System.Drawing.Point(431, 127);
-            this.TencentCloud_SecretKeyPasswordShow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TencentCloud_SecretKeyPasswordShow.Margin = new System.Windows.Forms.Padding(4);
             this.TencentCloud_SecretKeyPasswordShow.Name = "TencentCloud_SecretKeyPasswordShow";
             this.TencentCloud_SecretKeyPasswordShow.Size = new System.Drawing.Size(15, 14);
             this.TencentCloud_SecretKeyPasswordShow.TabIndex = 19;
@@ -313,7 +313,7 @@
             this.TencentCloud_SecretKeyInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TencentCloud_SecretKeyInput.Location = new System.Drawing.Point(131, 122);
-            this.TencentCloud_SecretKeyInput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TencentCloud_SecretKeyInput.Margin = new System.Windows.Forms.Padding(4);
             this.TencentCloud_SecretKeyInput.Name = "TencentCloud_SecretKeyInput";
             this.TencentCloud_SecretKeyInput.PasswordChar = '*';
             this.TencentCloud_SecretKeyInput.Size = new System.Drawing.Size(319, 23);
@@ -325,7 +325,7 @@
             this.TencentCloud_SecretIdInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TencentCloud_SecretIdInput.Location = new System.Drawing.Point(131, 75);
-            this.TencentCloud_SecretIdInput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TencentCloud_SecretIdInput.Margin = new System.Windows.Forms.Padding(4);
             this.TencentCloud_SecretIdInput.Name = "TencentCloud_SecretIdInput";
             this.TencentCloud_SecretIdInput.Size = new System.Drawing.Size(319, 23);
             this.TencentCloud_SecretIdInput.TabIndex = 17;
@@ -360,7 +360,7 @@
             this.tencentTypePanel.Controls.Add(this.radioButton5);
             this.tencentTypePanel.Controls.Add(this.radioButton6);
             this.tencentTypePanel.Location = new System.Drawing.Point(8, 25);
-            this.tencentTypePanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tencentTypePanel.Margin = new System.Windows.Forms.Padding(4);
             this.tencentTypePanel.Name = "tencentTypePanel";
             this.tencentTypePanel.Size = new System.Drawing.Size(453, 29);
             this.tencentTypePanel.TabIndex = 14;
@@ -379,7 +379,7 @@
             // 
             this.radioButton4.AutoSize = true;
             this.radioButton4.Location = new System.Drawing.Point(123, 4);
-            this.radioButton4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton4.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Size = new System.Drawing.Size(50, 21);
             this.radioButton4.TabIndex = 1;
@@ -393,7 +393,7 @@
             // 
             this.radioButton5.AutoSize = true;
             this.radioButton5.Location = new System.Drawing.Point(188, 4);
-            this.radioButton5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton5.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton5.Name = "radioButton5";
             this.radioButton5.Size = new System.Drawing.Size(62, 21);
             this.radioButton5.TabIndex = 2;
@@ -407,7 +407,7 @@
             // 
             this.radioButton6.AutoSize = true;
             this.radioButton6.Location = new System.Drawing.Point(267, 4);
-            this.radioButton6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton6.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton6.Name = "radioButton6";
             this.radioButton6.Size = new System.Drawing.Size(62, 21);
             this.radioButton6.TabIndex = 3;
@@ -427,9 +427,9 @@
             this.tabPage4.Controls.Add(this.label1);
             this.tabPage4.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tabPage4.Location = new System.Drawing.Point(4, 26);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage4.Size = new System.Drawing.Size(471, 423);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "关于";
@@ -510,7 +510,7 @@
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SettingForm";
