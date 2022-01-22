@@ -92,6 +92,7 @@
     <Compile Include="SettingForm.Designer.cs">
       <DependentUpon>SettingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TencentCloudHelper.cs" />
     <Compile Include="TranslateAndOCRForm.cs">
       <SubType>Form</SubType>
     </Compile>

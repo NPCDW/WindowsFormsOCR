@@ -6,12 +6,16 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace WindowsFormsOCR
 {
     public static class GlobalConfig
     {
+        private static String configPath = Application.StartupPath + "\\Resources\\Setting.json";
+
         public static String defaultProvide = "";
+        public static bool autoStart = false;
         public static class Local
         {
         }
@@ -19,6 +23,7 @@ namespace WindowsFormsOCR
         {
             public static String type = "";
             public static String access_token = "";
+            public static DateTime access_token_expires_time;
             public static String client_id = "";
             public static String client_secret = "";
         }
@@ -33,16 +38,18 @@ namespace WindowsFormsOCR
             string jsonStr;
             try
             {
-                using (StreamReader sr = new StreamReader("Resources/Setting.json", false))
+                using (StreamReader sr = new StreamReader(configPath, false))
                 {
                     jsonStr = sr.ReadToEnd().ToString();
                 }
                 JObject jsonObj = JObject.Parse(jsonStr);
 
                 defaultProvide = jsonObj["defaultProvide"].ToString();
+                autoStart = Boolean.Parse(jsonObj["autoStart"].ToString());
 
                 BaiduCloud.type = jsonObj["BaiduCloud"]["type"].ToString();
                 BaiduCloud.access_token = jsonObj["BaiduCloud"]["access_token"].ToString();
+                BaiduCloud.access_token_expires_time = DateTime.Parse(jsonObj["BaiduCloud"]["access_token_expires_time"].ToString());
                 BaiduCloud.client_id = jsonObj["BaiduCloud"]["client_id"].ToString();
                 BaiduCloud.client_secret = jsonObj["BaiduCloud"]["client_secret"].ToString();
 
@@ -61,10 +68,12 @@ namespace WindowsFormsOCR
             JObject jsonObj = new JObject();
 
             jsonObj["defaultProvide"] = defaultProvide;
+            jsonObj["autoStart"] = autoStart;
 
             jsonObj["BaiduCloud"] = new JObject();
             jsonObj["BaiduCloud"]["type"] = BaiduCloud.type;
             jsonObj["BaiduCloud"]["access_token"] = BaiduCloud.access_token;
+            jsonObj["BaiduCloud"]["access_token_expires_time"] = BaiduCloud.access_token_expires_time.ToString();
             jsonObj["BaiduCloud"]["client_id"] = BaiduCloud.client_id;
             jsonObj["BaiduCloud"]["client_secret"] = BaiduCloud.client_secret;
 
@@ -74,7 +83,7 @@ namespace WindowsFormsOCR
             jsonObj["TencentCloud"]["secret_key"] = TencentCloud.secret_key;
 
             String jsonStr = jsonObj.ToString();
-            using (StreamWriter sw = new StreamWriter("Resources/Setting.json"))
+            using (StreamWriter sw = new StreamWriter(configPath))
             {
                 sw.WriteLine(jsonStr);
             }

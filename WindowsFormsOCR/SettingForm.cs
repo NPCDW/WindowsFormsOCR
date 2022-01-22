@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Win32;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -18,18 +19,6 @@ namespace WindowsFormsOCR
         public SettingForm()
         {
             InitializeComponent();
-        }
-
-        private void BaiduCloud_AccessTokenPasswordShowCheckbox_CheckedChanged(object sender, EventArgs e)
-        {
-            if (BaiduCloud_AccessTokenPasswordShowCheckbox.Checked)
-            {
-                BaiduCloud_AccessTokenInput.PasswordChar = '\0';
-            }
-            else
-            {
-                BaiduCloud_AccessTokenInput.PasswordChar = '*';
-            }
         }
 
         private void BaiduCloud_SecretKeyPasswordShowCheckbox_CheckedChanged(object sender, EventArgs e)
@@ -46,7 +35,9 @@ namespace WindowsFormsOCR
 
         private void Setting_Load(object sender, EventArgs e)
         {
-            foreach (Control control in this.baiduTypePanel.Controls) {
+            this.autoStartButton.Checked = GlobalConfig.autoStart;
+
+            foreach (Control control in this.baiduOcrGroupBox.Controls) {
                 if (control is RadioButton)
                 {
                     RadioButton radioButton = (RadioButton)control;
@@ -57,11 +48,10 @@ namespace WindowsFormsOCR
                     }
                 }
             }
-            this.BaiduCloud_AccessTokenInput.Text = GlobalConfig.BaiduCloud.access_token;
             this.BaiduCloud_APIKeyInput.Text = GlobalConfig.BaiduCloud.client_id;
             this.BaiduCloud_SecretKeyInput.Text = GlobalConfig.BaiduCloud.client_secret;
 
-            foreach (Control control in this.tencentTypePanel.Controls)
+            foreach (Control control in this.tencentOcrGroupBox.Controls)
             {
                 if (control is RadioButton)
                 {
@@ -96,11 +86,6 @@ namespace WindowsFormsOCR
             {
                 GlobalConfig.BaiduCloud.type = radioButton3.Tag.ToString();
             }
-        }
-
-        private void BaiduCloud_AccessTokenInput_TextChanged(object sender, EventArgs e)
-        {
-            GlobalConfig.BaiduCloud.access_token = this.BaiduCloud_AccessTokenInput.Text;
         }
 
         private void BaiduCloud_APIKeyInput_TextChanged(object sender, EventArgs e)
@@ -151,15 +136,44 @@ namespace WindowsFormsOCR
             GlobalConfig.TencentCloud.secret_key = this.TencentCloud_SecretKeyInput.Text;
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            System.Diagnostics.Process.Start("https://github.com/NPCDW/WindowsFormsOCR");
-        }
-
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Clipboard.SetDataObject("chenyongli0520@qq.com");
             MessageBox.Show("已复制邮件地址");
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            bool isAuto = this.autoStartButton.Checked;
+            try
+            {
+                if (isAuto)
+                {
+                    RegistryKey R_local = Registry.CurrentUser;
+                    RegistryKey R_run = R_local.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run");
+                    R_run.SetValue("WindowsFormsOCR", Application.ExecutablePath);
+                    R_run.Close();
+                    R_local.Close();
+                }
+                else
+                {
+                    RegistryKey R_local = Registry.CurrentUser;
+                    RegistryKey R_run = R_local.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run");
+                    R_run.DeleteValue("WindowsFormsOCR", false);
+                    R_run.Close();
+                    R_local.Close();
+                }
+                GlobalConfig.autoStart = isAuto;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("您需要管理员权限修改");
+            }
+        }
+
+        private void LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(((LinkLabel)sender).Tag.ToString());
         }
     }
 }
