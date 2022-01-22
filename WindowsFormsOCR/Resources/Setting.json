@@ -1,9 +1,11 @@
 {
   "defaultProvide": "BaiduCloud",
+  "autoStart": false,
   "Local": {},
   "BaiduCloud": {
     "type": "general_basic",
     "access_token": "",
+    "access_token_expires_time": "2000/1/1 0:00:00",
     "client_id": "",
     "client_secret": ""
   },
