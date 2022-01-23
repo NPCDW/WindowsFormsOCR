@@ -35,13 +35,37 @@ namespace WindowsFormsOCR
 
         private void Setting_Load(object sender, EventArgs e)
         {
-            this.autoStartButton.Checked = GlobalConfig.autoStart;
+            this.autoStartButton.Checked = GlobalConfig.Common.autoStart;
+            foreach (Control control in this.defaultOcrProvideGroupBox.Controls)
+            {
+                if (control is RadioButton)
+                {
+                    RadioButton radioButton = (RadioButton)control;
+                    if (radioButton.Tag.Equals(GlobalConfig.Common.defaultOcrProvide))
+                    {
+                        radioButton.Checked = true;
+                        break;
+                    }
+                }
+            }
+            foreach (Control control in this.defaultTranslateProvide.Controls)
+            {
+                if (control is RadioButton)
+                {
+                    RadioButton radioButton = (RadioButton)control;
+                    if (radioButton.Tag.Equals(GlobalConfig.Common.defaultTranslateProvide))
+                    {
+                        radioButton.Checked = true;
+                        break;
+                    }
+                }
+            }
 
             foreach (Control control in this.baiduOcrGroupBox.Controls) {
                 if (control is RadioButton)
                 {
                     RadioButton radioButton = (RadioButton)control;
-                    if (radioButton.Tag.Equals(GlobalConfig.BaiduCloud.type))
+                    if (radioButton.Tag.Equals(GlobalConfig.BaiduCloud.ocr_type))
                     {
                         radioButton.Checked = true;
                         break;
@@ -50,13 +74,15 @@ namespace WindowsFormsOCR
             }
             this.BaiduCloud_APIKeyInput.Text = GlobalConfig.BaiduCloud.client_id;
             this.BaiduCloud_SecretKeyInput.Text = GlobalConfig.BaiduCloud.client_secret;
+            this.BaiduAI_APPIDInput.Text = GlobalConfig.BaiduAI.app_id;
+            this.BaiduAI_APPSecretInput.Text = GlobalConfig.BaiduAI.app_secret;
 
             foreach (Control control in this.tencentOcrGroupBox.Controls)
             {
                 if (control is RadioButton)
                 {
                     RadioButton radioButton = (RadioButton)control;
-                    if (radioButton.Tag.Equals(GlobalConfig.TencentCloud.type))
+                    if (radioButton.Tag.Equals(GlobalConfig.TencentCloud.ocr_type))
                     {
                         radioButton.Checked = true;
                         break;
@@ -72,19 +98,43 @@ namespace WindowsFormsOCR
             GlobalConfig.SaveConfig();
         }
 
+        private void commonDefaultOcrProvideType_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton7.Checked)
+            {
+                GlobalConfig.Common.defaultOcrProvide = radioButton7.Tag.ToString();
+            }
+            else if (radioButton8.Checked)
+            {
+                GlobalConfig.Common.defaultOcrProvide = radioButton8.Tag.ToString();
+            }
+        }
+
+        private void commonDefaultTranslateProvideType_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton9.Checked)
+            {
+                GlobalConfig.Common.defaultTranslateProvide = radioButton9.Tag.ToString();
+            }
+            else if (radioButton10.Checked)
+            {
+                GlobalConfig.Common.defaultTranslateProvide = radioButton10.Tag.ToString();
+            }
+        }
+
         private void baiduCloudType_CheckedChanged(object sender, EventArgs e)
         {
             if (radioButton1.Checked)
             {
-                GlobalConfig.BaiduCloud.type = radioButton1.Tag.ToString();
+                GlobalConfig.BaiduCloud.ocr_type = radioButton1.Tag.ToString();
             }
             else if (radioButton2.Checked)
             {
-                GlobalConfig.BaiduCloud.type = radioButton2.Tag.ToString();
+                GlobalConfig.BaiduCloud.ocr_type = radioButton2.Tag.ToString();
             }
             else if (radioButton3.Checked)
             {
-                GlobalConfig.BaiduCloud.type = radioButton3.Tag.ToString();
+                GlobalConfig.BaiduCloud.ocr_type = radioButton3.Tag.ToString();
             }
         }
 
@@ -102,15 +152,15 @@ namespace WindowsFormsOCR
         {
             if (radioButton4.Checked)
             {
-                GlobalConfig.TencentCloud.type = radioButton4.Tag.ToString();
+                GlobalConfig.TencentCloud.ocr_type = radioButton4.Tag.ToString();
             }
             else if (radioButton5.Checked)
             {
-                GlobalConfig.TencentCloud.type = radioButton5.Tag.ToString();
+                GlobalConfig.TencentCloud.ocr_type = radioButton5.Tag.ToString();
             }
             else if (radioButton6.Checked)
             {
-                GlobalConfig.TencentCloud.type = radioButton6.Tag.ToString();
+                GlobalConfig.TencentCloud.ocr_type = radioButton6.Tag.ToString();
             }
         }
 
@@ -142,7 +192,7 @@ namespace WindowsFormsOCR
             MessageBox.Show("已复制邮件地址");
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void AutoStart_CheckedChanged(object sender, EventArgs e)
         {
             bool isAuto = this.autoStartButton.Checked;
             try
@@ -163,7 +213,7 @@ namespace WindowsFormsOCR
                     R_run.Close();
                     R_local.Close();
                 }
-                GlobalConfig.autoStart = isAuto;
+                GlobalConfig.Common.autoStart = isAuto;
             }
             catch (Exception)
             {
@@ -174,6 +224,28 @@ namespace WindowsFormsOCR
         private void LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start(((LinkLabel)sender).Tag.ToString());
+        }
+
+        private void BaiduAI_APPSecretPasswordShowCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (BaiduAI_APPSecretPasswordShowCheckbox.Checked)
+            {
+                BaiduAI_APPSecretInput.PasswordChar = '\0';
+            }
+            else
+            {
+                BaiduAI_APPSecretInput.PasswordChar = '*';
+            }
+        }
+
+        private void BaiduAI_APPIDInput_TextChanged(object sender, EventArgs e)
+        {
+            GlobalConfig.BaiduAI.app_id = this.BaiduAI_APPIDInput.Text;
+        }
+
+        private void BaiduAI_APPSecretInput_TextChanged(object sender, EventArgs e)
+        {
+            GlobalConfig.BaiduAI.app_secret = this.BaiduAI_APPSecretInput.Text;
         }
     }
 }

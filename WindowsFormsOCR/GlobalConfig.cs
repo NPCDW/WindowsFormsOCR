@@ -14,22 +14,31 @@ namespace WindowsFormsOCR
     {
         private static String configPath = Application.StartupPath + "\\Resources\\Setting.json";
 
-        public static String defaultProvide = "";
-        public static bool autoStart = false;
+        public static class Common
+        {
+            public static String defaultOcrProvide = "";
+            public static String defaultTranslateProvide = "";
+            public static bool autoStart = false;
+        }
         public static class Local
         {
         }
         public static class BaiduCloud
         {
-            public static String type = "";
+            public static String ocr_type = "";
             public static String access_token = "";
             public static DateTime access_token_expires_time;
             public static String client_id = "";
             public static String client_secret = "";
         }
+        public static class BaiduAI
+        {
+            public static String app_id = "";
+            public static String app_secret = "";
+        }
         public static class TencentCloud
         {
-            public static String type = "";
+            public static String ocr_type = "";
             public static String secret_id = "";
             public static String secret_key = "";
         }
@@ -44,16 +53,20 @@ namespace WindowsFormsOCR
                 }
                 JObject jsonObj = JObject.Parse(jsonStr);
 
-                defaultProvide = jsonObj["defaultProvide"].ToString();
-                autoStart = Boolean.Parse(jsonObj["autoStart"].ToString());
+                Common.defaultOcrProvide = jsonObj["Common"]["defaultOcrProvide"].ToString();
+                Common.defaultTranslateProvide = jsonObj["Common"]["defaultTranslateProvide"].ToString();
+                Common.autoStart = Boolean.Parse(jsonObj["Common"]["autoStart"].ToString());
 
-                BaiduCloud.type = jsonObj["BaiduCloud"]["type"].ToString();
+                BaiduCloud.ocr_type = jsonObj["BaiduCloud"]["ocr_type"].ToString();
                 BaiduCloud.access_token = jsonObj["BaiduCloud"]["access_token"].ToString();
                 BaiduCloud.access_token_expires_time = DateTime.Parse(jsonObj["BaiduCloud"]["access_token_expires_time"].ToString());
                 BaiduCloud.client_id = jsonObj["BaiduCloud"]["client_id"].ToString();
                 BaiduCloud.client_secret = jsonObj["BaiduCloud"]["client_secret"].ToString();
 
-                TencentCloud.type = jsonObj["TencentCloud"]["type"].ToString();
+                BaiduAI.app_id = jsonObj["BaiduAI"]["app_id"].ToString();
+                BaiduAI.app_secret = jsonObj["BaiduAI"]["app_secret"].ToString();
+
+                TencentCloud.ocr_type = jsonObj["TencentCloud"]["ocr_type"].ToString();
                 TencentCloud.secret_id = jsonObj["TencentCloud"]["secret_id"].ToString();
                 TencentCloud.secret_key = jsonObj["TencentCloud"]["secret_key"].ToString();
 
@@ -67,18 +80,24 @@ namespace WindowsFormsOCR
         {
             JObject jsonObj = new JObject();
 
-            jsonObj["defaultProvide"] = defaultProvide;
-            jsonObj["autoStart"] = autoStart;
+            jsonObj["Common"] = new JObject();
+            jsonObj["Common"]["defaultOcrProvide"] = Common.defaultOcrProvide;
+            jsonObj["Common"]["defaultTranslateProvide"] = Common.defaultTranslateProvide;
+            jsonObj["Common"]["autoStart"] = Common.autoStart;
 
             jsonObj["BaiduCloud"] = new JObject();
-            jsonObj["BaiduCloud"]["type"] = BaiduCloud.type;
+            jsonObj["BaiduCloud"]["ocr_type"] = BaiduCloud.ocr_type;
             jsonObj["BaiduCloud"]["access_token"] = BaiduCloud.access_token;
             jsonObj["BaiduCloud"]["access_token_expires_time"] = BaiduCloud.access_token_expires_time.ToString();
             jsonObj["BaiduCloud"]["client_id"] = BaiduCloud.client_id;
             jsonObj["BaiduCloud"]["client_secret"] = BaiduCloud.client_secret;
 
+            jsonObj["BaiduAI"] = new JObject();
+            jsonObj["BaiduAI"]["app_id"] = BaiduAI.app_id;
+            jsonObj["BaiduAI"]["app_secret"] = BaiduAI.app_secret;
+
             jsonObj["TencentCloud"] = new JObject();
-            jsonObj["TencentCloud"]["type"] = TencentCloud.type;
+            jsonObj["TencentCloud"]["ocr_type"] = TencentCloud.ocr_type;
             jsonObj["TencentCloud"]["secret_id"] = TencentCloud.secret_id;
             jsonObj["TencentCloud"]["secret_key"] = TencentCloud.secret_key;
 

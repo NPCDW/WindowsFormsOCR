@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,13 @@ namespace WindowsFormsOCR
         private bool down = false;         //鼠标是否被按下
         private String goal = "ocr";
 
+        [DllImport("user32.dll")]
+        public static extern IntPtr LoadCursorFromFile(string fileName);
+        [DllImport("user32.dll")]
+        public static extern IntPtr SetCursor(IntPtr cursorHandle);
+        [DllImport("user32.dll")]
+        public static extern uint DestroyCursor(IntPtr cursorHandle);
+
         public ScreenshotForm(String goal = "ocr")
         {
             this.goal = goal;
@@ -38,9 +46,17 @@ namespace WindowsFormsOCR
             g.CopyFromScreen(new Point(0, 0), new Point(0, 0), Screen.PrimaryScreen.Bounds.Size);
             baseImage = (Image)img.Clone();
 
-            g.FillRectangle(new SolidBrush(Color.FromArgb(125, Color.DarkGray)), 0, 0, Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
+            g.FillRectangle(new SolidBrush(Color.FromArgb(125, Color.Black)), 0, 0, Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
             g.Dispose();
             this.BackgroundImage = img;
+
+            Cursor myCursor = new Cursor(Cursor.Current.Handle);
+            IntPtr colorCursorHandle = LoadCursorFromFile(Application.StartupPath + "\\Resources\\Cross.cur");
+            myCursor.GetType().InvokeMember("handle", BindingFlags.Public |
+                BindingFlags.NonPublic | BindingFlags.Instance |
+                BindingFlags.SetField, null, myCursor,
+                new object[] { colorCursorHandle });
+            this.Cursor = myCursor;
 
             MainPainter = this.CreateGraphics();
         }
@@ -133,11 +149,11 @@ namespace WindowsFormsOCR
 
             Image NewImage = (Image)baseImage.Clone();
             Graphics Painter = Graphics.FromImage(NewImage);
-            //Painter.FillRectangle(new SolidBrush(Color.FromArgb(125, Color.DarkGray)), Rect);
+            //Painter.FillRectangle(new SolidBrush(Color.FromArgb(125, Color.Black)), Rect);
             GraphicsPath gp = new GraphicsPath();
             gp.AddRectangle(new Rectangle(0, 0, Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height));
             gp.AddRectangle(Rect);
-            Painter.FillPath(new SolidBrush(Color.FromArgb(125, Color.DarkGray)), gp);
+            Painter.FillPath(new SolidBrush(Color.FromArgb(125, Color.Black)), gp);
             gp.Dispose();
             Painter.Dispose();
             return NewImage;
