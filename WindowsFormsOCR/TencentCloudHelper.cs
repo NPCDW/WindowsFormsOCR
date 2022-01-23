@@ -67,21 +67,21 @@ namespace WindowsFormsOCR
                 OcrClient client = new OcrClient(cred, "ap-beijing", clientProfile);
                 String jsonStr = "{}";
                 String base64 = Utils.BitmapToBase64String(bmp);
-                if ("GeneralBasicOCR".Equals(GlobalConfig.TencentCloud.type))
+                if ("GeneralBasicOCR".Equals(GlobalConfig.TencentCloud.ocr_type))
                 {
                     GeneralBasicOCRRequest req = new GeneralBasicOCRRequest();
                     req.ImageBase64 = base64;
                     GeneralBasicOCRResponse resp = client.GeneralBasicOCRSync(req);
                     jsonStr = AbstractModel.ToJsonString(resp);
                 }
-                else if ("GeneralAccurateOCR".Equals(GlobalConfig.TencentCloud.type))
+                else if ("GeneralAccurateOCR".Equals(GlobalConfig.TencentCloud.ocr_type))
                 {
                     GeneralAccurateOCRRequest req = new GeneralAccurateOCRRequest();
                     req.ImageBase64 = base64;
                     GeneralAccurateOCRResponse resp = client.GeneralAccurateOCRSync(req);
                     jsonStr = AbstractModel.ToJsonString(resp);
                 }
-                else if ("GeneralHandwritingOCR".Equals(GlobalConfig.TencentCloud.type))
+                else if ("GeneralHandwritingOCR".Equals(GlobalConfig.TencentCloud.ocr_type))
                 {
                     GeneralHandwritingOCRRequest req = new GeneralHandwritingOCRRequest();
                     req.ImageBase64 = base64;

@@ -31,24 +31,31 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingForm));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.defaultTranslateProvide = new System.Windows.Forms.GroupBox();
+            this.radioButton9 = new System.Windows.Forms.RadioButton();
+            this.radioButton10 = new System.Windows.Forms.RadioButton();
+            this.defaultOcrProvideGroupBox = new System.Windows.Forms.GroupBox();
+            this.radioButton8 = new System.Windows.Forms.RadioButton();
+            this.radioButton7 = new System.Windows.Forms.RadioButton();
             this.autoStartButton = new System.Windows.Forms.CheckBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.linkLabel5 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel6 = new System.Windows.Forms.LinkLabel();
+            this.tencentOcrGroupBox = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.radioButton6 = new System.Windows.Forms.RadioButton();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.TencentCloud_SecretKeyPasswordShow = new System.Windows.Forms.CheckBox();
+            this.radioButton5 = new System.Windows.Forms.RadioButton();
             this.TencentCloud_SecretKeyInput = new System.Windows.Forms.TextBox();
             this.TencentCloud_SecretIdInput = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
+            this.label10 = new System.Windows.Forms.Label();
+            this.linkLabel5 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel6 = new System.Windows.Forms.LinkLabel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.BaiduAI_APPSecretPasswordShowCheckbox = new System.Windows.Forms.CheckBox();
+            this.BaiduAI_APPIDInput = new System.Windows.Forms.TextBox();
+            this.BaiduAI_APPSecretInput = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.baiduOcrGroupBox = new System.Windows.Forms.GroupBox();
@@ -70,15 +77,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.tencentOcrGroupBox = new System.Windows.Forms.GroupBox();
             this.tabControl1.SuspendLayout();
             this.tabPage5.SuspendLayout();
+            this.defaultTranslateProvide.SuspendLayout();
+            this.defaultOcrProvideGroupBox.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.tencentOcrGroupBox.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.baiduOcrGroupBox.SuspendLayout();
             this.tabPage4.SuspendLayout();
-            this.tencentOcrGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -99,6 +107,8 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.defaultTranslateProvide);
+            this.tabPage5.Controls.Add(this.defaultOcrProvideGroupBox);
             this.tabPage5.Controls.Add(this.autoStartButton);
             this.tabPage5.Location = new System.Drawing.Point(4, 26);
             this.tabPage5.Name = "tabPage5";
@@ -108,16 +118,90 @@
             this.tabPage5.Text = "常规";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // defaultTranslateProvide
+            // 
+            this.defaultTranslateProvide.Controls.Add(this.radioButton9);
+            this.defaultTranslateProvide.Controls.Add(this.radioButton10);
+            this.defaultTranslateProvide.Location = new System.Drawing.Point(6, 115);
+            this.defaultTranslateProvide.Name = "defaultTranslateProvide";
+            this.defaultTranslateProvide.Size = new System.Drawing.Size(459, 57);
+            this.defaultTranslateProvide.TabIndex = 3;
+            this.defaultTranslateProvide.TabStop = false;
+            this.defaultTranslateProvide.Text = "默认翻译";
+            // 
+            // radioButton9
+            // 
+            this.radioButton9.AutoSize = true;
+            this.radioButton9.Location = new System.Drawing.Point(119, 22);
+            this.radioButton9.Name = "radioButton9";
+            this.radioButton9.Size = new System.Drawing.Size(62, 21);
+            this.radioButton9.TabIndex = 1;
+            this.radioButton9.TabStop = true;
+            this.radioButton9.Tag = "TencentCloud";
+            this.radioButton9.Text = "腾讯云";
+            this.radioButton9.UseVisualStyleBackColor = true;
+            this.radioButton9.CheckedChanged += new System.EventHandler(this.commonDefaultTranslateProvideType_CheckedChanged);
+            // 
+            // radioButton10
+            // 
+            this.radioButton10.AutoSize = true;
+            this.radioButton10.Location = new System.Drawing.Point(11, 23);
+            this.radioButton10.Name = "radioButton10";
+            this.radioButton10.Size = new System.Drawing.Size(74, 21);
+            this.radioButton10.TabIndex = 0;
+            this.radioButton10.TabStop = true;
+            this.radioButton10.Tag = "BaiduAI";
+            this.radioButton10.Text = "百度大脑";
+            this.radioButton10.UseVisualStyleBackColor = true;
+            this.radioButton10.CheckedChanged += new System.EventHandler(this.commonDefaultTranslateProvideType_CheckedChanged);
+            // 
+            // defaultOcrProvideGroupBox
+            // 
+            this.defaultOcrProvideGroupBox.Controls.Add(this.radioButton8);
+            this.defaultOcrProvideGroupBox.Controls.Add(this.radioButton7);
+            this.defaultOcrProvideGroupBox.Location = new System.Drawing.Point(6, 52);
+            this.defaultOcrProvideGroupBox.Name = "defaultOcrProvideGroupBox";
+            this.defaultOcrProvideGroupBox.Size = new System.Drawing.Size(459, 57);
+            this.defaultOcrProvideGroupBox.TabIndex = 2;
+            this.defaultOcrProvideGroupBox.TabStop = false;
+            this.defaultOcrProvideGroupBox.Text = "默认OCR";
+            // 
+            // radioButton8
+            // 
+            this.radioButton8.AutoSize = true;
+            this.radioButton8.Location = new System.Drawing.Point(119, 22);
+            this.radioButton8.Name = "radioButton8";
+            this.radioButton8.Size = new System.Drawing.Size(62, 21);
+            this.radioButton8.TabIndex = 1;
+            this.radioButton8.TabStop = true;
+            this.radioButton8.Tag = "TencentCloud";
+            this.radioButton8.Text = "腾讯云";
+            this.radioButton8.UseVisualStyleBackColor = true;
+            this.radioButton8.CheckedChanged += new System.EventHandler(this.commonDefaultOcrProvideType_CheckedChanged);
+            // 
+            // radioButton7
+            // 
+            this.radioButton7.AutoSize = true;
+            this.radioButton7.Location = new System.Drawing.Point(11, 23);
+            this.radioButton7.Name = "radioButton7";
+            this.radioButton7.Size = new System.Drawing.Size(62, 21);
+            this.radioButton7.TabIndex = 0;
+            this.radioButton7.TabStop = true;
+            this.radioButton7.Tag = "BaiduCloud";
+            this.radioButton7.Text = "百度云";
+            this.radioButton7.UseVisualStyleBackColor = true;
+            this.radioButton7.CheckedChanged += new System.EventHandler(this.commonDefaultOcrProvideType_CheckedChanged);
+            // 
             // autoStartButton
             // 
             this.autoStartButton.AutoSize = true;
-            this.autoStartButton.Location = new System.Drawing.Point(29, 25);
+            this.autoStartButton.Location = new System.Drawing.Point(17, 16);
             this.autoStartButton.Name = "autoStartButton";
             this.autoStartButton.Size = new System.Drawing.Size(75, 21);
             this.autoStartButton.TabIndex = 1;
             this.autoStartButton.Text = "开机启动";
             this.autoStartButton.UseVisualStyleBackColor = true;
-            this.autoStartButton.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.autoStartButton.CheckedChanged += new System.EventHandler(this.AutoStart_CheckedChanged);
             // 
             // tabPage3
             // 
@@ -133,6 +217,132 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "腾讯云";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // tencentOcrGroupBox
+            // 
+            this.tencentOcrGroupBox.Controls.Add(this.label9);
+            this.tencentOcrGroupBox.Controls.Add(this.radioButton6);
+            this.tencentOcrGroupBox.Controls.Add(this.radioButton4);
+            this.tencentOcrGroupBox.Controls.Add(this.TencentCloud_SecretKeyPasswordShow);
+            this.tencentOcrGroupBox.Controls.Add(this.radioButton5);
+            this.tencentOcrGroupBox.Controls.Add(this.TencentCloud_SecretKeyInput);
+            this.tencentOcrGroupBox.Controls.Add(this.TencentCloud_SecretIdInput);
+            this.tencentOcrGroupBox.Controls.Add(this.label11);
+            this.tencentOcrGroupBox.Controls.Add(this.label10);
+            this.tencentOcrGroupBox.Location = new System.Drawing.Point(7, 7);
+            this.tencentOcrGroupBox.Name = "tencentOcrGroupBox";
+            this.tencentOcrGroupBox.Size = new System.Drawing.Size(457, 162);
+            this.tencentOcrGroupBox.TabIndex = 22;
+            this.tencentOcrGroupBox.TabStop = false;
+            this.tencentOcrGroupBox.Text = "腾讯云 - 免费OCR/免费翻译";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(49, 30);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(58, 17);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "OCR类型";
+            // 
+            // radioButton6
+            // 
+            this.radioButton6.AutoSize = true;
+            this.radioButton6.Location = new System.Drawing.Point(268, 28);
+            this.radioButton6.Margin = new System.Windows.Forms.Padding(4);
+            this.radioButton6.Name = "radioButton6";
+            this.radioButton6.Size = new System.Drawing.Size(62, 21);
+            this.radioButton6.TabIndex = 3;
+            this.radioButton6.TabStop = true;
+            this.radioButton6.Tag = "GeneralHandwritingOCR";
+            this.radioButton6.Text = "手写体";
+            this.radioButton6.UseVisualStyleBackColor = true;
+            this.radioButton6.CheckedChanged += new System.EventHandler(this.TencentCloudType_CheckedChanged);
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Location = new System.Drawing.Point(124, 28);
+            this.radioButton4.Margin = new System.Windows.Forms.Padding(4);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(50, 21);
+            this.radioButton4.TabIndex = 1;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Tag = "GeneralBasicOCR";
+            this.radioButton4.Text = "通用";
+            this.radioButton4.UseVisualStyleBackColor = true;
+            this.radioButton4.CheckedChanged += new System.EventHandler(this.TencentCloudType_CheckedChanged);
+            // 
+            // TencentCloud_SecretKeyPasswordShow
+            // 
+            this.TencentCloud_SecretKeyPasswordShow.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TencentCloud_SecretKeyPasswordShow.AutoSize = true;
+            this.TencentCloud_SecretKeyPasswordShow.Location = new System.Drawing.Point(425, 118);
+            this.TencentCloud_SecretKeyPasswordShow.Margin = new System.Windows.Forms.Padding(4);
+            this.TencentCloud_SecretKeyPasswordShow.Name = "TencentCloud_SecretKeyPasswordShow";
+            this.TencentCloud_SecretKeyPasswordShow.Size = new System.Drawing.Size(15, 14);
+            this.TencentCloud_SecretKeyPasswordShow.TabIndex = 19;
+            this.TencentCloud_SecretKeyPasswordShow.UseVisualStyleBackColor = true;
+            this.TencentCloud_SecretKeyPasswordShow.CheckedChanged += new System.EventHandler(this.TencentCloud_SecretKeyPasswordShow_CheckedChanged);
+            // 
+            // radioButton5
+            // 
+            this.radioButton5.AutoSize = true;
+            this.radioButton5.Location = new System.Drawing.Point(189, 28);
+            this.radioButton5.Margin = new System.Windows.Forms.Padding(4);
+            this.radioButton5.Name = "radioButton5";
+            this.radioButton5.Size = new System.Drawing.Size(62, 21);
+            this.radioButton5.TabIndex = 2;
+            this.radioButton5.TabStop = true;
+            this.radioButton5.Tag = "GeneralAccurateOCR";
+            this.radioButton5.Text = "高精度";
+            this.radioButton5.UseVisualStyleBackColor = true;
+            this.radioButton5.CheckedChanged += new System.EventHandler(this.TencentCloudType_CheckedChanged);
+            // 
+            // TencentCloud_SecretKeyInput
+            // 
+            this.TencentCloud_SecretKeyInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TencentCloud_SecretKeyInput.Location = new System.Drawing.Point(124, 114);
+            this.TencentCloud_SecretKeyInput.Margin = new System.Windows.Forms.Padding(4);
+            this.TencentCloud_SecretKeyInput.Name = "TencentCloud_SecretKeyInput";
+            this.TencentCloud_SecretKeyInput.PasswordChar = '*';
+            this.TencentCloud_SecretKeyInput.Size = new System.Drawing.Size(320, 23);
+            this.TencentCloud_SecretKeyInput.TabIndex = 18;
+            this.TencentCloud_SecretKeyInput.TextChanged += new System.EventHandler(this.TencentCloud_SecretKeyInput_TextChanged);
+            // 
+            // TencentCloud_SecretIdInput
+            // 
+            this.TencentCloud_SecretIdInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TencentCloud_SecretIdInput.Location = new System.Drawing.Point(124, 67);
+            this.TencentCloud_SecretIdInput.Margin = new System.Windows.Forms.Padding(4);
+            this.TencentCloud_SecretIdInput.Name = "TencentCloud_SecretIdInput";
+            this.TencentCloud_SecretIdInput.Size = new System.Drawing.Size(320, 23);
+            this.TencentCloud_SecretIdInput.TabIndex = 17;
+            this.TencentCloud_SecretIdInput.TextChanged += new System.EventHandler(this.TencentCloud_SecretIdInput_TextChanged);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(47, 70);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(60, 17);
+            this.label11.TabIndex = 15;
+            this.label11.Text = "Secret Id";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(38, 117);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(69, 17);
+            this.label10.TabIndex = 16;
+            this.label10.Text = "Secret Key";
             // 
             // linkLabel5
             // 
@@ -158,114 +368,6 @@
             this.linkLabel6.Text = "领取腾讯云免费OCR额度";
             this.linkLabel6.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkClicked);
             // 
-            // TencentCloud_SecretKeyPasswordShow
-            // 
-            this.TencentCloud_SecretKeyPasswordShow.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TencentCloud_SecretKeyPasswordShow.AutoSize = true;
-            this.TencentCloud_SecretKeyPasswordShow.Location = new System.Drawing.Point(425, 118);
-            this.TencentCloud_SecretKeyPasswordShow.Margin = new System.Windows.Forms.Padding(4);
-            this.TencentCloud_SecretKeyPasswordShow.Name = "TencentCloud_SecretKeyPasswordShow";
-            this.TencentCloud_SecretKeyPasswordShow.Size = new System.Drawing.Size(15, 14);
-            this.TencentCloud_SecretKeyPasswordShow.TabIndex = 19;
-            this.TencentCloud_SecretKeyPasswordShow.UseVisualStyleBackColor = true;
-            this.TencentCloud_SecretKeyPasswordShow.CheckedChanged += new System.EventHandler(this.TencentCloud_SecretKeyPasswordShow_CheckedChanged);
-            // 
-            // TencentCloud_SecretKeyInput
-            // 
-            this.TencentCloud_SecretKeyInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TencentCloud_SecretKeyInput.Location = new System.Drawing.Point(124, 114);
-            this.TencentCloud_SecretKeyInput.Margin = new System.Windows.Forms.Padding(4);
-            this.TencentCloud_SecretKeyInput.Name = "TencentCloud_SecretKeyInput";
-            this.TencentCloud_SecretKeyInput.PasswordChar = '*';
-            this.TencentCloud_SecretKeyInput.Size = new System.Drawing.Size(320, 23);
-            this.TencentCloud_SecretKeyInput.TabIndex = 18;
-            this.TencentCloud_SecretKeyInput.TextChanged += new System.EventHandler(this.TencentCloud_SecretKeyInput_TextChanged);
-            // 
-            // TencentCloud_SecretIdInput
-            // 
-            this.TencentCloud_SecretIdInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TencentCloud_SecretIdInput.Location = new System.Drawing.Point(124, 67);
-            this.TencentCloud_SecretIdInput.Margin = new System.Windows.Forms.Padding(4);
-            this.TencentCloud_SecretIdInput.Name = "TencentCloud_SecretIdInput";
-            this.TencentCloud_SecretIdInput.Size = new System.Drawing.Size(320, 23);
-            this.TencentCloud_SecretIdInput.TabIndex = 17;
-            this.TencentCloud_SecretIdInput.TextChanged += new System.EventHandler(this.TencentCloud_SecretIdInput_TextChanged);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(38, 117);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(69, 17);
-            this.label10.TabIndex = 16;
-            this.label10.Text = "Secret Key";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(47, 70);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(60, 17);
-            this.label11.TabIndex = 15;
-            this.label11.Text = "Secret Id";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(49, 30);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(58, 17);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "OCR类型";
-            // 
-            // radioButton4
-            // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(124, 28);
-            this.radioButton4.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(50, 21);
-            this.radioButton4.TabIndex = 1;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Tag = "GeneralBasicOCR";
-            this.radioButton4.Text = "通用";
-            this.radioButton4.UseVisualStyleBackColor = true;
-            this.radioButton4.CheckedChanged += new System.EventHandler(this.TencentCloudType_CheckedChanged);
-            // 
-            // radioButton5
-            // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(189, 28);
-            this.radioButton5.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(62, 21);
-            this.radioButton5.TabIndex = 2;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Tag = "GeneralAccurateOCR";
-            this.radioButton5.Text = "高精度";
-            this.radioButton5.UseVisualStyleBackColor = true;
-            this.radioButton5.CheckedChanged += new System.EventHandler(this.TencentCloudType_CheckedChanged);
-            // 
-            // radioButton6
-            // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.Location = new System.Drawing.Point(268, 28);
-            this.radioButton6.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(62, 21);
-            this.radioButton6.TabIndex = 3;
-            this.radioButton6.TabStop = true;
-            this.radioButton6.Tag = "GeneralHandwritingOCR";
-            this.radioButton6.Text = "手写体";
-            this.radioButton6.UseVisualStyleBackColor = true;
-            this.radioButton6.CheckedChanged += new System.EventHandler(this.TencentCloudType_CheckedChanged);
-            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.groupBox2);
@@ -284,9 +386,9 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.checkBox1);
-            this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.BaiduAI_APPSecretPasswordShowCheckbox);
+            this.groupBox2.Controls.Add(this.BaiduAI_APPIDInput);
+            this.groupBox2.Controls.Add(this.BaiduAI_APPSecretInput);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Location = new System.Drawing.Point(7, 175);
@@ -296,58 +398,61 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "百度大脑 - 免费翻译";
             // 
-            // checkBox1
+            // BaiduAI_APPSecretPasswordShowCheckbox
             // 
-            this.checkBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.BaiduAI_APPSecretPasswordShowCheckbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(424, 83);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(15, 14);
-            this.checkBox1.TabIndex = 12;
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.BaiduAI_APPSecretPasswordShowCheckbox.AutoSize = true;
+            this.BaiduAI_APPSecretPasswordShowCheckbox.Location = new System.Drawing.Point(424, 83);
+            this.BaiduAI_APPSecretPasswordShowCheckbox.Margin = new System.Windows.Forms.Padding(4);
+            this.BaiduAI_APPSecretPasswordShowCheckbox.Name = "BaiduAI_APPSecretPasswordShowCheckbox";
+            this.BaiduAI_APPSecretPasswordShowCheckbox.Size = new System.Drawing.Size(15, 14);
+            this.BaiduAI_APPSecretPasswordShowCheckbox.TabIndex = 12;
+            this.BaiduAI_APPSecretPasswordShowCheckbox.UseVisualStyleBackColor = true;
+            this.BaiduAI_APPSecretPasswordShowCheckbox.CheckedChanged += new System.EventHandler(this.BaiduAI_APPSecretPasswordShowCheckbox_CheckedChanged);
             // 
-            // textBox1
+            // BaiduAI_APPIDInput
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.BaiduAI_APPIDInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(124, 31);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(319, 23);
-            this.textBox1.TabIndex = 8;
+            this.BaiduAI_APPIDInput.Location = new System.Drawing.Point(124, 31);
+            this.BaiduAI_APPIDInput.Margin = new System.Windows.Forms.Padding(4);
+            this.BaiduAI_APPIDInput.Name = "BaiduAI_APPIDInput";
+            this.BaiduAI_APPIDInput.Size = new System.Drawing.Size(319, 23);
+            this.BaiduAI_APPIDInput.TabIndex = 8;
+            this.BaiduAI_APPIDInput.TextChanged += new System.EventHandler(this.BaiduAI_APPIDInput_TextChanged);
             // 
-            // textBox2
+            // BaiduAI_APPSecretInput
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.BaiduAI_APPSecretInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Location = new System.Drawing.Point(124, 78);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PasswordChar = '*';
-            this.textBox2.Size = new System.Drawing.Size(319, 23);
-            this.textBox2.TabIndex = 10;
+            this.BaiduAI_APPSecretInput.Location = new System.Drawing.Point(124, 78);
+            this.BaiduAI_APPSecretInput.Margin = new System.Windows.Forms.Padding(4);
+            this.BaiduAI_APPSecretInput.Name = "BaiduAI_APPSecretInput";
+            this.BaiduAI_APPSecretInput.PasswordChar = '*';
+            this.BaiduAI_APPSecretInput.Size = new System.Drawing.Size(319, 23);
+            this.BaiduAI_APPSecretInput.TabIndex = 10;
+            this.BaiduAI_APPSecretInput.TextChanged += new System.EventHandler(this.BaiduAI_APPSecretInput_TextChanged);
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(55, 34);
+            this.label12.Location = new System.Drawing.Point(63, 34);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(52, 17);
+            this.label12.Size = new System.Drawing.Size(44, 17);
             this.label12.TabIndex = 6;
-            this.label12.Text = "API Key";
+            this.label12.Text = "API ID";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(38, 81);
+            this.label13.Location = new System.Drawing.Point(75, 81);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(69, 17);
+            this.label13.Size = new System.Drawing.Size(32, 17);
             this.label13.TabIndex = 7;
-            this.label13.Text = "Secret Key";
+            this.label13.Text = "密钥";
             // 
             // baiduOcrGroupBox
             // 
@@ -584,24 +689,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "版本 1.0.0 (2022.1.16)";
             // 
-            // tencentOcrGroupBox
-            // 
-            this.tencentOcrGroupBox.Controls.Add(this.label9);
-            this.tencentOcrGroupBox.Controls.Add(this.radioButton6);
-            this.tencentOcrGroupBox.Controls.Add(this.radioButton4);
-            this.tencentOcrGroupBox.Controls.Add(this.TencentCloud_SecretKeyPasswordShow);
-            this.tencentOcrGroupBox.Controls.Add(this.radioButton5);
-            this.tencentOcrGroupBox.Controls.Add(this.TencentCloud_SecretKeyInput);
-            this.tencentOcrGroupBox.Controls.Add(this.TencentCloud_SecretIdInput);
-            this.tencentOcrGroupBox.Controls.Add(this.label11);
-            this.tencentOcrGroupBox.Controls.Add(this.label10);
-            this.tencentOcrGroupBox.Location = new System.Drawing.Point(7, 7);
-            this.tencentOcrGroupBox.Name = "tencentOcrGroupBox";
-            this.tencentOcrGroupBox.Size = new System.Drawing.Size(457, 162);
-            this.tencentOcrGroupBox.TabIndex = 22;
-            this.tencentOcrGroupBox.TabStop = false;
-            this.tencentOcrGroupBox.Text = "腾讯云 - 免费OCR/免费翻译";
-            // 
             // SettingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -621,8 +708,14 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
+            this.defaultTranslateProvide.ResumeLayout(false);
+            this.defaultTranslateProvide.PerformLayout();
+            this.defaultOcrProvideGroupBox.ResumeLayout(false);
+            this.defaultOcrProvideGroupBox.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.tencentOcrGroupBox.ResumeLayout(false);
+            this.tencentOcrGroupBox.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -631,8 +724,6 @@
             this.baiduOcrGroupBox.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
-            this.tencentOcrGroupBox.ResumeLayout(false);
-            this.tencentOcrGroupBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -674,12 +765,18 @@
         private System.Windows.Forms.LinkLabel linkLabel4;
         private System.Windows.Forms.LinkLabel linkLabel3;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.CheckBox BaiduAI_APPSecretPasswordShowCheckbox;
+        private System.Windows.Forms.TextBox BaiduAI_APPIDInput;
+        private System.Windows.Forms.TextBox BaiduAI_APPSecretInput;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.GroupBox baiduOcrGroupBox;
         private System.Windows.Forms.GroupBox tencentOcrGroupBox;
+        private System.Windows.Forms.GroupBox defaultTranslateProvide;
+        private System.Windows.Forms.RadioButton radioButton9;
+        private System.Windows.Forms.RadioButton radioButton10;
+        private System.Windows.Forms.GroupBox defaultOcrProvideGroupBox;
+        private System.Windows.Forms.RadioButton radioButton8;
+        private System.Windows.Forms.RadioButton radioButton7;
     }
 }
