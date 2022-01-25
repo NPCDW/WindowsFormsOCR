@@ -685,7 +685,7 @@
             this.label1.Location = new System.Drawing.Point(21, 35);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 17);
+            this.label1.Size = new System.Drawing.Size(140, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "版本 0.4.0 (2022.1.25)";
             // 
