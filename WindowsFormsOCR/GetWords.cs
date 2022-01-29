@@ -41,13 +41,21 @@ namespace WindowsFormsOCR
 
         private static String GetDataFromClipboard()
         {
-            if (Clipboard.ContainsText()) //检查是否存在文本
+            try
             {
-                string res = Clipboard.GetText();
-                if (!string.IsNullOrWhiteSpace(res))
+                if (Clipboard.ContainsText()) //检查是否存在文本
                 {
-                    return res;
+                    string res = Clipboard.GetText();
+                    if (!string.IsNullOrWhiteSpace(res))
+                    {
+                        return res;
+                    }
                 }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return null;
             }
             return null;
         }

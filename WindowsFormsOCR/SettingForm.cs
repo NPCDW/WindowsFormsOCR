@@ -21,20 +21,9 @@ namespace WindowsFormsOCR
             InitializeComponent();
         }
 
-        private void BaiduCloud_SecretKeyPasswordShowCheckbox_CheckedChanged(object sender, EventArgs e)
-        {
-            if (BaiduCloud_SecretKeyPasswordShowCheckbox.Checked)
-            {
-                BaiduCloud_SecretKeyInput.PasswordChar = '\0';
-            }
-            else
-            {
-                BaiduCloud_SecretKeyInput.PasswordChar = '*';
-            }
-        }
-
         private void Setting_Load(object sender, EventArgs e)
         {
+            String defaultOcrType = GlobalConfig.Common.defaultOcrType;
             this.autoStartButton.Checked = GlobalConfig.Common.autoStart;
             foreach (Control control in this.defaultOcrProvideGroupBox.Controls)
             {
@@ -60,37 +49,25 @@ namespace WindowsFormsOCR
                     }
                 }
             }
-
-            foreach (Control control in this.baiduOcrGroupBox.Controls) {
-                if (control is RadioButton)
+            foreach (String text in this.defaultOcrTypeComboBox.Items)
+            {
+                if (text.Split('#')[1].Equals(defaultOcrType))
                 {
-                    RadioButton radioButton = (RadioButton)control;
-                    if (radioButton.Tag.Equals(GlobalConfig.BaiduCloud.ocr_type))
-                    {
-                        radioButton.Checked = true;
-                        break;
-                    }
+                    defaultOcrTypeComboBox.Text = text;
+                    break;
                 }
             }
+
             this.BaiduCloud_APIKeyInput.Text = GlobalConfig.BaiduCloud.client_id;
             this.BaiduCloud_SecretKeyInput.Text = GlobalConfig.BaiduCloud.client_secret;
             this.BaiduAI_APPIDInput.Text = GlobalConfig.BaiduAI.app_id;
             this.BaiduAI_APPSecretInput.Text = GlobalConfig.BaiduAI.app_secret;
 
-            foreach (Control control in this.tencentOcrGroupBox.Controls)
-            {
-                if (control is RadioButton)
-                {
-                    RadioButton radioButton = (RadioButton)control;
-                    if (radioButton.Tag.Equals(GlobalConfig.TencentCloud.ocr_type))
-                    {
-                        radioButton.Checked = true;
-                        break;
-                    }
-                }
-            }
             this.TencentCloud_SecretIdInput.Text = GlobalConfig.TencentCloud.secret_id;
             this.TencentCloud_SecretKeyInput.Text = GlobalConfig.TencentCloud.secret_key;
+
+            this.TencentCloudTranslate_SecretIdInput.Text = GlobalConfig.TencentCloudTranslate.secret_id;
+            this.TencentCloudTranslate_SecretKeyInput.Text = GlobalConfig.TencentCloudTranslate.secret_key;
         }
 
         private void SettingForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -100,41 +77,47 @@ namespace WindowsFormsOCR
 
         private void commonDefaultOcrProvideType_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioButton7.Checked)
+            if (defaultOcrBaiduCloudRadio.Checked)
             {
-                GlobalConfig.Common.defaultOcrProvide = radioButton7.Tag.ToString();
+                GlobalConfig.Common.defaultOcrProvide = defaultOcrBaiduCloudRadio.Tag.ToString();
+                defaultOcrTypeComboBox.Items.Clear();
+                defaultOcrTypeComboBox.Items.Add("通用#general_basic");
+                defaultOcrTypeComboBox.Items.Add("高精度#accurate_basic");
+                defaultOcrTypeComboBox.Items.Add("手写体#handwriting");
+                defaultOcrTypeComboBox.SelectedIndex = 0;
             }
-            else if (radioButton8.Checked)
+            else if (defaultOcrTencentCloudRadio.Checked)
             {
-                GlobalConfig.Common.defaultOcrProvide = radioButton8.Tag.ToString();
+                GlobalConfig.Common.defaultOcrProvide = defaultOcrTencentCloudRadio.Tag.ToString();
+                defaultOcrTypeComboBox.Items.Clear();
+                defaultOcrTypeComboBox.Items.Add("通用#GeneralBasicOCR");
+                defaultOcrTypeComboBox.Items.Add("高精度#GeneralAccurateOCR");
+                defaultOcrTypeComboBox.Items.Add("手写体#GeneralHandwritingOCR");
+                defaultOcrTypeComboBox.SelectedIndex = 0;
             }
         }
 
         private void commonDefaultTranslateProvideType_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioButton9.Checked)
+            if (defaultTranslateTencentCloudRadio.Checked)
             {
-                GlobalConfig.Common.defaultTranslateProvide = radioButton9.Tag.ToString();
+                GlobalConfig.Common.defaultTranslateProvide = defaultTranslateTencentCloudRadio.Tag.ToString();
             }
-            else if (radioButton10.Checked)
+            else if (defaultTranslateBaiduAIRadio.Checked)
             {
-                GlobalConfig.Common.defaultTranslateProvide = radioButton10.Tag.ToString();
+                GlobalConfig.Common.defaultTranslateProvide = defaultTranslateBaiduAIRadio.Tag.ToString();
             }
         }
 
-        private void baiduCloudType_CheckedChanged(object sender, EventArgs e)
+        private void BaiduCloud_SecretKeyPasswordShowCheckbox_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioButton1.Checked)
+            if (BaiduCloud_SecretKeyPasswordShowCheckbox.Checked)
             {
-                GlobalConfig.BaiduCloud.ocr_type = radioButton1.Tag.ToString();
+                BaiduCloud_SecretKeyInput.PasswordChar = '\0';
             }
-            else if (radioButton2.Checked)
+            else
             {
-                GlobalConfig.BaiduCloud.ocr_type = radioButton2.Tag.ToString();
-            }
-            else if (radioButton3.Checked)
-            {
-                GlobalConfig.BaiduCloud.ocr_type = radioButton3.Tag.ToString();
+                BaiduCloud_SecretKeyInput.PasswordChar = '*';
             }
         }
 
@@ -146,22 +129,6 @@ namespace WindowsFormsOCR
         private void BaiduCloud_SecretKeyInput_TextChanged(object sender, EventArgs e)
         {
             GlobalConfig.BaiduCloud.client_secret = this.BaiduCloud_SecretKeyInput.Text;
-        }
-
-        private void TencentCloudType_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radioButton4.Checked)
-            {
-                GlobalConfig.TencentCloud.ocr_type = radioButton4.Tag.ToString();
-            }
-            else if (radioButton5.Checked)
-            {
-                GlobalConfig.TencentCloud.ocr_type = radioButton5.Tag.ToString();
-            }
-            else if (radioButton6.Checked)
-            {
-                GlobalConfig.TencentCloud.ocr_type = radioButton6.Tag.ToString();
-            }
         }
 
         private void TencentCloud_SecretKeyPasswordShow_CheckedChanged(object sender, EventArgs e)
@@ -246,6 +213,37 @@ namespace WindowsFormsOCR
         private void BaiduAI_APPSecretInput_TextChanged(object sender, EventArgs e)
         {
             GlobalConfig.BaiduAI.app_secret = this.BaiduAI_APPSecretInput.Text;
+        }
+
+        private void TencentCloudTranslate_SecretKeyPasswordShow_CheckedChanged(object sender, EventArgs e)
+        {
+            if (TencentCloudTranslate_SecretKeyPasswordShow.Checked)
+            {
+                TencentCloudTranslate_SecretKeyInput.PasswordChar = '\0';
+            }
+            else
+            {
+                TencentCloudTranslate_SecretKeyInput.PasswordChar = '*';
+            }
+        }
+
+        private void TencentCloudTranslate_SecretIdInput_TextChanged(object sender, EventArgs e)
+        {
+            GlobalConfig.TencentCloudTranslate.secret_id = this.TencentCloudTranslate_SecretIdInput.Text;
+        }
+
+        private void TencentCloudTranslate_SecretKeyInput_TextChanged(object sender, EventArgs e)
+        {
+            GlobalConfig.TencentCloudTranslate.secret_key = this.TencentCloudTranslate_SecretKeyInput.Text;
+        }
+
+        private void defaultOcrType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            String text = defaultOcrTypeComboBox.Text;
+            if (!string.IsNullOrWhiteSpace(text) && text.Contains("#"))
+            {
+                GlobalConfig.Common.defaultOcrType = text.Split('#')[1];
+            }
         }
     }
 }

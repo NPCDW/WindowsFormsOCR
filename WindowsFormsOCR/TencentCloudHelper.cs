@@ -22,8 +22,8 @@ namespace WindowsFormsOCR
             {
                 Credential cred = new Credential
                 {
-                    SecretId = GlobalConfig.TencentCloud.secret_id,
-                    SecretKey = GlobalConfig.TencentCloud.secret_key
+                    SecretId = GlobalConfig.TencentCloudTranslate.secret_id,
+                    SecretKey = GlobalConfig.TencentCloudTranslate.secret_key
                 };
 
                 ClientProfile clientProfile = new ClientProfile();
@@ -67,21 +67,21 @@ namespace WindowsFormsOCR
                 OcrClient client = new OcrClient(cred, "ap-beijing", clientProfile);
                 String jsonStr = "{}";
                 String base64 = Utils.BitmapToBase64String(bmp);
-                if ("GeneralBasicOCR".Equals(GlobalConfig.TencentCloud.ocr_type))
+                if ("GeneralBasicOCR".Equals(GlobalConfig.Common.defaultOcrType))
                 {
                     GeneralBasicOCRRequest req = new GeneralBasicOCRRequest();
                     req.ImageBase64 = base64;
                     GeneralBasicOCRResponse resp = client.GeneralBasicOCRSync(req);
                     jsonStr = AbstractModel.ToJsonString(resp);
                 }
-                else if ("GeneralAccurateOCR".Equals(GlobalConfig.TencentCloud.ocr_type))
+                else if ("GeneralAccurateOCR".Equals(GlobalConfig.Common.defaultOcrType))
                 {
                     GeneralAccurateOCRRequest req = new GeneralAccurateOCRRequest();
                     req.ImageBase64 = base64;
                     GeneralAccurateOCRResponse resp = client.GeneralAccurateOCRSync(req);
                     jsonStr = AbstractModel.ToJsonString(resp);
                 }
-                else if ("GeneralHandwritingOCR".Equals(GlobalConfig.TencentCloud.ocr_type))
+                else if ("GeneralHandwritingOCR".Equals(GlobalConfig.Common.defaultOcrType))
                 {
                     GeneralHandwritingOCRRequest req = new GeneralHandwritingOCRRequest();
                     req.ImageBase64 = base64;
@@ -109,8 +109,8 @@ namespace WindowsFormsOCR
             {
                 Credential cred = new Credential
                 {
-                    SecretId = GlobalConfig.TencentCloud.secret_id,
-                    SecretKey = GlobalConfig.TencentCloud.secret_key
+                    SecretId = GlobalConfig.TencentCloudTranslate.secret_id,
+                    SecretKey = GlobalConfig.TencentCloudTranslate.secret_key
                 };
 
                 ClientProfile clientProfile = new ClientProfile();

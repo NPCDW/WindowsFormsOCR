@@ -2,11 +2,11 @@
   "Common": {
     "defaultOcrProvide": "TencentCloud",
     "defaultTranslateProvide": "TencentCloud",
+    "defaultOcrType": "GeneralBasicOCR",
     "autoStart": false
   },
   "Local": {},
   "BaiduCloud": {
-    "ocr_type": "general_basic",
     "access_token": "",
     "access_token_expires_time": "2000/1/1 0:00:00",
     "client_id": "",
@@ -17,7 +17,10 @@
     "app_secret": ""
   },
   "TencentCloud": {
-    "ocr_type": "GeneralBasicOCR",
+    "secret_id": "",
+    "secret_key": ""
+  },
+  "TencentCloudTranslate": {
     "secret_id": "",
     "secret_key": ""
   }
