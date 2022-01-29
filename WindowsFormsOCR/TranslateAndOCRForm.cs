@@ -21,7 +21,7 @@ namespace WindowsFormsOCR
         {
             if (GlobalConfig.Common.defaultTranslateProvide.Equals("TencentCloud"))
             {
-                if (string.IsNullOrEmpty(GlobalConfig.TencentCloud.secret_id) || string.IsNullOrEmpty(GlobalConfig.TencentCloud.secret_key))
+                if (string.IsNullOrEmpty(GlobalConfig.TencentCloudTranslate.secret_id) || string.IsNullOrEmpty(GlobalConfig.TencentCloudTranslate.secret_key))
                 {
                     MessageBox.Show("请先设置云服务商提供的秘钥信息，可以到设置中点击链接免费领取");
                     return;
@@ -52,7 +52,7 @@ namespace WindowsFormsOCR
                     MessageBox.Show("请先设置云服务商提供的秘钥信息，可以到设置中点击链接免费领取");
                     return;
                 }
-                if (string.IsNullOrEmpty(GlobalConfig.TencentCloud.ocr_type))
+                if (string.IsNullOrEmpty(GlobalConfig.Common.defaultOcrType))
                 {
                     MessageBox.Show("请先设置云服务商默认识别类型");
                     return;
@@ -68,7 +68,7 @@ namespace WindowsFormsOCR
                     MessageBox.Show("请先设置云服务商提供的秘钥信息，可以到设置中点击链接免费领取");
                     return;
                 }
-                if (string.IsNullOrEmpty(GlobalConfig.BaiduCloud.ocr_type))
+                if (string.IsNullOrEmpty(GlobalConfig.Common.defaultOcrType))
                 {
                     MessageBox.Show("请先设置云服务商默认识别类型");
                     return;
@@ -83,7 +83,7 @@ namespace WindowsFormsOCR
         {
             if (GlobalConfig.Common.defaultTranslateProvide.Equals("TencentCloud"))
             {
-                if (string.IsNullOrEmpty(GlobalConfig.TencentCloud.secret_id) || string.IsNullOrEmpty(GlobalConfig.TencentCloud.secret_key))
+                if (string.IsNullOrEmpty(GlobalConfig.TencentCloudTranslate.secret_id) || string.IsNullOrEmpty(GlobalConfig.TencentCloudTranslate.secret_key))
                 {
                     MessageBox.Show("请先设置云服务商提供的秘钥信息，可以到设置中点击链接免费领取");
                     return;
