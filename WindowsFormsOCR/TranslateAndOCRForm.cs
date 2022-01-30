@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static WindowsFormsOCR.GlobalConfig;
 
 namespace WindowsFormsOCR
 {
@@ -23,7 +24,7 @@ namespace WindowsFormsOCR
         {
             foreach (String text in this.defaultOcrProvideComboBox.Items)
             {
-                if (text.Split('#')[1].Equals(GlobalConfig.Common.defaultOcrProvide))
+                if (text.Split('#')[1].Equals(GlobalConfig.Common.defaultOcrProvide.ToString()))
                 {
                     defaultOcrProvideComboBox.Text = text;
                     break;
@@ -33,7 +34,7 @@ namespace WindowsFormsOCR
 
             foreach (String text in this.defaultTranslateProvideComboBox.Items)
             {
-                if (text.Split('#')[1].Equals(GlobalConfig.Common.defaultTranslateProvide))
+                if (text.Split('#')[1].Equals(GlobalConfig.Common.defaultTranslateProvide.ToString()))
                 {
                     defaultTranslateProvideComboBox.Text = text;
                     break;
@@ -50,13 +51,18 @@ namespace WindowsFormsOCR
             }
         }
 
-        public void translate(String translateProvide = null)
+        public void translate(String translateProvideStr = null)
         {
-            if (string.IsNullOrWhiteSpace(translateProvide))
+            TranslateProvideEnum translateProvide;
+            if (string.IsNullOrWhiteSpace(translateProvideStr))
             {
                 translateProvide = GlobalConfig.Common.defaultTranslateProvide;
             }
-            if (translateProvide.Equals("TencentCloud"))
+            else
+            {
+                translateProvide = (TranslateProvideEnum)Enum.Parse(typeof(TranslateProvideEnum), translateProvideStr);
+            }
+            if (translateProvide == TranslateProvideEnum.TencentCloud)
             {
                 if (string.IsNullOrEmpty(GlobalConfig.TencentCloudTranslate.secret_id) || string.IsNullOrEmpty(GlobalConfig.TencentCloudTranslate.secret_key))
                 {
@@ -67,7 +73,7 @@ namespace WindowsFormsOCR
 
                 translateTextBox.Text = TencentCloudHelper.translate(ocrTextBox.Text);
             }
-            else if (translateProvide.Equals("BaiduAI"))
+            else if (translateProvide == TranslateProvideEnum.BaiduAI)
             {
                 if (string.IsNullOrEmpty(GlobalConfig.BaiduAI.app_id) || string.IsNullOrEmpty(GlobalConfig.BaiduAI.app_secret))
                 {
@@ -80,18 +86,23 @@ namespace WindowsFormsOCR
             }
         }
 
-        public void ocr(Bitmap bmp, String ocrProvide = null, String ocrType = null)
+        public void ocr(Bitmap bmp, String ocrProvideStr = null, String ocrType = null)
         {
             this.bmp = bmp;
-            if (string.IsNullOrWhiteSpace(ocrProvide))
+            OcrProvideEnum ocrProvide;
+            if (string.IsNullOrWhiteSpace(ocrProvideStr))
             {
                 ocrProvide = GlobalConfig.Common.defaultOcrProvide;
+            }
+            else
+            {
+                ocrProvide = (OcrProvideEnum)Enum.Parse(typeof(OcrProvideEnum), ocrProvideStr);
             }
             if (string.IsNullOrWhiteSpace(ocrType))
             {
                 ocrType = GlobalConfig.Common.defaultOcrType;
             }
-            if (ocrProvide.Equals("TencentCloud"))
+            if (ocrProvide == OcrProvideEnum.TencentCloud)
             {
                 if (string.IsNullOrEmpty(GlobalConfig.TencentCloud.secret_id) || string.IsNullOrEmpty(GlobalConfig.TencentCloud.secret_key))
                 {
@@ -102,7 +113,7 @@ namespace WindowsFormsOCR
 
                 ocrTextBox.Text = TencentCloudHelper.ocr(bmp, ocrType);
             }
-            else if (ocrProvide.Equals("BaiduCloud"))
+            else if (ocrProvide == OcrProvideEnum.BaiduCloud)
             {
                 if (string.IsNullOrEmpty(GlobalConfig.BaiduCloud.client_id) || string.IsNullOrEmpty(GlobalConfig.BaiduCloud.client_secret))
                 {
@@ -118,7 +129,7 @@ namespace WindowsFormsOCR
         public void screenshotTranslate(Bitmap bmp)
         {
             this.bmp = bmp;
-            if (GlobalConfig.Common.defaultTranslateProvide.Equals("TencentCloud"))
+            if (GlobalConfig.Common.defaultTranslateProvide == GlobalConfig.TranslateProvideEnum.BaiduAI)
             {
                 if (string.IsNullOrEmpty(GlobalConfig.TencentCloudTranslate.secret_id) || string.IsNullOrEmpty(GlobalConfig.TencentCloudTranslate.secret_key))
                 {
@@ -132,7 +143,7 @@ namespace WindowsFormsOCR
                 ocrTextBox.Text = keyValues["ocrText"];
                 translateTextBox.Text = keyValues["translateText"];
             }
-            else if (GlobalConfig.Common.defaultTranslateProvide.Equals("BaiduAI"))
+            else if (GlobalConfig.Common.defaultTranslateProvide == GlobalConfig.TranslateProvideEnum.TencentCloud)
             {
                 if (string.IsNullOrEmpty(GlobalConfig.BaiduAI.app_id) || string.IsNullOrEmpty(GlobalConfig.BaiduAI.app_secret))
                 {
@@ -155,27 +166,27 @@ namespace WindowsFormsOCR
 
         private void defaultOcrProvideComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (defaultOcrProvideComboBox.SelectedIndex == 0)
+            if (defaultOcrProvideComboBox.SelectedIndex == (int)OcrProvideEnum.BaiduCloud)
             {
                 defaultOcrTypeComboBox.Items.Clear();
-                defaultOcrTypeComboBox.Items.Add("通用#general_basic");
-                defaultOcrTypeComboBox.Items.Add("高精度#accurate_basic");
-                defaultOcrTypeComboBox.Items.Add("手写体#handwriting");
+                defaultOcrTypeComboBox.Items.Add("通用#" + GlobalConfig.BaiduCloud.OcrTypeEnum.general_basic.ToString());
+                defaultOcrTypeComboBox.Items.Add("高精度#" + GlobalConfig.BaiduCloud.OcrTypeEnum.accurate_basic.ToString());
+                defaultOcrTypeComboBox.Items.Add("手写体#" + GlobalConfig.BaiduCloud.OcrTypeEnum.handwriting.ToString());
                 defaultOcrTypeComboBox.SelectedIndex = 0;
             }
-            else if (defaultOcrProvideComboBox.SelectedIndex == 1)
+            else if (defaultOcrProvideComboBox.SelectedIndex == (int)OcrProvideEnum.TencentCloud)
             {
                 defaultOcrTypeComboBox.Items.Clear();
-                defaultOcrTypeComboBox.Items.Add("通用#GeneralBasicOCR");
-                defaultOcrTypeComboBox.Items.Add("高精度#GeneralAccurateOCR");
-                defaultOcrTypeComboBox.Items.Add("手写体#GeneralHandwritingOCR");
+                defaultOcrTypeComboBox.Items.Add("通用#" + GlobalConfig.TencentCloud.OcrTypeEnum.GeneralBasicOCR.ToString());
+                defaultOcrTypeComboBox.Items.Add("高精度#" + GlobalConfig.TencentCloud.OcrTypeEnum.GeneralAccurateOCR.ToString());
+                defaultOcrTypeComboBox.Items.Add("手写体#" + GlobalConfig.TencentCloud.OcrTypeEnum.GeneralHandwritingOCR.ToString());
                 defaultOcrTypeComboBox.SelectedIndex = 0;
             }
         }
 
         private void defaultOcrTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (defaultOcrProvideComboBox.Text.Split('#')[1].Equals(GlobalConfig.Common.defaultOcrProvide)
+            if (defaultOcrProvideComboBox.Text.Split('#')[1].Equals(GlobalConfig.Common.defaultOcrProvide.ToString())
                 && defaultOcrTypeComboBox.Text.Split('#')[1].Equals(GlobalConfig.Common.defaultOcrType))
             {
                 defaultOcrSettingCheck.Checked = true;
@@ -190,7 +201,7 @@ namespace WindowsFormsOCR
 
         private void defaultTranslateProvideComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (defaultTranslateProvideComboBox.Text.Split('#')[1].Equals(GlobalConfig.Common.defaultTranslateProvide))
+            if (defaultTranslateProvideComboBox.Text.Split('#')[1].Equals(GlobalConfig.Common.defaultTranslateProvide.ToString()))
             {
                 defaultTranslateSettingCheck.Checked = true;
                 defaultTranslateSettingCheck.Enabled = false;
@@ -212,7 +223,7 @@ namespace WindowsFormsOCR
             else
             {
                 defaultOcrSettingCheck.Enabled = false;
-                GlobalConfig.Common.defaultOcrProvide = defaultOcrProvideComboBox.Text.Split('#')[1];
+                GlobalConfig.Common.defaultOcrProvide = (OcrProvideEnum)Enum.Parse(typeof(OcrProvideEnum), defaultOcrProvideComboBox.Text.Split('#')[1]);
                 GlobalConfig.Common.defaultOcrType = defaultOcrTypeComboBox.Text.Split('#')[1];
             }
         }
@@ -227,7 +238,7 @@ namespace WindowsFormsOCR
             else
             {
                 defaultTranslateSettingCheck.Enabled = false;
-                GlobalConfig.Common.defaultTranslateProvide = defaultTranslateProvideComboBox.Text.Split('#')[1];
+                GlobalConfig.Common.defaultTranslateProvide = (TranslateProvideEnum)Enum.Parse(typeof(TranslateProvideEnum), defaultTranslateProvideComboBox.Text.Split('#')[1]);
             }
         }
 

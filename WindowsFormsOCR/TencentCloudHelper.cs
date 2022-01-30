@@ -49,14 +49,20 @@ namespace WindowsFormsOCR
             }
         }
 
-        public static String ocr(Bitmap bmp, String ocrType = null)
+        public static String ocr(Bitmap bmp, String ocrTypeStr = null)
         {
-            if (string.IsNullOrWhiteSpace(ocrType))
-            {
-                ocrType = GlobalConfig.Common.defaultOcrType;
-            }
             try
             {
+                GlobalConfig.TencentCloud.OcrTypeEnum ocrType;
+                if (string.IsNullOrWhiteSpace(ocrTypeStr))
+                {
+                    ocrType = (GlobalConfig.TencentCloud.OcrTypeEnum)Enum.Parse(typeof(GlobalConfig.TencentCloud.OcrTypeEnum), GlobalConfig.Common.defaultOcrType);
+                }
+                else
+                {
+                    ocrType = (GlobalConfig.TencentCloud.OcrTypeEnum)Enum.Parse(typeof(GlobalConfig.TencentCloud.OcrTypeEnum), ocrTypeStr);
+                }
+
                 Credential cred = new Credential
                 {
                     SecretId = GlobalConfig.TencentCloud.secret_id,
@@ -71,21 +77,21 @@ namespace WindowsFormsOCR
                 OcrClient client = new OcrClient(cred, "ap-beijing", clientProfile);
                 String jsonStr = "{}";
                 String base64 = Utils.BitmapToBase64String(bmp);
-                if ("GeneralBasicOCR".Equals(ocrType))
+                if (ocrType == GlobalConfig.TencentCloud.OcrTypeEnum.GeneralBasicOCR)
                 {
                     GeneralBasicOCRRequest req = new GeneralBasicOCRRequest();
                     req.ImageBase64 = base64;
                     GeneralBasicOCRResponse resp = client.GeneralBasicOCRSync(req);
                     jsonStr = AbstractModel.ToJsonString(resp);
                 }
-                else if ("GeneralAccurateOCR".Equals(ocrType))
+                else if (ocrType == GlobalConfig.TencentCloud.OcrTypeEnum.GeneralAccurateOCR)
                 {
                     GeneralAccurateOCRRequest req = new GeneralAccurateOCRRequest();
                     req.ImageBase64 = base64;
                     GeneralAccurateOCRResponse resp = client.GeneralAccurateOCRSync(req);
                     jsonStr = AbstractModel.ToJsonString(resp);
                 }
-                else if ("GeneralHandwritingOCR".Equals(ocrType))
+                else if (ocrType == GlobalConfig.TencentCloud.OcrTypeEnum.GeneralHandwritingOCR)
                 {
                     GeneralHandwritingOCRRequest req = new GeneralHandwritingOCRRequest();
                     req.ImageBase64 = base64;

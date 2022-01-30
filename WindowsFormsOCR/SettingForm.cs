@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Microsoft.Win32;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using static WindowsFormsOCR.GlobalConfig;
 
 namespace WindowsFormsOCR
 {
@@ -30,7 +31,7 @@ namespace WindowsFormsOCR
                 if (control is RadioButton)
                 {
                     RadioButton radioButton = (RadioButton)control;
-                    if (radioButton.Tag.Equals(GlobalConfig.Common.defaultOcrProvide))
+                    if (radioButton.Tag.Equals(GlobalConfig.Common.defaultOcrProvide.ToString()))
                     {
                         radioButton.Checked = true;
                         break;
@@ -42,7 +43,7 @@ namespace WindowsFormsOCR
                 if (control is RadioButton)
                 {
                     RadioButton radioButton = (RadioButton)control;
-                    if (radioButton.Tag.Equals(GlobalConfig.Common.defaultTranslateProvide))
+                    if (radioButton.Tag.Equals(GlobalConfig.Common.defaultTranslateProvide.ToString()))
                     {
                         radioButton.Checked = true;
                         break;
@@ -79,20 +80,20 @@ namespace WindowsFormsOCR
         {
             if (defaultOcrBaiduCloudRadio.Checked)
             {
-                GlobalConfig.Common.defaultOcrProvide = defaultOcrBaiduCloudRadio.Tag.ToString();
+                GlobalConfig.Common.defaultOcrProvide = (OcrProvideEnum)Enum.Parse(typeof(OcrProvideEnum), defaultOcrBaiduCloudRadio.Tag.ToString());
                 defaultOcrTypeComboBox.Items.Clear();
-                defaultOcrTypeComboBox.Items.Add("通用#general_basic");
-                defaultOcrTypeComboBox.Items.Add("高精度#accurate_basic");
-                defaultOcrTypeComboBox.Items.Add("手写体#handwriting");
+                defaultOcrTypeComboBox.Items.Add("通用#" + GlobalConfig.BaiduCloud.OcrTypeEnum.general_basic.ToString());
+                defaultOcrTypeComboBox.Items.Add("高精度#" + GlobalConfig.BaiduCloud.OcrTypeEnum.accurate_basic.ToString());
+                defaultOcrTypeComboBox.Items.Add("手写体#" + GlobalConfig.BaiduCloud.OcrTypeEnum.handwriting.ToString());
                 defaultOcrTypeComboBox.SelectedIndex = 0;
             }
             else if (defaultOcrTencentCloudRadio.Checked)
             {
-                GlobalConfig.Common.defaultOcrProvide = defaultOcrTencentCloudRadio.Tag.ToString();
+                GlobalConfig.Common.defaultOcrProvide = (OcrProvideEnum)Enum.Parse(typeof(OcrProvideEnum), defaultOcrTencentCloudRadio.Tag.ToString());
                 defaultOcrTypeComboBox.Items.Clear();
-                defaultOcrTypeComboBox.Items.Add("通用#GeneralBasicOCR");
-                defaultOcrTypeComboBox.Items.Add("高精度#GeneralAccurateOCR");
-                defaultOcrTypeComboBox.Items.Add("手写体#GeneralHandwritingOCR");
+                defaultOcrTypeComboBox.Items.Add("通用#" + GlobalConfig.TencentCloud.OcrTypeEnum.GeneralBasicOCR.ToString());
+                defaultOcrTypeComboBox.Items.Add("高精度#" + GlobalConfig.TencentCloud.OcrTypeEnum.GeneralAccurateOCR.ToString());
+                defaultOcrTypeComboBox.Items.Add("手写体#" + GlobalConfig.TencentCloud.OcrTypeEnum.GeneralHandwritingOCR.ToString());
                 defaultOcrTypeComboBox.SelectedIndex = 0;
             }
         }
@@ -101,11 +102,11 @@ namespace WindowsFormsOCR
         {
             if (defaultTranslateTencentCloudRadio.Checked)
             {
-                GlobalConfig.Common.defaultTranslateProvide = defaultTranslateTencentCloudRadio.Tag.ToString();
+                GlobalConfig.Common.defaultTranslateProvide = (TranslateProvideEnum)Enum.Parse(typeof(TranslateProvideEnum), defaultTranslateTencentCloudRadio.Tag.ToString());
             }
             else if (defaultTranslateBaiduAIRadio.Checked)
             {
-                GlobalConfig.Common.defaultTranslateProvide = defaultTranslateBaiduAIRadio.Tag.ToString();
+                GlobalConfig.Common.defaultTranslateProvide = (TranslateProvideEnum)Enum.Parse(typeof(TranslateProvideEnum), defaultTranslateBaiduAIRadio.Tag.ToString());
             }
         }
 

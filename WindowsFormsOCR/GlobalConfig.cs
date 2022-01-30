@@ -16,8 +16,8 @@ namespace WindowsFormsOCR
 
         public static class Common
         {
-            public static String defaultOcrProvide = "";
-            public static String defaultTranslateProvide = "";
+            public static OcrProvideEnum defaultOcrProvide;
+            public static TranslateProvideEnum defaultTranslateProvide;
             public static String defaultOcrType = "";
             public static bool autoStart = false;
         }
@@ -30,6 +30,13 @@ namespace WindowsFormsOCR
             public static DateTime access_token_expires_time;
             public static String client_id = "";
             public static String client_secret = "";
+            public enum OcrTypeEnum
+            {
+                general_basic,
+                accurate_basic,
+                handwriting
+            }
+
         }
         public static class BaiduAI
         {
@@ -40,12 +47,32 @@ namespace WindowsFormsOCR
         {
             public static String secret_id = "";
             public static String secret_key = "";
+            public enum OcrTypeEnum
+            {
+                GeneralBasicOCR,
+                GeneralAccurateOCR,
+                GeneralHandwritingOCR
+            }
+
         }
         public static class TencentCloudTranslate
         {
             public static String secret_id = "";
             public static String secret_key = "";
         }
+
+        public enum OcrProvideEnum
+        {
+            BaiduCloud,
+            TencentCloud
+        }
+
+        public enum TranslateProvideEnum
+        {
+            BaiduAI,
+            TencentCloud
+        }
+
         public static void GetConfig()
         {
             string jsonStr;
@@ -56,9 +83,9 @@ namespace WindowsFormsOCR
                     jsonStr = sr.ReadToEnd().ToString();
                 }
                 JObject jsonObj = JObject.Parse(jsonStr);
-
-                Common.defaultOcrProvide = jsonObj["Common"]["defaultOcrProvide"].ToString();
-                Common.defaultTranslateProvide = jsonObj["Common"]["defaultTranslateProvide"].ToString();
+                
+                Common.defaultOcrProvide = (OcrProvideEnum)Enum.Parse(typeof(OcrProvideEnum), jsonObj["Common"]["defaultOcrProvide"].ToString()); ;
+                Common.defaultTranslateProvide = (TranslateProvideEnum)Enum.Parse(typeof(TranslateProvideEnum), jsonObj["Common"]["defaultTranslateProvide"].ToString());
                 Common.defaultOcrType = jsonObj["Common"]["defaultOcrType"].ToString();
                 Common.autoStart = Boolean.Parse(jsonObj["Common"]["autoStart"].ToString());
 
@@ -86,8 +113,8 @@ namespace WindowsFormsOCR
             JObject jsonObj = new JObject();
 
             jsonObj["Common"] = new JObject();
-            jsonObj["Common"]["defaultOcrProvide"] = Common.defaultOcrProvide;
-            jsonObj["Common"]["defaultTranslateProvide"] = Common.defaultTranslateProvide;
+            jsonObj["Common"]["defaultOcrProvide"] = Common.defaultOcrProvide.ToString();
+            jsonObj["Common"]["defaultTranslateProvide"] = Common.defaultTranslateProvide.ToString();
             jsonObj["Common"]["defaultOcrType"] = Common.defaultOcrType;
             jsonObj["Common"]["autoStart"] = Common.autoStart;
 
