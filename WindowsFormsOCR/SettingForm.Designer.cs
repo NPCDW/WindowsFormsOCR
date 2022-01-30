@@ -35,6 +35,7 @@
             this.defaultTranslateTencentCloudRadio = new System.Windows.Forms.RadioButton();
             this.defaultTranslateBaiduAIRadio = new System.Windows.Forms.RadioButton();
             this.defaultOcrProvideGroupBox = new System.Windows.Forms.GroupBox();
+            this.defaultOcrTypeComboBox = new System.Windows.Forms.ComboBox();
             this.defaultOcrTencentCloudRadio = new System.Windows.Forms.RadioButton();
             this.defaultOcrBaiduCloudRadio = new System.Windows.Forms.RadioButton();
             this.autoStartButton = new System.Windows.Forms.CheckBox();
@@ -75,7 +76,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.defaultOcrTypeComboBox = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.defaultTranslateProvide.SuspendLayout();
@@ -166,6 +166,16 @@
             this.defaultOcrProvideGroupBox.TabIndex = 2;
             this.defaultOcrProvideGroupBox.TabStop = false;
             this.defaultOcrProvideGroupBox.Text = "默认OCR";
+            // 
+            // defaultOcrTypeComboBox
+            // 
+            this.defaultOcrTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.defaultOcrTypeComboBox.FormattingEnabled = true;
+            this.defaultOcrTypeComboBox.Location = new System.Drawing.Point(208, 21);
+            this.defaultOcrTypeComboBox.Name = "defaultOcrTypeComboBox";
+            this.defaultOcrTypeComboBox.Size = new System.Drawing.Size(211, 25);
+            this.defaultOcrTypeComboBox.TabIndex = 4;
+            this.defaultOcrTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.defaultOcrType_SelectedIndexChanged);
             // 
             // defaultOcrTencentCloudRadio
             // 
@@ -647,18 +657,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(130, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "版本 0.4.0 (2022.1.25)";
-            // 
-            // defaultOcrTypeComboBox
-            // 
-            this.defaultOcrTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.defaultOcrTypeComboBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.defaultOcrTypeComboBox.FormattingEnabled = true;
-            this.defaultOcrTypeComboBox.Location = new System.Drawing.Point(208, 21);
-            this.defaultOcrTypeComboBox.Name = "defaultOcrTypeComboBox";
-            this.defaultOcrTypeComboBox.Size = new System.Drawing.Size(211, 25);
-            this.defaultOcrTypeComboBox.TabIndex = 4;
-            this.defaultOcrTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.defaultOcrType_SelectedIndexChanged);
+            this.label1.Text = "版本 1.0.0 (2022.1.30)";
             // 
             // SettingForm
             // 

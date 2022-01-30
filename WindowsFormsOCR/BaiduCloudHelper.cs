@@ -13,11 +13,15 @@ namespace WindowsFormsOCR
     {
         private static String baseUrl = "https://aip.baidubce.com";
 
-        public static String ocr(Bitmap bmp)
+        public static String ocr(Bitmap bmp, String ocrType = null)
         {
+            if (string.IsNullOrWhiteSpace(ocrType))
+            {
+                ocrType = GlobalConfig.Common.defaultOcrType;
+            }
             try
             {
-                String url = baseUrl + "/rest/2.0/ocr/v1/" + GlobalConfig.Common.defaultOcrType + "?access_token=" + GetAccessToken();
+                String url = baseUrl + "/rest/2.0/ocr/v1/" + ocrType + "?access_token=" + GetAccessToken();
                 String base64 = Utils.BitmapToBase64String(bmp);
                 String body = "image=" + HttpUtility.UrlEncode(base64, Encoding.UTF8);
                 Dictionary<String, String> headers = new Dictionary<String, String>();
