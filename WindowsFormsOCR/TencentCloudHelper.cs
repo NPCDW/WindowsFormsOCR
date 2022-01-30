@@ -49,8 +49,12 @@ namespace WindowsFormsOCR
             }
         }
 
-        public static String ocr(Bitmap bmp)
+        public static String ocr(Bitmap bmp, String ocrType = null)
         {
+            if (string.IsNullOrWhiteSpace(ocrType))
+            {
+                ocrType = GlobalConfig.Common.defaultOcrType;
+            }
             try
             {
                 Credential cred = new Credential
@@ -67,21 +71,21 @@ namespace WindowsFormsOCR
                 OcrClient client = new OcrClient(cred, "ap-beijing", clientProfile);
                 String jsonStr = "{}";
                 String base64 = Utils.BitmapToBase64String(bmp);
-                if ("GeneralBasicOCR".Equals(GlobalConfig.Common.defaultOcrType))
+                if ("GeneralBasicOCR".Equals(ocrType))
                 {
                     GeneralBasicOCRRequest req = new GeneralBasicOCRRequest();
                     req.ImageBase64 = base64;
                     GeneralBasicOCRResponse resp = client.GeneralBasicOCRSync(req);
                     jsonStr = AbstractModel.ToJsonString(resp);
                 }
-                else if ("GeneralAccurateOCR".Equals(GlobalConfig.Common.defaultOcrType))
+                else if ("GeneralAccurateOCR".Equals(ocrType))
                 {
                     GeneralAccurateOCRRequest req = new GeneralAccurateOCRRequest();
                     req.ImageBase64 = base64;
                     GeneralAccurateOCRResponse resp = client.GeneralAccurateOCRSync(req);
                     jsonStr = AbstractModel.ToJsonString(resp);
                 }
-                else if ("GeneralHandwritingOCR".Equals(GlobalConfig.Common.defaultOcrType))
+                else if ("GeneralHandwritingOCR".Equals(ocrType))
                 {
                     GeneralHandwritingOCRRequest req = new GeneralHandwritingOCRRequest();
                     req.ImageBase64 = base64;
