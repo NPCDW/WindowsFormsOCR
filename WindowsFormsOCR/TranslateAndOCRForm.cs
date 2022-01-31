@@ -225,6 +225,7 @@ namespace WindowsFormsOCR
                 defaultOcrSettingCheck.Enabled = false;
                 GlobalConfig.Common.defaultOcrProvide = (OcrProvideEnum)Enum.Parse(typeof(OcrProvideEnum), defaultOcrProvideComboBox.Text.Split('#')[1]);
                 GlobalConfig.Common.defaultOcrType = defaultOcrTypeComboBox.Text.Split('#')[1];
+                GlobalConfig.SaveConfig();
             }
         }
 
@@ -239,6 +240,7 @@ namespace WindowsFormsOCR
             {
                 defaultTranslateSettingCheck.Enabled = false;
                 GlobalConfig.Common.defaultTranslateProvide = (TranslateProvideEnum)Enum.Parse(typeof(TranslateProvideEnum), defaultTranslateProvideComboBox.Text.Split('#')[1]);
+                GlobalConfig.SaveConfig();
             }
         }
 
