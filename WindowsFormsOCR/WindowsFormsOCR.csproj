@@ -74,6 +74,7 @@
   <ItemGroup>
     <Compile Include="BaiduAIHelper.cs" />
     <Compile Include="BaiduCloudHelper.cs" />
+    <Compile Include="WinApiClipboard.cs" />
     <Compile Include="GetWords.cs" />
     <Compile Include="GlobalConfig.cs" />
     <Compile Include="HotKey.cs" />

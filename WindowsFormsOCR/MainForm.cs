@@ -56,7 +56,7 @@ namespace WindowsFormsOCR
                 case 0x0312: //这个是window消息定义的 注册的热键消息
                     if (m.WParam.ToString().Equals("845")) //如果是我们注册的那个热键
                     {
-                        this.Translate_Click(null, null);
+                        this.Translate_HotKey_Click(null, null);
                     }
                     if (m.WParam.ToString().Equals("846")) //如果是我们注册的那个热键
                     {
@@ -72,6 +72,11 @@ namespace WindowsFormsOCR
         }
 
         private void Translate_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("先用鼠标选出需要翻译的文本，然后按F2即可");
+        }
+
+        private void Translate_HotKey_Click(object sender, EventArgs e)
         {
             String getWordsResult = GetWords.Get();
             TranslateAndOcrForm form = null;
