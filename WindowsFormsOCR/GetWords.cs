@@ -24,7 +24,7 @@ namespace WindowsFormsOCR
         {
             SendCtrlC();
             Thread.Sleep(200);
-            String text = GetDataFromClipboard();
+            String text = WinApiClipboard.GetText();
             return text;
         }
 
