@@ -79,10 +79,20 @@ namespace WindowsFormsOCR
 
     internal class TranslateLanguageExtension
     {
+        public static List<TranslateLanguageAttribute> TranslateLanguageAttributeList = new List<TranslateLanguageAttribute>();
+
         public static TranslateLanguageAttribute GetAttribute(TranslateLanguageEnum item)
         {
             MemberInfo[] mi = item.GetType().GetMember(item.ToString());
             return Attribute.GetCustomAttribute(mi[0], typeof(TranslateLanguageAttribute)) as TranslateLanguageAttribute;
+        }
+
+        static TranslateLanguageExtension()
+        {
+            foreach (TranslateLanguageEnum item in Enum.GetValues(typeof(TranslateLanguageEnum)))
+            {
+                TranslateLanguageAttributeList.Add(GetAttribute(item));
+            }
         }
     }
 

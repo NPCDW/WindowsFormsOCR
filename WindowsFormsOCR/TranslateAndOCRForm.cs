@@ -31,7 +31,6 @@ namespace WindowsFormsOCR
                 }
             }
 
-
             foreach (String text in this.defaultTranslateProvideComboBox.Items)
             {
                 if (text.Split('#')[1].Equals(GlobalConfig.Common.defaultTranslateProvide.ToString()))
@@ -46,6 +45,24 @@ namespace WindowsFormsOCR
                 if (text.Split('#')[1].Equals(GlobalConfig.Common.defaultOcrType))
                 {
                     defaultOcrTypeComboBox.Text = text;
+                    break;
+                }
+            }
+
+            foreach (String text in this.sourceLanguageComboBox.Items)
+            {
+                if (text.Split('#')[1].Equals(GlobalConfig.Common.defaultTranslateSourceLanguage.ToString()))
+                {
+                    sourceLanguageComboBox.Text = text;
+                    break;
+                }
+            }
+
+            foreach (String text in this.targetLanguageComboBox.Items)
+            {
+                if (text.Split('#')[1].Equals(GlobalConfig.Common.defaultTranslateTargetLanguage.ToString()))
+                {
+                    targetLanguageComboBox.Text = text;
                     break;
                 }
             }
@@ -205,15 +222,39 @@ namespace WindowsFormsOCR
             // 这两个下拉框绑定事件，如果切换，判定是否需要将默认按钮设置
             // 设置中也添加这两个下拉框
             // 划词翻译和截图翻译 事件也需要修改
-            if (defaultTranslateProvideComboBox.Text.Split('#')[1].Equals(GlobalConfig.Common.defaultTranslateProvide.ToString()))
+
+            string translateProvide = defaultTranslateProvideComboBox.Text.Split('#')[1];
+            if (translateProvide.Equals(GlobalConfig.TranslateProvideEnum.BaiduAI.ToString()))
             {
-                defaultTranslateSettingCheck.Checked = true;
-                defaultTranslateSettingCheck.Enabled = false;
+                sourceLanguageComboBox.Items.Clear();
+                targetLanguageComboBox.Items.Clear();
+                foreach (TranslateLanguageAttribute item in TranslateLanguageExtension.TranslateLanguageAttributeList)
+                {
+                    if (!string.IsNullOrWhiteSpace(item.getBaiduAiCode()))
+                    {
+                        sourceLanguageComboBox.Items.Add(item.getName() + "#" + item.getBaiduAiCode());
+                        targetLanguageComboBox.Items.Add(item.getName() + "#" + item.getBaiduAiCode());
+                    }
+                }
+                targetLanguageComboBox.Items.RemoveAt(0);
+                sourceLanguageComboBox.SelectedIndex = 0;
+                targetLanguageComboBox.SelectedIndex = 0;
             }
-            else
+            else if (translateProvide.Equals(GlobalConfig.TranslateProvideEnum.TencentCloud.ToString()))
             {
-                defaultTranslateSettingCheck.Checked = false;
-                defaultTranslateSettingCheck.Enabled = true;
+                sourceLanguageComboBox.Items.Clear();
+                targetLanguageComboBox.Items.Clear();
+                foreach (TranslateLanguageAttribute item in TranslateLanguageExtension.TranslateLanguageAttributeList)
+                {
+                    if (!string.IsNullOrWhiteSpace(item.getTencentCloudCode()))
+                    {
+                        sourceLanguageComboBox.Items.Add(item.getName() + "#" + item.getTencentCloudCode());
+                        targetLanguageComboBox.Items.Add(item.getName() + "#" + item.getTencentCloudCode());
+                    }
+                }
+                targetLanguageComboBox.Items.RemoveAt(0);
+                sourceLanguageComboBox.SelectedIndex = 0;
+                targetLanguageComboBox.SelectedIndex = 0;
             }
         }
 
@@ -244,6 +285,8 @@ namespace WindowsFormsOCR
             {
                 defaultTranslateSettingCheck.Enabled = false;
                 GlobalConfig.Common.defaultTranslateProvide = (TranslateProvideEnum)Enum.Parse(typeof(TranslateProvideEnum), defaultTranslateProvideComboBox.Text.Split('#')[1]);
+                GlobalConfig.Common.defaultTranslateSourceLanguage = sourceLanguageComboBox.Text.Split('#')[1];
+                GlobalConfig.Common.defaultTranslateTargetLanguage = targetLanguageComboBox.Text.Split('#')[1];
                 GlobalConfig.SaveConfig();
             }
         }
@@ -257,5 +300,24 @@ namespace WindowsFormsOCR
             }
             this.ocr(this.bmp, defaultOcrProvideComboBox.Text.Split('#')[1], defaultOcrTypeComboBox.Text.Split('#')[1]);
         }
+
+        private void translateDefaultCheck_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (defaultTranslateProvideComboBox.Text.Split('#')[1].Equals(GlobalConfig.Common.defaultTranslateProvide.ToString())
+                && sourceLanguageComboBox.Text.Contains("#")
+                && targetLanguageComboBox.Text.Contains("#")
+                && sourceLanguageComboBox.Text.Split('#')[1].Equals(GlobalConfig.Common.defaultTranslateSourceLanguage)
+                && targetLanguageComboBox.Text.Split('#')[1].Equals(GlobalConfig.Common.defaultTranslateTargetLanguage))
+            {
+                defaultTranslateSettingCheck.Checked = true;
+                defaultTranslateSettingCheck.Enabled = false;
+            }
+            else
+            {
+                defaultTranslateSettingCheck.Checked = false;
+                defaultTranslateSettingCheck.Enabled = true;
+            }
+        }
+
     }
 }

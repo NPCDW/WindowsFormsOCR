@@ -159,6 +159,7 @@
             this.sourceLanguageComboBox.Name = "sourceLanguageComboBox";
             this.sourceLanguageComboBox.Size = new System.Drawing.Size(121, 25);
             this.sourceLanguageComboBox.TabIndex = 10;
+            this.sourceLanguageComboBox.SelectedIndexChanged += new System.EventHandler(this.translateDefaultCheck_SelectedIndexChanged);
             // 
             // targetLanguageComboBox
             // 
@@ -168,6 +169,7 @@
             this.targetLanguageComboBox.Name = "targetLanguageComboBox";
             this.targetLanguageComboBox.Size = new System.Drawing.Size(121, 25);
             this.targetLanguageComboBox.TabIndex = 11;
+            this.targetLanguageComboBox.SelectedIndexChanged += new System.EventHandler(this.translateDefaultCheck_SelectedIndexChanged);
             // 
             // TranslateAndOcrForm
             // 
