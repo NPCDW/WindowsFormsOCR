@@ -201,6 +201,10 @@ namespace WindowsFormsOCR
 
         private void defaultTranslateProvideComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // TODO 翻译下拉框切换，修改源语言和目标语言下拉框
+            // 这两个下拉框绑定事件，如果切换，判定是否需要将默认按钮设置
+            // 设置中也添加这两个下拉框
+            // 划词翻译和截图翻译 事件也需要修改
             if (defaultTranslateProvideComboBox.Text.Split('#')[1].Equals(GlobalConfig.Common.defaultTranslateProvide.ToString()))
             {
                 defaultTranslateSettingCheck.Checked = true;

@@ -38,6 +38,8 @@
             this.ocrButton = new System.Windows.Forms.Button();
             this.defaultTranslateProvideComboBox = new System.Windows.Forms.ComboBox();
             this.defaultTranslateSettingCheck = new System.Windows.Forms.CheckBox();
+            this.sourceLanguageComboBox = new System.Windows.Forms.ComboBox();
+            this.targetLanguageComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // ocrTextBox
@@ -141,7 +143,7 @@
             this.defaultTranslateSettingCheck.Checked = true;
             this.defaultTranslateSettingCheck.CheckState = System.Windows.Forms.CheckState.Checked;
             this.defaultTranslateSettingCheck.Enabled = false;
-            this.defaultTranslateSettingCheck.Location = new System.Drawing.Point(139, 264);
+            this.defaultTranslateSettingCheck.Location = new System.Drawing.Point(393, 264);
             this.defaultTranslateSettingCheck.Name = "defaultTranslateSettingCheck";
             this.defaultTranslateSettingCheck.Size = new System.Drawing.Size(75, 21);
             this.defaultTranslateSettingCheck.TabIndex = 9;
@@ -149,11 +151,31 @@
             this.defaultTranslateSettingCheck.UseVisualStyleBackColor = true;
             this.defaultTranslateSettingCheck.CheckedChanged += new System.EventHandler(this.defaultTranslateSettingCheck_CheckedChanged);
             // 
+            // sourceLanguageComboBox
+            // 
+            this.sourceLanguageComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.sourceLanguageComboBox.FormattingEnabled = true;
+            this.sourceLanguageComboBox.Location = new System.Drawing.Point(139, 262);
+            this.sourceLanguageComboBox.Name = "sourceLanguageComboBox";
+            this.sourceLanguageComboBox.Size = new System.Drawing.Size(121, 25);
+            this.sourceLanguageComboBox.TabIndex = 10;
+            // 
+            // targetLanguageComboBox
+            // 
+            this.targetLanguageComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.targetLanguageComboBox.FormattingEnabled = true;
+            this.targetLanguageComboBox.Location = new System.Drawing.Point(266, 262);
+            this.targetLanguageComboBox.Name = "targetLanguageComboBox";
+            this.targetLanguageComboBox.Size = new System.Drawing.Size(121, 25);
+            this.targetLanguageComboBox.TabIndex = 11;
+            // 
             // TranslateAndOcrForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(636, 516);
+            this.Controls.Add(this.targetLanguageComboBox);
+            this.Controls.Add(this.sourceLanguageComboBox);
             this.Controls.Add(this.defaultTranslateSettingCheck);
             this.Controls.Add(this.defaultTranslateProvideComboBox);
             this.Controls.Add(this.ocrButton);
@@ -185,5 +207,7 @@
         private System.Windows.Forms.Button ocrButton;
         private System.Windows.Forms.ComboBox defaultTranslateProvideComboBox;
         private System.Windows.Forms.CheckBox defaultTranslateSettingCheck;
+        private System.Windows.Forms.ComboBox sourceLanguageComboBox;
+        private System.Windows.Forms.ComboBox targetLanguageComboBox;
     }
 }

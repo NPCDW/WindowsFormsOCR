@@ -1,9 +1,10 @@
 {
   "Common": {
     "defaultOcrProvide": "TencentCloud",
-    "defaultTranslateProvide": "TencentCloud",
     "defaultOcrType": "GeneralBasicOCR",
-    "autoStart": false
+    "defaultTranslateProvide": "TencentCloud",
+    "defaultTranslateSourceLanguage": "auto",
+    "defaultTranslateTargetLanguage": "zh"
   },
   "Local": {},
   "BaiduCloud": {

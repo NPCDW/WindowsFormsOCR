@@ -154,7 +154,7 @@ namespace WindowsFormsOCR
             GlobalConfig.TencentCloud.secret_key = this.TencentCloud_SecretKeyInput.Text;
         }
 
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void emailLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Clipboard.SetDataObject("chenyongli0520@qq.com");
             MessageBox.Show("已复制邮件地址");
@@ -163,30 +163,15 @@ namespace WindowsFormsOCR
         private void AutoStart_CheckedChanged(object sender, EventArgs e)
         {
             bool isAuto = this.autoStartButton.Checked;
-            try
+            if (isAuto)
             {
-                if (isAuto)
-                {
-                    RegistryKey R_local = Registry.CurrentUser;
-                    RegistryKey R_run = R_local.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run");
-                    R_run.SetValue("WindowsFormsOCR", Application.ExecutablePath);
-                    R_run.Close();
-                    R_local.Close();
-                }
-                else
-                {
-                    RegistryKey R_local = Registry.CurrentUser;
-                    RegistryKey R_run = R_local.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run");
-                    R_run.DeleteValue("WindowsFormsOCR", false);
-                    R_run.Close();
-                    R_local.Close();
-                }
-                GlobalConfig.Common.autoStart = isAuto;
+                AutoStart.Enable();
             }
-            catch (Exception)
+            else
             {
-                MessageBox.Show("您需要管理员权限修改");
+                AutoStart.Disable();
             }
+            GlobalConfig.Common.autoStart = isAuto;
         }
 
         private void LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
