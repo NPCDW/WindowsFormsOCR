@@ -70,7 +70,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.linkLabel4 = new System.Windows.Forms.LinkLabel();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.emailLink = new System.Windows.Forms.LinkLabel();
             this.label4 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
@@ -576,7 +576,7 @@
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.linkLabel2);
+            this.tabPage4.Controls.Add(this.emailLink);
             this.tabPage4.Controls.Add(this.label4);
             this.tabPage4.Controls.Add(this.linkLabel1);
             this.tabPage4.Controls.Add(this.label3);
@@ -592,17 +592,17 @@
             this.tabPage4.Text = "关于";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // linkLabel2
+            // emailLink
             // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(68, 154);
-            this.linkLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(154, 17);
-            this.linkLabel2.TabIndex = 5;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "chenyongli0520@qq.com";
-            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            this.emailLink.AutoSize = true;
+            this.emailLink.Location = new System.Drawing.Point(68, 154);
+            this.emailLink.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.emailLink.Name = "emailLink";
+            this.emailLink.Size = new System.Drawing.Size(154, 17);
+            this.emailLink.TabIndex = 5;
+            this.emailLink.TabStop = true;
+            this.emailLink.Text = "chenyongli0520@qq.com";
+            this.emailLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.emailLink_LinkClicked);
             // 
             // label4
             // 
@@ -706,7 +706,7 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.LinkLabel emailLink;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label3;

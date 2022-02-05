@@ -72,8 +72,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutoStart.cs" />
     <Compile Include="BaiduAIHelper.cs" />
     <Compile Include="BaiduCloudHelper.cs" />
+    <Compile Include="TranslateLanguageEnum.cs" />
     <Compile Include="WinApiClipboard.cs" />
     <Compile Include="GetWords.cs" />
     <Compile Include="GlobalConfig.cs" />

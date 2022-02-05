@@ -17,8 +17,10 @@ namespace WindowsFormsOCR
         public static class Common
         {
             public static OcrProvideEnum defaultOcrProvide;
-            public static TranslateProvideEnum defaultTranslateProvide;
             public static String defaultOcrType = "";
+            public static TranslateProvideEnum defaultTranslateProvide;
+            public static String defaultTranslateSourceLanguage;
+            public static String defaultTranslateTargetLanguage;
             public static bool autoStart = false;
         }
         public static class Local
@@ -84,10 +86,12 @@ namespace WindowsFormsOCR
                 }
                 JObject jsonObj = JObject.Parse(jsonStr);
                 
-                Common.defaultOcrProvide = (OcrProvideEnum)Enum.Parse(typeof(OcrProvideEnum), jsonObj["Common"]["defaultOcrProvide"].ToString()); ;
-                Common.defaultTranslateProvide = (TranslateProvideEnum)Enum.Parse(typeof(TranslateProvideEnum), jsonObj["Common"]["defaultTranslateProvide"].ToString());
+                Common.defaultOcrProvide = (OcrProvideEnum)Enum.Parse(typeof(OcrProvideEnum), jsonObj["Common"]["defaultOcrProvide"].ToString());
                 Common.defaultOcrType = jsonObj["Common"]["defaultOcrType"].ToString();
-                Common.autoStart = Boolean.Parse(jsonObj["Common"]["autoStart"].ToString());
+                Common.defaultTranslateProvide = (TranslateProvideEnum)Enum.Parse(typeof(TranslateProvideEnum), jsonObj["Common"]["defaultTranslateProvide"].ToString());
+                Common.defaultTranslateSourceLanguage = jsonObj["Common"]["defaultTranslateSourceLanguage"].ToString();
+                Common.defaultTranslateTargetLanguage = jsonObj["Common"]["defaultTranslateTargetLanguage"].ToString();
+                Common.autoStart = AutoStart.GetStatus();
 
                 BaiduCloud.access_token = jsonObj["BaiduCloud"]["access_token"].ToString();
                 BaiduCloud.access_token_expires_time = DateTime.Parse(jsonObj["BaiduCloud"]["access_token_expires_time"].ToString());
@@ -114,9 +118,10 @@ namespace WindowsFormsOCR
 
             jsonObj["Common"] = new JObject();
             jsonObj["Common"]["defaultOcrProvide"] = Common.defaultOcrProvide.ToString();
-            jsonObj["Common"]["defaultTranslateProvide"] = Common.defaultTranslateProvide.ToString();
             jsonObj["Common"]["defaultOcrType"] = Common.defaultOcrType;
-            jsonObj["Common"]["autoStart"] = Common.autoStart;
+            jsonObj["Common"]["defaultTranslateProvide"] = Common.defaultTranslateProvide.ToString();
+            jsonObj["Common"]["defaultTranslateSourceLanguage"] = Common.defaultTranslateSourceLanguage;
+            jsonObj["Common"]["defaultTranslateTargetLanguage"] = Common.defaultTranslateTargetLanguage;
 
             jsonObj["BaiduCloud"] = new JObject();
             jsonObj["BaiduCloud"]["access_token"] = BaiduCloud.access_token;
