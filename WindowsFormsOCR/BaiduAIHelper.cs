@@ -14,7 +14,7 @@ namespace WindowsFormsOCR
         private static String translateUrl = "https://fanyi-api.baidu.com/api/trans/vip/translate";
         private static String imageTranslateUrl = "https://fanyi-api.baidu.com/api/trans/sdk/picture";
 
-        public static String translate(String text)
+        public static String translate(String text, String sourceLanguage, String targetLanguage)
         {
             try
             {
@@ -23,8 +23,8 @@ namespace WindowsFormsOCR
                 String sign = Utils.Md5(signStr);
 
                 String body = "q=" + HttpUtility.UrlEncode(text, Encoding.UTF8)
-                    + "&from=auto"
-                    + "&to=zh"
+                    + "&from=" + sourceLanguage
+                    + "&to=" + targetLanguage
                     + "&appid=" + GlobalConfig.BaiduAI.app_id
                     + "&salt=" + salt
                     + "&sign=" + sign;
