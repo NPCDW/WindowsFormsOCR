@@ -141,7 +141,7 @@
             this.targetLanguageComboBox.Name = "targetLanguageComboBox";
             this.targetLanguageComboBox.Size = new System.Drawing.Size(121, 25);
             this.targetLanguageComboBox.TabIndex = 4;
-            this.targetLanguageComboBox.SelectedIndexChanged += new System.EventHandler(this.defaultTranslateLanguageComboBox_SelectedIndexChanged);
+            this.targetLanguageComboBox.SelectedIndexChanged += new System.EventHandler(this.targetLanguageComboBox_SelectedIndexChanged);
             // 
             // sourceLanguageComboBox
             // 
@@ -151,7 +151,7 @@
             this.sourceLanguageComboBox.Name = "sourceLanguageComboBox";
             this.sourceLanguageComboBox.Size = new System.Drawing.Size(121, 25);
             this.sourceLanguageComboBox.TabIndex = 4;
-            this.sourceLanguageComboBox.SelectedIndexChanged += new System.EventHandler(this.defaultTranslateLanguageComboBox_SelectedIndexChanged);
+            this.sourceLanguageComboBox.SelectedIndexChanged += new System.EventHandler(this.sourceLanguageComboBox_SelectedIndexChanged);
             // 
             // defaultTranslateTencentCloudRadio
             // 
