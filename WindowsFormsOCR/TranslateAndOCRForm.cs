@@ -68,7 +68,7 @@ namespace WindowsFormsOCR
             }
         }
 
-        public void translate(String translateProvideStr = null)
+        public void translate(String translateProvideStr = null, String sourceLanguage = null, String targetLanguage = null)
         {
             TranslateProvideEnum translateProvide;
             if (string.IsNullOrWhiteSpace(translateProvideStr))
@@ -79,6 +79,14 @@ namespace WindowsFormsOCR
             {
                 translateProvide = (TranslateProvideEnum)Enum.Parse(typeof(TranslateProvideEnum), translateProvideStr);
             }
+            if (string.IsNullOrWhiteSpace(sourceLanguage))
+            {
+                sourceLanguage = GlobalConfig.Common.defaultTranslateSourceLanguage;
+            }
+            if (string.IsNullOrWhiteSpace(targetLanguage))
+            {
+                targetLanguage = GlobalConfig.Common.defaultTranslateTargetLanguage;
+            }
             if (translateProvide == TranslateProvideEnum.TencentCloud)
             {
                 if (string.IsNullOrEmpty(GlobalConfig.TencentCloudTranslate.secret_id) || string.IsNullOrEmpty(GlobalConfig.TencentCloudTranslate.secret_key))
@@ -88,7 +96,7 @@ namespace WindowsFormsOCR
                 }
                 translateTextBox.Text = "翻译中，请稍等。。。";
 
-                translateTextBox.Text = TencentCloudHelper.translate(ocrTextBox.Text);
+                translateTextBox.Text = TencentCloudHelper.translate(ocrTextBox.Text, sourceLanguage, targetLanguage);
             }
             else if (translateProvide == TranslateProvideEnum.BaiduAI)
             {
@@ -99,7 +107,7 @@ namespace WindowsFormsOCR
                 }
                 translateTextBox.Text = "识别中，请稍等。。。";
 
-                translateTextBox.Text = BaiduAIHelper.translate(ocrTextBox.Text);
+                translateTextBox.Text = BaiduAIHelper.translate(ocrTextBox.Text, sourceLanguage, targetLanguage);
             }
         }
 
@@ -178,7 +186,7 @@ namespace WindowsFormsOCR
 
         private void translateButton_Click(object sender, EventArgs e)
         {
-            this.translate(defaultTranslateProvideComboBox.Text.Split('#')[1]);
+            this.translate(defaultTranslateProvideComboBox.Text.Split('#')[1], sourceLanguageComboBox.Text.Split('#')[1], targetLanguageComboBox.Text.Split('#')[1]);
         }
 
         private void defaultOcrProvideComboBox_SelectedIndexChanged(object sender, EventArgs e)

@@ -16,7 +16,7 @@ namespace WindowsFormsOCR
 {
     public class TencentCloudHelper
     {
-        public static String translate(String text)
+        public static String translate(String text, String sourceLanguage, String targetLanguage)
         {
             try
             {
@@ -34,8 +34,8 @@ namespace WindowsFormsOCR
                 TmtClient client = new TmtClient(cred, "ap-beijing", clientProfile);
                 TextTranslateRequest req = new TextTranslateRequest();
                 req.SourceText = text;
-                req.Source = "auto";
-                req.Target = "zh";
+                req.Source = sourceLanguage;
+                req.Target = targetLanguage;
                 req.ProjectId = 0;
 
                 TextTranslateResponse resp = client.TextTranslateSync(req);
