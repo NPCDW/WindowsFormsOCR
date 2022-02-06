@@ -32,6 +32,8 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.defaultTranslateProvide = new System.Windows.Forms.GroupBox();
+            this.targetLanguageComboBox = new System.Windows.Forms.ComboBox();
+            this.sourceLanguageComboBox = new System.Windows.Forms.ComboBox();
             this.defaultTranslateTencentCloudRadio = new System.Windows.Forms.RadioButton();
             this.defaultTranslateBaiduAIRadio = new System.Windows.Forms.RadioButton();
             this.defaultOcrProvideGroupBox = new System.Windows.Forms.GroupBox();
@@ -120,6 +122,8 @@
             // 
             // defaultTranslateProvide
             // 
+            this.defaultTranslateProvide.Controls.Add(this.targetLanguageComboBox);
+            this.defaultTranslateProvide.Controls.Add(this.sourceLanguageComboBox);
             this.defaultTranslateProvide.Controls.Add(this.defaultTranslateTencentCloudRadio);
             this.defaultTranslateProvide.Controls.Add(this.defaultTranslateBaiduAIRadio);
             this.defaultTranslateProvide.Location = new System.Drawing.Point(6, 115);
@@ -129,10 +133,30 @@
             this.defaultTranslateProvide.TabStop = false;
             this.defaultTranslateProvide.Text = "默认翻译";
             // 
+            // targetLanguageComboBox
+            // 
+            this.targetLanguageComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.targetLanguageComboBox.FormattingEnabled = true;
+            this.targetLanguageComboBox.Location = new System.Drawing.Point(286, 22);
+            this.targetLanguageComboBox.Name = "targetLanguageComboBox";
+            this.targetLanguageComboBox.Size = new System.Drawing.Size(121, 25);
+            this.targetLanguageComboBox.TabIndex = 4;
+            this.targetLanguageComboBox.SelectedIndexChanged += new System.EventHandler(this.defaultTranslateLanguageComboBox_SelectedIndexChanged);
+            // 
+            // sourceLanguageComboBox
+            // 
+            this.sourceLanguageComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.sourceLanguageComboBox.FormattingEnabled = true;
+            this.sourceLanguageComboBox.Location = new System.Drawing.Point(159, 22);
+            this.sourceLanguageComboBox.Name = "sourceLanguageComboBox";
+            this.sourceLanguageComboBox.Size = new System.Drawing.Size(121, 25);
+            this.sourceLanguageComboBox.TabIndex = 4;
+            this.sourceLanguageComboBox.SelectedIndexChanged += new System.EventHandler(this.defaultTranslateLanguageComboBox_SelectedIndexChanged);
+            // 
             // defaultTranslateTencentCloudRadio
             // 
             this.defaultTranslateTencentCloudRadio.AutoSize = true;
-            this.defaultTranslateTencentCloudRadio.Location = new System.Drawing.Point(119, 22);
+            this.defaultTranslateTencentCloudRadio.Location = new System.Drawing.Point(91, 23);
             this.defaultTranslateTencentCloudRadio.Name = "defaultTranslateTencentCloudRadio";
             this.defaultTranslateTencentCloudRadio.Size = new System.Drawing.Size(62, 21);
             this.defaultTranslateTencentCloudRadio.TabIndex = 1;
@@ -171,16 +195,16 @@
             // 
             this.defaultOcrTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.defaultOcrTypeComboBox.FormattingEnabled = true;
-            this.defaultOcrTypeComboBox.Location = new System.Drawing.Point(208, 21);
+            this.defaultOcrTypeComboBox.Location = new System.Drawing.Point(159, 22);
             this.defaultOcrTypeComboBox.Name = "defaultOcrTypeComboBox";
-            this.defaultOcrTypeComboBox.Size = new System.Drawing.Size(211, 25);
+            this.defaultOcrTypeComboBox.Size = new System.Drawing.Size(294, 25);
             this.defaultOcrTypeComboBox.TabIndex = 4;
             this.defaultOcrTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.defaultOcrType_SelectedIndexChanged);
             // 
             // defaultOcrTencentCloudRadio
             // 
             this.defaultOcrTencentCloudRadio.AutoSize = true;
-            this.defaultOcrTencentCloudRadio.Location = new System.Drawing.Point(119, 22);
+            this.defaultOcrTencentCloudRadio.Location = new System.Drawing.Point(91, 23);
             this.defaultOcrTencentCloudRadio.Name = "defaultOcrTencentCloudRadio";
             this.defaultOcrTencentCloudRadio.Size = new System.Drawing.Size(62, 21);
             this.defaultOcrTencentCloudRadio.TabIndex = 1;
@@ -749,5 +773,7 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ComboBox defaultOcrTypeComboBox;
+        private System.Windows.Forms.ComboBox targetLanguageComboBox;
+        private System.Windows.Forms.ComboBox sourceLanguageComboBox;
     }
 }

@@ -25,6 +25,8 @@ namespace WindowsFormsOCR
         private void Setting_Load(object sender, EventArgs e)
         {
             String defaultOcrType = GlobalConfig.Common.defaultOcrType;
+            String defaultTranslateSourceLanguage = GlobalConfig.Common.defaultTranslateSourceLanguage;
+            String defaultTranslateTargetLanguage = GlobalConfig.Common.defaultTranslateTargetLanguage;
             this.autoStartButton.Checked = GlobalConfig.Common.autoStart;
             foreach (Control control in this.defaultOcrProvideGroupBox.Controls)
             {
@@ -55,6 +57,24 @@ namespace WindowsFormsOCR
                 if (text.Split('#')[1].Equals(defaultOcrType))
                 {
                     defaultOcrTypeComboBox.Text = text;
+                    break;
+                }
+            }
+
+            foreach (String text in this.sourceLanguageComboBox.Items)
+            {
+                if (text.Split('#')[1].Equals(defaultTranslateSourceLanguage))
+                {
+                    sourceLanguageComboBox.Text = text;
+                    break;
+                }
+            }
+
+            foreach (String text in this.targetLanguageComboBox.Items)
+            {
+                if (text.Split('#')[1].Equals(defaultTranslateTargetLanguage))
+                {
+                    targetLanguageComboBox.Text = text;
                     break;
                 }
             }
@@ -100,13 +120,43 @@ namespace WindowsFormsOCR
 
         private void commonDefaultTranslateProvideType_CheckedChanged(object sender, EventArgs e)
         {
-            if (defaultTranslateTencentCloudRadio.Checked)
-            {
-                GlobalConfig.Common.defaultTranslateProvide = (TranslateProvideEnum)Enum.Parse(typeof(TranslateProvideEnum), defaultTranslateTencentCloudRadio.Tag.ToString());
-            }
-            else if (defaultTranslateBaiduAIRadio.Checked)
+            if (defaultTranslateBaiduAIRadio.Checked)
             {
                 GlobalConfig.Common.defaultTranslateProvide = (TranslateProvideEnum)Enum.Parse(typeof(TranslateProvideEnum), defaultTranslateBaiduAIRadio.Tag.ToString());
+                sourceLanguageComboBox.Items.Clear();
+                targetLanguageComboBox.Items.Clear();
+                foreach (TranslateLanguageAttribute item in TranslateLanguageExtension.TranslateLanguageAttributeList)
+                {
+                    if (!string.IsNullOrWhiteSpace(item.getBaiduAiCode()))
+                    {
+                        sourceLanguageComboBox.Items.Add(item.getName() + "#" + item.getBaiduAiCode());
+                        targetLanguageComboBox.Items.Add(item.getName() + "#" + item.getBaiduAiCode());
+                    }
+                }
+                targetLanguageComboBox.Items.RemoveAt(0);
+                sourceLanguageComboBox.SelectedIndex = 0;
+                targetLanguageComboBox.SelectedIndex = 0;
+                GlobalConfig.Common.defaultTranslateSourceLanguage = TranslateLanguageExtension.TranslateLanguageAttributeList[0].getBaiduAiCode();
+                GlobalConfig.Common.defaultTranslateTargetLanguage = TranslateLanguageExtension.TranslateLanguageAttributeList[1].getBaiduAiCode();
+            }
+            else if (defaultTranslateTencentCloudRadio.Checked)
+            {
+                GlobalConfig.Common.defaultTranslateProvide = (TranslateProvideEnum)Enum.Parse(typeof(TranslateProvideEnum), defaultTranslateTencentCloudRadio.Tag.ToString());
+                sourceLanguageComboBox.Items.Clear();
+                targetLanguageComboBox.Items.Clear();
+                foreach (TranslateLanguageAttribute item in TranslateLanguageExtension.TranslateLanguageAttributeList)
+                {
+                    if (!string.IsNullOrWhiteSpace(item.getTencentCloudCode()))
+                    {
+                        sourceLanguageComboBox.Items.Add(item.getName() + "#" + item.getTencentCloudCode());
+                        targetLanguageComboBox.Items.Add(item.getName() + "#" + item.getTencentCloudCode());
+                    }
+                }
+                targetLanguageComboBox.Items.RemoveAt(0);
+                sourceLanguageComboBox.SelectedIndex = 0;
+                targetLanguageComboBox.SelectedIndex = 0;
+                GlobalConfig.Common.defaultTranslateSourceLanguage = TranslateLanguageExtension.TranslateLanguageAttributeList[0].getTencentCloudCode();
+                GlobalConfig.Common.defaultTranslateTargetLanguage = TranslateLanguageExtension.TranslateLanguageAttributeList[1].getTencentCloudCode();
             }
         }
 
@@ -229,6 +279,20 @@ namespace WindowsFormsOCR
             if (!string.IsNullOrWhiteSpace(text) && text.Contains("#"))
             {
                 GlobalConfig.Common.defaultOcrType = text.Split('#')[1];
+            }
+        }
+
+        private void defaultTranslateLanguageComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            String sourceLanguageText = sourceLanguageComboBox.Text;
+            if (!string.IsNullOrWhiteSpace(sourceLanguageText) && sourceLanguageText.Contains("#"))
+            {
+                GlobalConfig.Common.defaultTranslateSourceLanguage = sourceLanguageText.Split('#')[1];
+            }
+            String targetLanguageText = targetLanguageComboBox.Text;
+            if (!string.IsNullOrWhiteSpace(targetLanguageText) && targetLanguageText.Contains("#"))
+            {
+                GlobalConfig.Common.defaultTranslateTargetLanguage = targetLanguageText.Split('#')[1];
             }
         }
     }
