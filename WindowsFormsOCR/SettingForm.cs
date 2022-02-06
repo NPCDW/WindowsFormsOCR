@@ -282,13 +282,17 @@ namespace WindowsFormsOCR
             }
         }
 
-        private void defaultTranslateLanguageComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void sourceLanguageComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             String sourceLanguageText = sourceLanguageComboBox.Text;
             if (!string.IsNullOrWhiteSpace(sourceLanguageText) && sourceLanguageText.Contains("#"))
             {
                 GlobalConfig.Common.defaultTranslateSourceLanguage = sourceLanguageText.Split('#')[1];
             }
+        }
+
+        private void targetLanguageComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
             String targetLanguageText = targetLanguageComboBox.Text;
             if (!string.IsNullOrWhiteSpace(targetLanguageText) && targetLanguageText.Contains("#"))
             {
