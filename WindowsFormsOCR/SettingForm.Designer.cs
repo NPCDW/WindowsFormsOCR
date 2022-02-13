@@ -71,6 +71,11 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.linkLabel4 = new System.Windows.Forms.LinkLabel();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.ocrHotKeyTextBox = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.emailLink = new System.Windows.Forms.LinkLabel();
             this.label4 = new System.Windows.Forms.Label();
@@ -78,6 +83,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.GetWordsTranslateHotKeyTextBox = new System.Windows.Forms.TextBox();
+            this.ScreenshotHotKeyTextBox = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.defaultTranslateProvide.SuspendLayout();
@@ -88,6 +96,7 @@
             this.tabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -96,9 +105,11 @@
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tabControl1.ItemSize = new System.Drawing.Size(66, 22);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
@@ -598,6 +609,63 @@
             this.linkLabel4.Text = "领取百度大脑免费翻译额度";
             this.linkLabel4.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkClicked);
             // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Controls.Add(this.ScreenshotHotKeyTextBox);
+            this.tabPage1.Controls.Add(this.GetWordsTranslateHotKeyTextBox);
+            this.tabPage1.Controls.Add(this.ocrHotKeyTextBox);
+            this.tabPage1.Controls.Add(this.label9);
+            this.tabPage1.Controls.Add(this.label6);
+            this.tabPage1.Controls.Add(this.label5);
+            this.tabPage1.Location = new System.Drawing.Point(4, 26);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(471, 423);
+            this.tabPage1.TabIndex = 5;
+            this.tabPage1.Text = "热键";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // ocrHotKeyTextBox
+            // 
+            this.ocrHotKeyTextBox.BackColor = System.Drawing.Color.White;
+            this.ocrHotKeyTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ocrHotKeyTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.ocrHotKeyTextBox.Location = new System.Drawing.Point(123, 40);
+            this.ocrHotKeyTextBox.Name = "ocrHotKeyTextBox";
+            this.ocrHotKeyTextBox.ReadOnly = true;
+            this.ocrHotKeyTextBox.Size = new System.Drawing.Size(296, 23);
+            this.ocrHotKeyTextBox.TabIndex = 3;
+            this.ocrHotKeyTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.ocrHotKeyTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.HotKeyTextBox_KeyDown);
+            this.ocrHotKeyTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.HotKeyTextBox_KeyUp);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(61, 117);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(56, 17);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "截图翻译";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(61, 80);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(56, 17);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "划词翻译";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(61, 42);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(56, 17);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "文字识别";
+            // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.emailLink);
@@ -683,6 +751,43 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "版本 1.1.0 (2022.2.6)";
             // 
+            // GetWordsTranslateHotKeyTextBox
+            // 
+            this.GetWordsTranslateHotKeyTextBox.BackColor = System.Drawing.Color.White;
+            this.GetWordsTranslateHotKeyTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.GetWordsTranslateHotKeyTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.GetWordsTranslateHotKeyTextBox.Location = new System.Drawing.Point(123, 78);
+            this.GetWordsTranslateHotKeyTextBox.Name = "GetWordsTranslateHotKeyTextBox";
+            this.GetWordsTranslateHotKeyTextBox.ReadOnly = true;
+            this.GetWordsTranslateHotKeyTextBox.Size = new System.Drawing.Size(296, 23);
+            this.GetWordsTranslateHotKeyTextBox.TabIndex = 4;
+            this.GetWordsTranslateHotKeyTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.GetWordsTranslateHotKeyTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.HotKeyTextBox_KeyDown);
+            this.GetWordsTranslateHotKeyTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.HotKeyTextBox_KeyUp);
+            // 
+            // ScreenshotHotKeyTextBox
+            // 
+            this.ScreenshotHotKeyTextBox.BackColor = System.Drawing.Color.White;
+            this.ScreenshotHotKeyTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ScreenshotHotKeyTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.ScreenshotHotKeyTextBox.Location = new System.Drawing.Point(123, 115);
+            this.ScreenshotHotKeyTextBox.Name = "ScreenshotHotKeyTextBox";
+            this.ScreenshotHotKeyTextBox.ReadOnly = true;
+            this.ScreenshotHotKeyTextBox.Size = new System.Drawing.Size(296, 23);
+            this.ScreenshotHotKeyTextBox.TabIndex = 5;
+            this.ScreenshotHotKeyTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.ScreenshotHotKeyTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.HotKeyTextBox_KeyDown);
+            this.ScreenshotHotKeyTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.HotKeyTextBox_KeyUp);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(344, 375);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "恢复默认";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // SettingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -718,6 +823,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             this.ResumeLayout(false);
@@ -775,5 +882,13 @@
         private System.Windows.Forms.ComboBox defaultOcrTypeComboBox;
         private System.Windows.Forms.ComboBox targetLanguageComboBox;
         private System.Windows.Forms.ComboBox sourceLanguageComboBox;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TextBox ocrHotKeyTextBox;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox ScreenshotHotKeyTextBox;
+        private System.Windows.Forms.TextBox GetWordsTranslateHotKeyTextBox;
     }
 }
