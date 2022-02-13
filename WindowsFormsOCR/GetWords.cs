@@ -11,20 +11,11 @@ namespace WindowsFormsOCR
 {
     public class GetWords
     {
-        [DllImport("User32.dll")]
-        private static extern bool SetForegroundWindow(IntPtr hWnd);
-
-        [DllImport("user32.dll", CharSet = CharSet.Auto)]
-        private static extern IntPtr GetForegroundWindow();
-
-        [DllImport("user32.dll")]
-        private static extern void keybd_event(Keys vk, byte bScan, uint dwFlags, uint dwExtraInfo);
-
         public static String Get()
         {
             SendCtrlC();
             Thread.Sleep(200);
-            String text = WinApiClipboard.GetText();
+            String text = NativeClipboard.GetText();
             return text;
         }
 
@@ -33,10 +24,10 @@ namespace WindowsFormsOCR
             //IntPtr hWnd = GetForegroundWindow();
             //SetForegroundWindow(hWnd);
             uint KEYEVENTF_KEYUP = 2;
-            keybd_event(Keys.ControlKey, 0, 0, 0);
-            keybd_event(Keys.C, 0, 0, 0);
-            keybd_event(Keys.C, 0, KEYEVENTF_KEYUP, 0);
-            keybd_event(Keys.ControlKey, 0, KEYEVENTF_KEYUP, 0);// 'Left Control Up
+            NativeMethod.keybd_event(Keys.ControlKey, 0, 0, 0);
+            NativeMethod.keybd_event(Keys.C, 0, 0, 0);
+            NativeMethod.keybd_event(Keys.C, 0, KEYEVENTF_KEYUP, 0);
+            NativeMethod.keybd_event(Keys.ControlKey, 0, KEYEVENTF_KEYUP, 0);// 'Left Control Up
         }
 
         private static String GetDataFromClipboard()

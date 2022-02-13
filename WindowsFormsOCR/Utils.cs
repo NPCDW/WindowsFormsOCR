@@ -37,17 +37,16 @@ namespace WindowsFormsOCR
             }
         }
 
-        [DllImport("kernel32.dll")]
-        private static extern bool SetProcessWorkingSetSize(IntPtr process, int minSize, int maxSize);
-
-        //刷新存储器
+        /// <summary>
+        /// 清理内存
+        /// </summary>
         public static void FlushMemory()
         {
             GC.Collect();
             GC.WaitForPendingFinalizers();
             if (Environment.OSVersion.Platform == PlatformID.Win32NT)
             {
-                SetProcessWorkingSetSize(Process.GetCurrentProcess().Handle, -1, -1);
+                NativeMethod.SetProcessWorkingSetSize(Process.GetCurrentProcess().Handle, -1, -1);
             }
         }
 

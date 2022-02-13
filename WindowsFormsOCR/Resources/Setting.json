@@ -24,5 +24,10 @@
   "TencentCloudTranslate": {
     "secret_id": "",
     "secret_key": ""
+  },
+  "HotKeys": {
+    "ocr": "F4",
+    "getWordsTranslate": "F2",
+    "screenshotTranslate": "Ctrl + F2"
   }
 }
