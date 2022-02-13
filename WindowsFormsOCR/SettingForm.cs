@@ -25,13 +25,9 @@ namespace WindowsFormsOCR
             this.ocrHotKeyTextBox.LostFocus += new System.EventHandler(this.HotKeyTextBox_LostFocus);
             this.GetWordsTranslateHotKeyTextBox.GotFocus += new System.EventHandler(this.HotKeyTextBox_GotFocus);
             this.GetWordsTranslateHotKeyTextBox.LostFocus += new System.EventHandler(this.HotKeyTextBox_LostFocus);
-            this.ScreenshotHotKeyTextBox.GotFocus += new System.EventHandler(this.HotKeyTextBox_GotFocus);
-            this.ScreenshotHotKeyTextBox.LostFocus += new System.EventHandler(this.HotKeyTextBox_LostFocus);
+            this.ScreenshotTranslateHotKeyTextBox.GotFocus += new System.EventHandler(this.HotKeyTextBox_GotFocus);
+            this.ScreenshotTranslateHotKeyTextBox.LostFocus += new System.EventHandler(this.HotKeyTextBox_LostFocus);
         }
-
-        [DllImport("user32", EntryPoint = "HideCaret")]
-        //禁止焦点
-        private static extern bool HideCaret(IntPtr hWnd);
 
         private void Setting_Load(object sender, EventArgs e)
         {
@@ -349,7 +345,7 @@ namespace WindowsFormsOCR
         private void HotKeyTextBox_GotFocus(object sender, EventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-            HideCaret((textBox).Handle);
+            NativeMethod.HideCaret((textBox).Handle);
             textBox.BackColor = Color.FromArgb(192, 255, 255);
         }
 

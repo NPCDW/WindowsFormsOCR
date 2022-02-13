@@ -24,13 +24,6 @@ namespace WindowsFormsOCR
         private bool down = false;         //鼠标是否被按下
         private String goal = "ocr";
 
-        [DllImport("user32.dll")]
-        public static extern IntPtr LoadCursorFromFile(string fileName);
-        [DllImport("user32.dll")]
-        public static extern IntPtr SetCursor(IntPtr cursorHandle);
-        [DllImport("user32.dll")]
-        public static extern uint DestroyCursor(IntPtr cursorHandle);
-
         public ScreenshotForm(String goal = "ocr")
         {
             this.goal = goal;
@@ -51,7 +44,7 @@ namespace WindowsFormsOCR
             this.BackgroundImage = img;
 
             Cursor myCursor = new Cursor(Cursor.Current.Handle);
-            IntPtr colorCursorHandle = LoadCursorFromFile(Application.StartupPath + "\\Resources\\Cross.cur");
+            IntPtr colorCursorHandle = NativeMethod.LoadCursorFromFile(Application.StartupPath + "\\Resources\\Cross.cur");
             myCursor.GetType().InvokeMember("handle", BindingFlags.Public |
                 BindingFlags.NonPublic | BindingFlags.Instance |
                 BindingFlags.SetField, null, myCursor,
