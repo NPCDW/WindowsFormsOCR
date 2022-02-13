@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -20,7 +21,17 @@ namespace WindowsFormsOCR
         public SettingForm()
         {
             InitializeComponent();
+            this.ocrHotKeyTextBox.GotFocus += new System.EventHandler(this.HotKeyTextBox_GotFocus);
+            this.ocrHotKeyTextBox.LostFocus += new System.EventHandler(this.HotKeyTextBox_LostFocus);
+            this.GetWordsTranslateHotKeyTextBox.GotFocus += new System.EventHandler(this.HotKeyTextBox_GotFocus);
+            this.GetWordsTranslateHotKeyTextBox.LostFocus += new System.EventHandler(this.HotKeyTextBox_LostFocus);
+            this.ScreenshotHotKeyTextBox.GotFocus += new System.EventHandler(this.HotKeyTextBox_GotFocus);
+            this.ScreenshotHotKeyTextBox.LostFocus += new System.EventHandler(this.HotKeyTextBox_LostFocus);
         }
+
+        [DllImport("user32", EntryPoint = "HideCaret")]
+        //禁止焦点
+        private static extern bool HideCaret(IntPtr hWnd);
 
         private void Setting_Load(object sender, EventArgs e)
         {
@@ -299,5 +310,54 @@ namespace WindowsFormsOCR
                 GlobalConfig.Common.defaultTranslateTargetLanguage = targetLanguageText.Split('#')[1];
             }
         }
+
+        private void HotKeyTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            StringBuilder keyValue = new StringBuilder();
+            if (e.Modifiers != 0)
+            {
+                if (e.Control)
+                    keyValue.Append("Ctrl + ");
+                if (e.Alt)
+                    keyValue.Append("Alt + ");
+                if (e.Shift)
+                    keyValue.Append("Shift + ");
+            }
+            if ((e.KeyValue >= 33 && e.KeyValue <= 40) ||
+                (e.KeyValue >= 65 && e.KeyValue <= 90) ||   //a-z/A-Z
+                (e.KeyValue >= 112 && e.KeyValue <= 123))   //F1-F12
+            {
+                keyValue.Append(e.KeyCode);
+            }
+            else if ((e.KeyValue >= 48 && e.KeyValue <= 57))    //0-9
+            {
+                keyValue.Append(e.KeyCode.ToString().Substring(1));
+            }
+            this.ActiveControl.Text = keyValue.ToString();
+        }
+
+        private void HotKeyTextBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            string str = this.ActiveControl.Text.TrimEnd();
+            int len = str.Length;
+            if (len >= 1 && str.Substring(str.Length - 1) == "+")
+            {
+                this.ActiveControl.Text = "";
+            }
+        }
+
+        private void HotKeyTextBox_GotFocus(object sender, EventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            HideCaret((textBox).Handle);
+            textBox.BackColor = Color.FromArgb(192, 255, 255);
+        }
+
+        private void HotKeyTextBox_LostFocus(object sender, EventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            textBox.BackColor = Color.White;
+        }
+
     }
 }
