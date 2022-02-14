@@ -62,6 +62,24 @@ namespace WindowsFormsOCR
             public static String secret_id = "";
             public static String secret_key = "";
         }
+        public static class HotKeys
+        {
+            public static class Ocr
+            {
+                public static byte Modifiers;
+                public static int Key;
+            }
+            public static class GetWordsTranslate
+            {
+                public static byte Modifiers;
+                public static int Key;
+            }
+            public static class ScreenshotTranslate
+            {
+                public static byte Modifiers;
+                public static int Key;
+            }
+        }
 
         public enum OcrProvideEnum
         {
@@ -106,6 +124,13 @@ namespace WindowsFormsOCR
 
                 TencentCloudTranslate.secret_id = jsonObj["TencentCloudTranslate"]["secret_id"].ToString();
                 TencentCloudTranslate.secret_key = jsonObj["TencentCloudTranslate"]["secret_key"].ToString();
+
+                HotKeys.Ocr.Modifiers = byte.Parse(jsonObj["HotKeys"]["Ocr"]["Modifiers"].ToString());
+                HotKeys.Ocr.Key = int.Parse(jsonObj["HotKeys"]["Ocr"]["Key"].ToString());
+                HotKeys.GetWordsTranslate.Modifiers = byte.Parse(jsonObj["HotKeys"]["GetWordsTranslate"]["Modifiers"].ToString());
+                HotKeys.GetWordsTranslate.Key = int.Parse(jsonObj["HotKeys"]["GetWordsTranslate"]["Key"].ToString());
+                HotKeys.ScreenshotTranslate.Modifiers = byte.Parse(jsonObj["HotKeys"]["ScreenshotTranslate"]["Modifiers"].ToString());
+                HotKeys.ScreenshotTranslate.Key = int.Parse(jsonObj["HotKeys"]["ScreenshotTranslate"]["Key"].ToString());
             }
             catch (Exception ex)
             {
@@ -140,6 +165,17 @@ namespace WindowsFormsOCR
             jsonObj["TencentCloudTranslate"] = new JObject();
             jsonObj["TencentCloudTranslate"]["secret_id"] = TencentCloudTranslate.secret_id;
             jsonObj["TencentCloudTranslate"]["secret_key"] = TencentCloudTranslate.secret_key;
+
+            jsonObj["HotKeys"] = new JObject();
+            jsonObj["HotKeys"]["Ocr"] = new JObject();
+            jsonObj["HotKeys"]["Ocr"]["Modifiers"] = HotKeys.Ocr.Modifiers;
+            jsonObj["HotKeys"]["Ocr"]["Key"] = HotKeys.Ocr.Key;
+            jsonObj["HotKeys"]["GetWordsTranslate"] = new JObject();
+            jsonObj["HotKeys"]["GetWordsTranslate"]["Modifiers"] = HotKeys.GetWordsTranslate.Modifiers;
+            jsonObj["HotKeys"]["GetWordsTranslate"]["Key"] = HotKeys.GetWordsTranslate.Key;
+            jsonObj["HotKeys"]["ScreenshotTranslate"] = new JObject();
+            jsonObj["HotKeys"]["ScreenshotTranslate"]["Modifiers"] = HotKeys.ScreenshotTranslate.Modifiers;
+            jsonObj["HotKeys"]["ScreenshotTranslate"]["Key"] = HotKeys.ScreenshotTranslate.Key;
 
             String jsonStr = jsonObj.ToString();
             using (StreamWriter sw = new StreamWriter(configPath))

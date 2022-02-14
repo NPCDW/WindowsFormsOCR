@@ -44,7 +44,7 @@ namespace WindowsFormsOCR
         /// <param name="vk">定义热键的内容</param>
         /// <returns>成功，返回值不为0，失败，返回值为0。要得到扩展错误信息，调用GetLastError</returns>
         [DllImport("user32.dll", SetLastError = true)]
-        public static extern bool RegisterHotKey(IntPtr hWnd, int id, KeyModifiers fsModifiers, Keys vk);
+        public static extern bool RegisterHotKey(IntPtr hWnd, int id, byte fsModifiers, int vk);
 
         /// <summary>
         /// 取消注册全局热键
