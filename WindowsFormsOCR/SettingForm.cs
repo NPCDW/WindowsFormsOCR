@@ -96,6 +96,8 @@ namespace WindowsFormsOCR
 
             this.TencentCloudTranslate_SecretIdInput.Text = GlobalConfig.TencentCloudTranslate.secret_id;
             this.TencentCloudTranslate_SecretKeyInput.Text = GlobalConfig.TencentCloudTranslate.secret_key;
+
+            ocrHotKeyTextBox.Text = ((Keys)Enum.Parse(typeof(Keys), GlobalConfig.HotKeys.Ocr.Key.ToString())).ToString();
         }
 
         private void SettingForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -353,7 +355,18 @@ namespace WindowsFormsOCR
         {
             TextBox textBox = (TextBox)sender;
             textBox.BackColor = Color.White;
+            HotKeysUtil.ReRegisterHotKey();
         }
 
+        private void defaultHotKeysButton_Click(object sender, EventArgs e)
+        {
+            GlobalConfig.HotKeys.GetWordsTranslate.Modifiers = 0;
+            GlobalConfig.HotKeys.GetWordsTranslate.Key = 113;
+            GlobalConfig.HotKeys.Ocr.Modifiers = 0;
+            GlobalConfig.HotKeys.Ocr.Key = 115;
+            GlobalConfig.HotKeys.ScreenshotTranslate.Modifiers = 2;
+            GlobalConfig.HotKeys.ScreenshotTranslate.Key = 113;
+            HotKeysUtil.ReRegisterHotKey();
+        }
     }
 }

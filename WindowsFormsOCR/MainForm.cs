@@ -19,9 +19,7 @@ namespace WindowsFormsOCR
 
             GlobalConfig.GetConfig();
 
-            NativeMethod.RegisterHotKey(this.Handle, 845, GlobalConfig.HotKeys.GetWordsTranslate.Modifiers, GlobalConfig.HotKeys.GetWordsTranslate.Key);
-            NativeMethod.RegisterHotKey(this.Handle, 846, GlobalConfig.HotKeys.Ocr.Modifiers, GlobalConfig.HotKeys.Ocr.Key);
-            NativeMethod.RegisterHotKey(this.Handle, 847, GlobalConfig.HotKeys.ScreenshotTranslate.Modifiers, GlobalConfig.HotKeys.ScreenshotTranslate.Key);
+            HotKeysUtil.RegisterHotKey(this.Handle);
         }
 
         private void Setting_Click(object sender, EventArgs e)
@@ -39,9 +37,7 @@ namespace WindowsFormsOCR
 
         private void Exit_Click(object sender, EventArgs e)
         {
-            NativeMethod.UnregisterHotKey(this.Handle, 845);
-            NativeMethod.UnregisterHotKey(this.Handle, 846);
-            NativeMethod.UnregisterHotKey(this.Handle, 847);
+            HotKeysUtil.UnRegisterHotKey();
             Application.Exit();
         }
 

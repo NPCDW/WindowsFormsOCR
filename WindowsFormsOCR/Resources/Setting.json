@@ -26,13 +26,13 @@
     "secret_key": ""
   },
   "HotKeys": {
-    "Ocr": {
-      "Modifiers": 0,
-      "Key": 115
-    },
     "GetWordsTranslate": {
       "Modifiers": 0,
       "Key": 113
+    },
+    "Ocr": {
+      "Modifiers": 0,
+      "Key": 115
     },
     "ScreenshotTranslate": {
       "Modifiers": 2,

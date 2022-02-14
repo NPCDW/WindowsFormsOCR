@@ -64,20 +64,20 @@ namespace WindowsFormsOCR
         }
         public static class HotKeys
         {
-            public static class Ocr
-            {
-                public static byte Modifiers;
-                public static int Key;
-            }
             public static class GetWordsTranslate
             {
-                public static byte Modifiers;
-                public static int Key;
+                public static byte Modifiers = 0;
+                public static int Key = 113;
+            }
+            public static class Ocr
+            {
+                public static byte Modifiers = 0;
+                public static int Key = 115;
             }
             public static class ScreenshotTranslate
             {
-                public static byte Modifiers;
-                public static int Key;
+                public static byte Modifiers = 2;
+                public static int Key = 113;
             }
         }
 

@@ -72,7 +72,8 @@
             this.label13 = new System.Windows.Forms.Label();
             this.linkLabel4 = new System.Windows.Forms.LinkLabel();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
+            this.defaultHotKeysButton = new System.Windows.Forms.Button();
             this.ScreenshotTranslateHotKeyTextBox = new System.Windows.Forms.TextBox();
             this.GetWordsTranslateHotKeyTextBox = new System.Windows.Forms.TextBox();
             this.ocrHotKeyTextBox = new System.Windows.Forms.TextBox();
@@ -86,7 +87,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.defaultTranslateProvide.SuspendLayout();
@@ -613,7 +613,7 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.label16);
-            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Controls.Add(this.defaultHotKeysButton);
             this.tabPage1.Controls.Add(this.ScreenshotTranslateHotKeyTextBox);
             this.tabPage1.Controls.Add(this.GetWordsTranslateHotKeyTextBox);
             this.tabPage1.Controls.Add(this.ocrHotKeyTextBox);
@@ -627,14 +627,25 @@
             this.tabPage1.Text = "热键";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // label16
             // 
-            this.button1.Location = new System.Drawing.Point(344, 375);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "恢复默认";
-            this.button1.UseVisualStyleBackColor = true;
+            this.label16.AutoSize = true;
+            this.label16.ForeColor = System.Drawing.Color.Red;
+            this.label16.Location = new System.Drawing.Point(61, 375);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(143, 17);
+            this.label16.TabIndex = 7;
+            this.label16.Text = "*注：请不要使用 WIN 键";
+            // 
+            // defaultHotKeysButton
+            // 
+            this.defaultHotKeysButton.Location = new System.Drawing.Point(344, 375);
+            this.defaultHotKeysButton.Name = "defaultHotKeysButton";
+            this.defaultHotKeysButton.Size = new System.Drawing.Size(75, 23);
+            this.defaultHotKeysButton.TabIndex = 6;
+            this.defaultHotKeysButton.Text = "恢复默认";
+            this.defaultHotKeysButton.UseVisualStyleBackColor = true;
+            this.defaultHotKeysButton.Click += new System.EventHandler(this.defaultHotKeysButton_Click);
             // 
             // ScreenshotTranslateHotKeyTextBox
             // 
@@ -790,16 +801,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "版本 1.1.0 (2022.2.6)";
             // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.ForeColor = System.Drawing.Color.Red;
-            this.label16.Location = new System.Drawing.Point(61, 375);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(143, 17);
-            this.label16.TabIndex = 7;
-            this.label16.Text = "*注：请不要使用 WIN 键";
-            // 
             // SettingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -899,7 +900,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button defaultHotKeysButton;
         private System.Windows.Forms.TextBox ScreenshotTranslateHotKeyTextBox;
         private System.Windows.Forms.TextBox GetWordsTranslateHotKeyTextBox;
         private System.Windows.Forms.Label label16;

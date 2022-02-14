@@ -75,6 +75,7 @@
     <Compile Include="AutoStart.cs" />
     <Compile Include="BaiduAIHelper.cs" />
     <Compile Include="BaiduCloudHelper.cs" />
+    <Compile Include="HotKeysUtil.cs" />
     <Compile Include="NativeMethod.cs" />
     <Compile Include="TranslateLanguageEnum.cs" />
     <Compile Include="NativeClipboard.cs" />
