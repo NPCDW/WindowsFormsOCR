@@ -86,6 +86,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.defaultTranslateProvide.SuspendLayout();
@@ -611,6 +612,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label16);
             this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.ScreenshotTranslateHotKeyTextBox);
             this.tabPage1.Controls.Add(this.GetWordsTranslateHotKeyTextBox);
@@ -788,6 +790,16 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "版本 1.1.0 (2022.2.6)";
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.ForeColor = System.Drawing.Color.Red;
+            this.label16.Location = new System.Drawing.Point(61, 375);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(143, 17);
+            this.label16.TabIndex = 7;
+            this.label16.Text = "*注：请不要使用 WIN 键";
+            // 
             // SettingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -890,5 +902,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox ScreenshotTranslateHotKeyTextBox;
         private System.Windows.Forms.TextBox GetWordsTranslateHotKeyTextBox;
+        private System.Windows.Forms.Label label16;
     }
 }

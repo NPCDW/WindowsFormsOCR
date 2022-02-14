@@ -26,8 +26,17 @@
     "secret_key": ""
   },
   "HotKeys": {
-    "ocr": "F4",
-    "getWordsTranslate": "F2",
-    "screenshotTranslate": "Ctrl + F2"
+    "Ocr": {
+      "Modifiers": 0,
+      "Key": 115
+    },
+    "GetWordsTranslate": {
+      "Modifiers": 0,
+      "Key": 113
+    },
+    "ScreenshotTranslate": {
+      "Modifiers": 2,
+      "Key": 113
+    }
   }
 }

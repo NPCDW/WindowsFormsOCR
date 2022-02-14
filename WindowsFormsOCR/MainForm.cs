@@ -19,9 +19,9 @@ namespace WindowsFormsOCR
 
             GlobalConfig.GetConfig();
 
-            NativeMethod.RegisterHotKey(this.Handle, 845, NativeMethod.KeyModifiers.None, Keys.F2);
-            NativeMethod.RegisterHotKey(this.Handle, 846, NativeMethod.KeyModifiers.None, Keys.F4);
-            NativeMethod.RegisterHotKey(this.Handle, 847, NativeMethod.KeyModifiers.Ctrl, Keys.F2);
+            NativeMethod.RegisterHotKey(this.Handle, 845, GlobalConfig.HotKeys.GetWordsTranslate.Modifiers, GlobalConfig.HotKeys.GetWordsTranslate.Key);
+            NativeMethod.RegisterHotKey(this.Handle, 846, GlobalConfig.HotKeys.Ocr.Modifiers, GlobalConfig.HotKeys.Ocr.Key);
+            NativeMethod.RegisterHotKey(this.Handle, 847, GlobalConfig.HotKeys.ScreenshotTranslate.Modifiers, GlobalConfig.HotKeys.ScreenshotTranslate.Key);
         }
 
         private void Setting_Click(object sender, EventArgs e)
