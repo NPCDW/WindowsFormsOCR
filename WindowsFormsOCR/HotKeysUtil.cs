@@ -42,17 +42,17 @@ namespace WindowsFormsOCR
 
         public static void ReRegisterHotKey()
         {
-            if (GetWordsTranslateModifiers != GlobalConfig.HotKeys.GetWordsTranslate.Modifiers || GetWordsTranslateKey != GlobalConfig.HotKeys.GetWordsTranslate.Key)
+            if (GlobalConfig.HotKeys.GetWordsTranslate.Key != 0 && (GetWordsTranslateModifiers != GlobalConfig.HotKeys.GetWordsTranslate.Modifiers || GetWordsTranslateKey != GlobalConfig.HotKeys.GetWordsTranslate.Key))
             {
                 NativeMethod.UnregisterHotKey(mainFormHandle, 845);
                 NativeMethod.RegisterHotKey(mainFormHandle, 845, GlobalConfig.HotKeys.GetWordsTranslate.Modifiers, GlobalConfig.HotKeys.GetWordsTranslate.Key);
             }
-            if (OcrModifiers != GlobalConfig.HotKeys.Ocr.Modifiers || OcrKey != GlobalConfig.HotKeys.Ocr.Key)
+            if (GlobalConfig.HotKeys.Ocr.Key != 0 && (OcrModifiers != GlobalConfig.HotKeys.Ocr.Modifiers || OcrKey != GlobalConfig.HotKeys.Ocr.Key))
             {
                 NativeMethod.UnregisterHotKey(mainFormHandle, 846);
                 NativeMethod.RegisterHotKey(mainFormHandle, 846, GlobalConfig.HotKeys.Ocr.Modifiers, GlobalConfig.HotKeys.Ocr.Key);
             }
-            if (ScreenshotTranslateModifiers != GlobalConfig.HotKeys.ScreenshotTranslate.Modifiers || ScreenshotTranslateKey != GlobalConfig.HotKeys.ScreenshotTranslate.Key)
+            if (GlobalConfig.HotKeys.ScreenshotTranslate.Key != 0 && (ScreenshotTranslateModifiers != GlobalConfig.HotKeys.ScreenshotTranslate.Modifiers || ScreenshotTranslateKey != GlobalConfig.HotKeys.ScreenshotTranslate.Key))
             {
                 NativeMethod.UnregisterHotKey(mainFormHandle, 847);
                 NativeMethod.RegisterHotKey(mainFormHandle, 847, GlobalConfig.HotKeys.ScreenshotTranslate.Modifiers, GlobalConfig.HotKeys.ScreenshotTranslate.Key);
