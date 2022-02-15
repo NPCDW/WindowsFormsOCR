@@ -337,10 +337,13 @@ namespace WindowsFormsOCR
             }
         }
 
-        private Dictionary<String, Object> HotKeyTextBox_KeyDown(object sender, KeyEventArgs e)
+        byte modifiers;
+        int key;
+
+        private void HotKeyTextBox_KeyDown(object sender, KeyEventArgs e)
         {
-            byte modifiers = 0;
-            int key = 0;
+            modifiers = 0;
+            key = 0;
             StringBuilder text = new StringBuilder();
             if (e.Modifiers != 0)
             {
@@ -373,11 +376,6 @@ namespace WindowsFormsOCR
                 key = e.KeyValue;
             }
             ((TextBox)sender).Text = text.ToString();
-
-            Dictionary<String, Object> keyValuePairs = new Dictionary<String, Object>();
-            keyValuePairs.Add("modifiers", modifiers);
-            keyValuePairs.Add("key", key);
-            return keyValuePairs;
         }
 
         private Boolean HotKeyTextBox_KeyUp(object sender, KeyEventArgs e)
@@ -427,54 +425,33 @@ namespace WindowsFormsOCR
             HotKeysUtil.ReRegisterHotKey();
         }
 
-        private void ocrHotKeyTextBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            Dictionary<String, Object> keyValuePairs = HotKeyTextBox_KeyDown(sender, e);
-            GlobalConfig.HotKeys.Ocr.Modifiers = (byte)keyValuePairs["modifiers"];
-            GlobalConfig.HotKeys.Ocr.Key = (int)keyValuePairs["key"];
-        }
-
         private void ocrHotKeyTextBox_KeyUp(object sender, KeyEventArgs e)
         {
             bool verify = HotKeyTextBox_KeyUp(sender, e);
-            if (!verify)
+            if (verify)
             {
-                GlobalConfig.HotKeys.Ocr.Modifiers = 0;
-                GlobalConfig.HotKeys.Ocr.Key = 0;
+                GlobalConfig.HotKeys.Ocr.Modifiers = modifiers;
+                GlobalConfig.HotKeys.Ocr.Key = key;
             }
         }
 
         private void GetWordsTranslateHotKeyTextBox_KeyUp(object sender, KeyEventArgs e)
         {
             bool verify = HotKeyTextBox_KeyUp(sender, e);
-            if (!verify)
+            if (verify)
             {
-                GlobalConfig.HotKeys.GetWordsTranslate.Modifiers = 0;
-                GlobalConfig.HotKeys.GetWordsTranslate.Key = 0;
+                GlobalConfig.HotKeys.GetWordsTranslate.Modifiers = modifiers;
+                GlobalConfig.HotKeys.GetWordsTranslate.Key = key;
             }
-        }
-
-        private void GetWordsTranslateHotKeyTextBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            Dictionary<String, Object> keyValuePairs = HotKeyTextBox_KeyDown(sender, e);
-            GlobalConfig.HotKeys.GetWordsTranslate.Modifiers = (byte)keyValuePairs["modifiers"];
-            GlobalConfig.HotKeys.GetWordsTranslate.Key = (int)keyValuePairs["key"];
-        }
-
-        private void ScreenshotTranslateHotKeyTextBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            Dictionary<String, Object> keyValuePairs = HotKeyTextBox_KeyDown(sender, e);
-            GlobalConfig.HotKeys.ScreenshotTranslate.Modifiers = (byte)keyValuePairs["modifiers"];
-            GlobalConfig.HotKeys.ScreenshotTranslate.Key = (int)keyValuePairs["key"];
         }
 
         private void ScreenshotTranslateHotKeyTextBox_KeyUp(object sender, KeyEventArgs e)
         {
             bool verify = HotKeyTextBox_KeyUp(sender, e);
-            if (!verify)
+            if (verify)
             {
-                GlobalConfig.HotKeys.ScreenshotTranslate.Modifiers = 0;
-                GlobalConfig.HotKeys.ScreenshotTranslate.Key = 0;
+                GlobalConfig.HotKeys.ScreenshotTranslate.Modifiers = modifiers;
+                GlobalConfig.HotKeys.ScreenshotTranslate.Key = key;
             }
         }
     }
