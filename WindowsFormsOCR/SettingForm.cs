@@ -97,7 +97,35 @@ namespace WindowsFormsOCR
             this.TencentCloudTranslate_SecretIdInput.Text = GlobalConfig.TencentCloudTranslate.secret_id;
             this.TencentCloudTranslate_SecretKeyInput.Text = GlobalConfig.TencentCloudTranslate.secret_key;
 
-            ocrHotKeyTextBox.Text = ((Keys)Enum.Parse(typeof(Keys), GlobalConfig.HotKeys.Ocr.Key.ToString())).ToString();
+            ocrHotKeyTextBox.Text = GetTextByKeyModifiers(GlobalConfig.HotKeys.Ocr.Modifiers) + GetTextByKeys(GlobalConfig.HotKeys.Ocr.Key);
+            GetWordsTranslateHotKeyTextBox.Text = GetTextByKeyModifiers(GlobalConfig.HotKeys.GetWordsTranslate.Modifiers) + GetTextByKeys(GlobalConfig.HotKeys.GetWordsTranslate.Key);
+            ScreenshotTranslateHotKeyTextBox.Text = GetTextByKeyModifiers(GlobalConfig.HotKeys.ScreenshotTranslate.Modifiers) + GetTextByKeys(GlobalConfig.HotKeys.ScreenshotTranslate.Key);
+        }
+
+        private string GetTextByKeyModifiers(byte modifiers)
+        {
+            switch (modifiers)
+            {
+                case 0: return "";
+                case 1: return "Alt + ";
+                case 2: return "Ctrl + ";
+                case 3: return "Ctrl + Alt + ";
+                case 4: return "Shift + ";
+                case 5: return "Alt + Shift + ";
+                case 6: return "Ctrl + Shift + ";
+                case 7: return "Ctrl + Alt + Shift + ";
+                default: return "";
+            }
+        }
+
+        private string GetTextByKeys(int keyValue)
+        {
+            Keys keys = ((Keys)Enum.Parse(typeof(Keys), keyValue.ToString()));
+            if ((keyValue >= 48 && keyValue <= 57))    //0-9
+            {
+                return keys.ToString().Substring(1);
+            }
+            return keys.ToString();
         }
 
         private void SettingForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -311,27 +339,40 @@ namespace WindowsFormsOCR
 
         private void HotKeyTextBox_KeyDown(object sender, KeyEventArgs e)
         {
-            StringBuilder keyValue = new StringBuilder();
+            byte modifiers = 0;
+            int key = 0;
+            StringBuilder text = new StringBuilder();
             if (e.Modifiers != 0)
             {
                 if (e.Control)
-                    keyValue.Append("Ctrl + ");
+                {
+                    text.Append("Ctrl + ");
+                    modifiers += 2;
+                }
                 if (e.Alt)
-                    keyValue.Append("Alt + ");
+                {
+                    text.Append("Alt + ");
+                    modifiers += 1;
+                }
                 if (e.Shift)
-                    keyValue.Append("Shift + ");
+                {
+                    text.Append("Shift + ");
+                    modifiers += 4;
+                }
             }
             if ((e.KeyValue >= 33 && e.KeyValue <= 40) ||
                 (e.KeyValue >= 65 && e.KeyValue <= 90) ||   //a-z/A-Z
                 (e.KeyValue >= 112 && e.KeyValue <= 123))   //F1-F12
             {
-                keyValue.Append(e.KeyCode);
+                text.Append(e.KeyCode);
+                key = e.KeyValue;
             }
             else if ((e.KeyValue >= 48 && e.KeyValue <= 57))    //0-9
             {
-                keyValue.Append(e.KeyCode.ToString().Substring(1));
+                text.Append(e.KeyCode.ToString().Substring(1));
+                key = e.KeyValue;
             }
-            this.ActiveControl.Text = keyValue.ToString();
+            this.ActiveControl.Text = text.ToString();
         }
 
         private void HotKeyTextBox_KeyUp(object sender, KeyEventArgs e)
