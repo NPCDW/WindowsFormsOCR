@@ -337,7 +337,7 @@ namespace WindowsFormsOCR
             }
         }
 
-        private void HotKeyTextBox_KeyDown(object sender, KeyEventArgs e)
+        private Dictionary<String, Object> HotKeyTextBox_KeyDown(object sender, KeyEventArgs e)
         {
             byte modifiers = 0;
             int key = 0;
@@ -372,21 +372,30 @@ namespace WindowsFormsOCR
                 text.Append(e.KeyCode.ToString().Substring(1));
                 key = e.KeyValue;
             }
-            this.ActiveControl.Text = text.ToString();
+            ((TextBox)sender).Text = text.ToString();
+
+            Dictionary<String, Object> keyValuePairs = new Dictionary<String, Object>();
+            keyValuePairs.Add("modifiers", modifiers);
+            keyValuePairs.Add("key", key);
+            return keyValuePairs;
         }
 
-        private void HotKeyTextBox_KeyUp(object sender, KeyEventArgs e)
+        private Boolean HotKeyTextBox_KeyUp(object sender, KeyEventArgs e)
         {
-            string str = this.ActiveControl.Text.TrimEnd();
+            TextBox textBox = (TextBox)sender;
+            string str = textBox.Text.TrimEnd();
             int len = str.Length;
             if (len >= 1 && str.Substring(str.Length - 1) == "+")
             {
-                this.ActiveControl.Text = "";
+                textBox.Text = "";
+                return false;
             }
             if (!str.Contains("+") && !str.Contains("F"))
             {
-                this.ActiveControl.Text = "";
+                textBox.Text = "";
+                return false;
             }
+            return true;
         }
 
         private void HotKeyTextBox_GotFocus(object sender, EventArgs e)
@@ -405,6 +414,10 @@ namespace WindowsFormsOCR
 
         private void defaultHotKeysButton_Click(object sender, EventArgs e)
         {
+            GetWordsTranslateHotKeyTextBox.Text = "F2";
+            ocrHotKeyTextBox.Text = "F4";
+            ScreenshotTranslateHotKeyTextBox.Text = "Ctrl + F2";
+
             GlobalConfig.HotKeys.GetWordsTranslate.Modifiers = 0;
             GlobalConfig.HotKeys.GetWordsTranslate.Key = 113;
             GlobalConfig.HotKeys.Ocr.Modifiers = 0;
@@ -412,6 +425,57 @@ namespace WindowsFormsOCR
             GlobalConfig.HotKeys.ScreenshotTranslate.Modifiers = 2;
             GlobalConfig.HotKeys.ScreenshotTranslate.Key = 113;
             HotKeysUtil.ReRegisterHotKey();
+        }
+
+        private void ocrHotKeyTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            Dictionary<String, Object> keyValuePairs = HotKeyTextBox_KeyDown(sender, e);
+            GlobalConfig.HotKeys.Ocr.Modifiers = (byte)keyValuePairs["modifiers"];
+            GlobalConfig.HotKeys.Ocr.Key = (int)keyValuePairs["key"];
+        }
+
+        private void ocrHotKeyTextBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            bool verify = HotKeyTextBox_KeyUp(sender, e);
+            if (!verify)
+            {
+                GlobalConfig.HotKeys.Ocr.Modifiers = 0;
+                GlobalConfig.HotKeys.Ocr.Key = 0;
+            }
+        }
+
+        private void GetWordsTranslateHotKeyTextBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            bool verify = HotKeyTextBox_KeyUp(sender, e);
+            if (!verify)
+            {
+                GlobalConfig.HotKeys.GetWordsTranslate.Modifiers = 0;
+                GlobalConfig.HotKeys.GetWordsTranslate.Key = 0;
+            }
+        }
+
+        private void GetWordsTranslateHotKeyTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            Dictionary<String, Object> keyValuePairs = HotKeyTextBox_KeyDown(sender, e);
+            GlobalConfig.HotKeys.GetWordsTranslate.Modifiers = (byte)keyValuePairs["modifiers"];
+            GlobalConfig.HotKeys.GetWordsTranslate.Key = (int)keyValuePairs["key"];
+        }
+
+        private void ScreenshotTranslateHotKeyTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            Dictionary<String, Object> keyValuePairs = HotKeyTextBox_KeyDown(sender, e);
+            GlobalConfig.HotKeys.ScreenshotTranslate.Modifiers = (byte)keyValuePairs["modifiers"];
+            GlobalConfig.HotKeys.ScreenshotTranslate.Key = (int)keyValuePairs["key"];
+        }
+
+        private void ScreenshotTranslateHotKeyTextBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            bool verify = HotKeyTextBox_KeyUp(sender, e);
+            if (!verify)
+            {
+                GlobalConfig.HotKeys.ScreenshotTranslate.Modifiers = 0;
+                GlobalConfig.HotKeys.ScreenshotTranslate.Key = 0;
+            }
         }
     }
 }
