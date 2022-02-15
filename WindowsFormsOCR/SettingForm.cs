@@ -383,6 +383,10 @@ namespace WindowsFormsOCR
             {
                 this.ActiveControl.Text = "";
             }
+            if (!str.Contains("+") && !str.Contains("F"))
+            {
+                this.ActiveControl.Text = "";
+            }
         }
 
         private void HotKeyTextBox_GotFocus(object sender, EventArgs e)
