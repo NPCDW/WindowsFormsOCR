@@ -658,7 +658,7 @@
             this.ScreenshotTranslateHotKeyTextBox.Size = new System.Drawing.Size(296, 23);
             this.ScreenshotTranslateHotKeyTextBox.TabIndex = 5;
             this.ScreenshotTranslateHotKeyTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.ScreenshotTranslateHotKeyTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ScreenshotTranslateHotKeyTextBox_KeyDown);
+            this.ScreenshotTranslateHotKeyTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.HotKeyTextBox_KeyDown);
             this.ScreenshotTranslateHotKeyTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ScreenshotTranslateHotKeyTextBox_KeyUp);
             // 
             // GetWordsTranslateHotKeyTextBox
@@ -672,7 +672,7 @@
             this.GetWordsTranslateHotKeyTextBox.Size = new System.Drawing.Size(296, 23);
             this.GetWordsTranslateHotKeyTextBox.TabIndex = 4;
             this.GetWordsTranslateHotKeyTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.GetWordsTranslateHotKeyTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GetWordsTranslateHotKeyTextBox_KeyDown);
+            this.GetWordsTranslateHotKeyTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.HotKeyTextBox_KeyDown);
             this.GetWordsTranslateHotKeyTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.GetWordsTranslateHotKeyTextBox_KeyUp);
             // 
             // ocrHotKeyTextBox
@@ -686,7 +686,7 @@
             this.ocrHotKeyTextBox.Size = new System.Drawing.Size(296, 23);
             this.ocrHotKeyTextBox.TabIndex = 3;
             this.ocrHotKeyTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.ocrHotKeyTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ocrHotKeyTextBox_KeyDown);
+            this.ocrHotKeyTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.HotKeyTextBox_KeyDown);
             this.ocrHotKeyTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ocrHotKeyTextBox_KeyUp);
             // 
             // label9
