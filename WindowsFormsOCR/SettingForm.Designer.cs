@@ -799,7 +799,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(130, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "版本 1.2.1 (2022.2.15)";
+            this.label1.Text = "版本 1.2.2 (2022.2.16)";
             // 
             // SettingForm
             // 
