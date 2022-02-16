@@ -56,22 +56,21 @@
             this.settingButton,
             this.exitButton});
             this.contextMenuStrip.Name = "contextMenuStrip1";
-            this.contextMenuStrip.Size = new System.Drawing.Size(175, 114);
+            this.contextMenuStrip.Size = new System.Drawing.Size(181, 136);
             // 
             // translateButton
             // 
             this.translateButton.Name = "translateButton";
-            this.translateButton.ShortcutKeyDisplayString = "";
-            this.translateButton.ShortcutKeys = System.Windows.Forms.Keys.F2;
-            this.translateButton.Size = new System.Drawing.Size(174, 22);
+            this.translateButton.ShortcutKeyDisplayString = "F2";
+            this.translateButton.Size = new System.Drawing.Size(180, 22);
             this.translateButton.Text = "划词翻译";
             this.translateButton.Click += new System.EventHandler(this.Translate_Click);
             // 
             // ScreenshotTranslationButton
             // 
             this.ScreenshotTranslationButton.Name = "ScreenshotTranslationButton";
-            this.ScreenshotTranslationButton.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F2)));
-            this.ScreenshotTranslationButton.Size = new System.Drawing.Size(174, 22);
+            this.ScreenshotTranslationButton.ShortcutKeyDisplayString = "Ctrl+F2";
+            this.ScreenshotTranslationButton.Size = new System.Drawing.Size(180, 22);
             this.ScreenshotTranslationButton.Text = "截图翻译";
             this.ScreenshotTranslationButton.Click += new System.EventHandler(this.ScreenshotTranslation_Click);
             // 
@@ -80,22 +79,21 @@
             this.ocrButton.Name = "ocrButton";
             this.ocrButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.ocrButton.ShortcutKeyDisplayString = "F4";
-            this.ocrButton.ShortcutKeys = System.Windows.Forms.Keys.F4;
-            this.ocrButton.Size = new System.Drawing.Size(174, 22);
-            this.ocrButton.Text = "截图文字识别";
+            this.ocrButton.Size = new System.Drawing.Size(180, 22);
+            this.ocrButton.Text = "文字识别";
             this.ocrButton.Click += new System.EventHandler(this.OcrButton_Click);
             // 
             // settingButton
             // 
             this.settingButton.Name = "settingButton";
-            this.settingButton.Size = new System.Drawing.Size(174, 22);
+            this.settingButton.Size = new System.Drawing.Size(180, 22);
             this.settingButton.Text = "设置";
             this.settingButton.Click += new System.EventHandler(this.Setting_Click);
             // 
             // exitButton
             // 
             this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(174, 22);
+            this.exitButton.Size = new System.Drawing.Size(180, 22);
             this.exitButton.Text = "退出";
             this.exitButton.Click += new System.EventHandler(this.Exit_Click);
             // 
@@ -122,10 +120,10 @@
         private System.Windows.Forms.NotifyIcon notifyIcon;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem settingButton;
-        private System.Windows.Forms.ToolStripMenuItem ocrButton;
         private System.Windows.Forms.ToolStripMenuItem exitButton;
-        private System.Windows.Forms.ToolStripMenuItem translateButton;
-        private System.Windows.Forms.ToolStripMenuItem ScreenshotTranslationButton;
+        public System.Windows.Forms.ToolStripMenuItem ocrButton;
+        public System.Windows.Forms.ToolStripMenuItem translateButton;
+        public System.Windows.Forms.ToolStripMenuItem ScreenshotTranslationButton;
     }
 }
 

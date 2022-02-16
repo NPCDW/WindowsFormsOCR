@@ -337,30 +337,31 @@ namespace WindowsFormsOCR
             }
         }
 
-        byte modifiers;
-        int key;
+        byte hotkeysModifiers;
+        int hotkeysKey;
+        string hotkeysText;
 
         private void HotKeyTextBox_KeyDown(object sender, KeyEventArgs e)
         {
-            modifiers = 0;
-            key = 0;
+            hotkeysModifiers = 0;
+            hotkeysKey = 0;
             StringBuilder text = new StringBuilder();
             if (e.Modifiers != 0)
             {
                 if (e.Control)
                 {
                     text.Append("Ctrl + ");
-                    modifiers += 2;
+                    hotkeysModifiers += 2;
                 }
                 if (e.Alt)
                 {
                     text.Append("Alt + ");
-                    modifiers += 1;
+                    hotkeysModifiers += 1;
                 }
                 if (e.Shift)
                 {
                     text.Append("Shift + ");
-                    modifiers += 4;
+                    hotkeysModifiers += 4;
                 }
             }
             if ((e.KeyValue >= 33 && e.KeyValue <= 40) ||
@@ -368,13 +369,14 @@ namespace WindowsFormsOCR
                 (e.KeyValue >= 112 && e.KeyValue <= 123))   //F1-F12
             {
                 text.Append(e.KeyCode);
-                key = e.KeyValue;
+                hotkeysKey = e.KeyValue;
             }
             else if ((e.KeyValue >= 48 && e.KeyValue <= 57))    //0-9
             {
                 text.Append(e.KeyCode.ToString().Substring(1));
-                key = e.KeyValue;
+                hotkeysKey = e.KeyValue;
             }
+            hotkeysText = text.ToString();
             ((TextBox)sender).Text = text.ToString();
         }
 
@@ -418,10 +420,18 @@ namespace WindowsFormsOCR
 
             GlobalConfig.HotKeys.GetWordsTranslate.Modifiers = 0;
             GlobalConfig.HotKeys.GetWordsTranslate.Key = 113;
+            GlobalConfig.HotKeys.GetWordsTranslate.Text = "F2";
             GlobalConfig.HotKeys.Ocr.Modifiers = 0;
             GlobalConfig.HotKeys.Ocr.Key = 115;
+            GlobalConfig.HotKeys.Ocr.Text = "F4";
             GlobalConfig.HotKeys.ScreenshotTranslate.Modifiers = 2;
             GlobalConfig.HotKeys.ScreenshotTranslate.Key = 113;
+            GlobalConfig.HotKeys.ScreenshotTranslate.Text = "Ctrl + F2";
+
+            MainForm.mainForm.translateButton.ShortcutKeyDisplayString = GetWordsTranslateHotKeyTextBox.Text.Replace(" ", "");
+            MainForm.mainForm.ocrButton.ShortcutKeyDisplayString = ocrHotKeyTextBox.Text.Replace(" ", "");
+            MainForm.mainForm.ScreenshotTranslationButton.ShortcutKeyDisplayString = ScreenshotTranslateHotKeyTextBox.Text.Replace(" ", "");
+
             HotKeysUtil.ReRegisterHotKey();
         }
 
@@ -430,8 +440,10 @@ namespace WindowsFormsOCR
             bool verify = HotKeyTextBox_KeyUp(sender, e);
             if (verify)
             {
-                GlobalConfig.HotKeys.Ocr.Modifiers = modifiers;
-                GlobalConfig.HotKeys.Ocr.Key = key;
+                GlobalConfig.HotKeys.Ocr.Modifiers = hotkeysModifiers;
+                GlobalConfig.HotKeys.Ocr.Key = hotkeysKey;
+                GlobalConfig.HotKeys.Ocr.Text = hotkeysText;
+                MainForm.mainForm.ocrButton.ShortcutKeyDisplayString = hotkeysText.Replace(" ", "");
             }
         }
 
@@ -440,8 +452,10 @@ namespace WindowsFormsOCR
             bool verify = HotKeyTextBox_KeyUp(sender, e);
             if (verify)
             {
-                GlobalConfig.HotKeys.GetWordsTranslate.Modifiers = modifiers;
-                GlobalConfig.HotKeys.GetWordsTranslate.Key = key;
+                GlobalConfig.HotKeys.GetWordsTranslate.Modifiers = hotkeysModifiers;
+                GlobalConfig.HotKeys.GetWordsTranslate.Key = hotkeysKey;
+                GlobalConfig.HotKeys.GetWordsTranslate.Text = hotkeysText;
+                MainForm.mainForm.translateButton.ShortcutKeyDisplayString = hotkeysText.Replace(" ", "");
             }
         }
 
@@ -450,8 +464,10 @@ namespace WindowsFormsOCR
             bool verify = HotKeyTextBox_KeyUp(sender, e);
             if (verify)
             {
-                GlobalConfig.HotKeys.ScreenshotTranslate.Modifiers = modifiers;
-                GlobalConfig.HotKeys.ScreenshotTranslate.Key = key;
+                GlobalConfig.HotKeys.ScreenshotTranslate.Modifiers = hotkeysModifiers;
+                GlobalConfig.HotKeys.ScreenshotTranslate.Key = hotkeysKey;
+                GlobalConfig.HotKeys.ScreenshotTranslate.Text = hotkeysText;
+                MainForm.mainForm.ScreenshotTranslationButton.ShortcutKeyDisplayString = hotkeysText.Replace(" ", "");
             }
         }
     }
