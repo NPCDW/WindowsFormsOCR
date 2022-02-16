@@ -68,16 +68,19 @@ namespace WindowsFormsOCR
             {
                 public static byte Modifiers = 0;
                 public static int Key = 113;
+                public static String Text = "F2";
             }
             public static class Ocr
             {
                 public static byte Modifiers = 0;
                 public static int Key = 115;
+                public static String Text = "F4";
             }
             public static class ScreenshotTranslate
             {
                 public static byte Modifiers = 2;
                 public static int Key = 113;
+                public static String Text = "Ctrl+F2";
             }
         }
 
@@ -127,10 +130,13 @@ namespace WindowsFormsOCR
 
                 HotKeys.Ocr.Modifiers = byte.Parse(jsonObj["HotKeys"]["Ocr"]["Modifiers"].ToString());
                 HotKeys.Ocr.Key = int.Parse(jsonObj["HotKeys"]["Ocr"]["Key"].ToString());
+                HotKeys.Ocr.Text = jsonObj["HotKeys"]["Ocr"]["Text"].ToString();
                 HotKeys.GetWordsTranslate.Modifiers = byte.Parse(jsonObj["HotKeys"]["GetWordsTranslate"]["Modifiers"].ToString());
                 HotKeys.GetWordsTranslate.Key = int.Parse(jsonObj["HotKeys"]["GetWordsTranslate"]["Key"].ToString());
+                HotKeys.GetWordsTranslate.Text = jsonObj["HotKeys"]["GetWordsTranslate"]["Text"].ToString();
                 HotKeys.ScreenshotTranslate.Modifiers = byte.Parse(jsonObj["HotKeys"]["ScreenshotTranslate"]["Modifiers"].ToString());
                 HotKeys.ScreenshotTranslate.Key = int.Parse(jsonObj["HotKeys"]["ScreenshotTranslate"]["Key"].ToString());
+                HotKeys.ScreenshotTranslate.Text = jsonObj["HotKeys"]["ScreenshotTranslate"]["Text"].ToString();
             }
             catch (Exception ex)
             {
@@ -170,12 +176,15 @@ namespace WindowsFormsOCR
             jsonObj["HotKeys"]["Ocr"] = new JObject();
             jsonObj["HotKeys"]["Ocr"]["Modifiers"] = HotKeys.Ocr.Modifiers;
             jsonObj["HotKeys"]["Ocr"]["Key"] = HotKeys.Ocr.Key;
+            jsonObj["HotKeys"]["Ocr"]["Text"] = HotKeys.Ocr.Text;
             jsonObj["HotKeys"]["GetWordsTranslate"] = new JObject();
             jsonObj["HotKeys"]["GetWordsTranslate"]["Modifiers"] = HotKeys.GetWordsTranslate.Modifiers;
             jsonObj["HotKeys"]["GetWordsTranslate"]["Key"] = HotKeys.GetWordsTranslate.Key;
+            jsonObj["HotKeys"]["GetWordsTranslate"]["Text"] = HotKeys.GetWordsTranslate.Text;
             jsonObj["HotKeys"]["ScreenshotTranslate"] = new JObject();
             jsonObj["HotKeys"]["ScreenshotTranslate"]["Modifiers"] = HotKeys.ScreenshotTranslate.Modifiers;
             jsonObj["HotKeys"]["ScreenshotTranslate"]["Key"] = HotKeys.ScreenshotTranslate.Key;
+            jsonObj["HotKeys"]["ScreenshotTranslate"]["Text"] = HotKeys.ScreenshotTranslate.Text;
 
             String jsonStr = jsonObj.ToString();
             using (StreamWriter sw = new StreamWriter(configPath))

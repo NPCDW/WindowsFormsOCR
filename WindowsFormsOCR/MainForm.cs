@@ -13,11 +13,19 @@ namespace WindowsFormsOCR
 {
     public partial class MainForm : Form
     {
+        public static MainForm mainForm;
+
         public MainForm()
         {
             InitializeComponent();
 
+            mainForm = this;
+
             GlobalConfig.GetConfig();
+
+            this.translateButton.ShortcutKeyDisplayString = GlobalConfig.HotKeys.GetWordsTranslate.Text.Replace(" ", "");
+            this.ocrButton.ShortcutKeyDisplayString = GlobalConfig.HotKeys.Ocr.Text.Replace(" ", "");
+            this.ScreenshotTranslationButton.ShortcutKeyDisplayString = GlobalConfig.HotKeys.ScreenshotTranslate.Text.Replace(" ", "");
 
             HotKeysUtil.RegisterHotKey(this.Handle);
         }

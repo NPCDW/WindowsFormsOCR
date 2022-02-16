@@ -28,15 +28,18 @@
   "HotKeys": {
     "GetWordsTranslate": {
       "Modifiers": 0,
-      "Key": 113
+      "Key": 113,
+      "Text": "F2"
     },
     "Ocr": {
       "Modifiers": 0,
-      "Key": 115
+      "Key": 115,
+      "Text": "F4"
     },
     "ScreenshotTranslate": {
       "Modifiers": 2,
-      "Key": 113
+      "Key": 113,
+      "Text": "Ctrl+F2"
     }
   }
 }
