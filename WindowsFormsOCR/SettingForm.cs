@@ -97,35 +97,9 @@ namespace WindowsFormsOCR
             this.TencentCloudTranslate_SecretIdInput.Text = GlobalConfig.TencentCloudTranslate.secret_id;
             this.TencentCloudTranslate_SecretKeyInput.Text = GlobalConfig.TencentCloudTranslate.secret_key;
 
-            ocrHotKeyTextBox.Text = GetTextByKeyModifiers(GlobalConfig.HotKeys.Ocr.Modifiers) + GetTextByKeys(GlobalConfig.HotKeys.Ocr.Key);
-            GetWordsTranslateHotKeyTextBox.Text = GetTextByKeyModifiers(GlobalConfig.HotKeys.GetWordsTranslate.Modifiers) + GetTextByKeys(GlobalConfig.HotKeys.GetWordsTranslate.Key);
-            ScreenshotTranslateHotKeyTextBox.Text = GetTextByKeyModifiers(GlobalConfig.HotKeys.ScreenshotTranslate.Modifiers) + GetTextByKeys(GlobalConfig.HotKeys.ScreenshotTranslate.Key);
-        }
-
-        private string GetTextByKeyModifiers(byte modifiers)
-        {
-            switch (modifiers)
-            {
-                case 0: return "";
-                case 1: return "Alt + ";
-                case 2: return "Ctrl + ";
-                case 3: return "Ctrl + Alt + ";
-                case 4: return "Shift + ";
-                case 5: return "Alt + Shift + ";
-                case 6: return "Ctrl + Shift + ";
-                case 7: return "Ctrl + Alt + Shift + ";
-                default: return "";
-            }
-        }
-
-        private string GetTextByKeys(int keyValue)
-        {
-            Keys keys = ((Keys)Enum.Parse(typeof(Keys), keyValue.ToString()));
-            if ((keyValue >= 48 && keyValue <= 57))    //0-9
-            {
-                return keys.ToString().Substring(1);
-            }
-            return keys.ToString();
+            this.ocrHotKeyTextBox.Text = GlobalConfig.HotKeys.Ocr.Text;
+            this.GetWordsTranslateHotKeyTextBox.Text = GlobalConfig.HotKeys.GetWordsTranslate.Text;
+            this.ScreenshotTranslateHotKeyTextBox.Text = GlobalConfig.HotKeys.ScreenshotTranslate.Text;
         }
 
         private void SettingForm_FormClosed(object sender, FormClosedEventArgs e)
