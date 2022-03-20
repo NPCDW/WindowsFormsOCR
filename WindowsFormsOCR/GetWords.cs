@@ -14,7 +14,7 @@ namespace WindowsFormsOCR
         public static String Get()
         {
             SendCtrlC();
-            Thread.Sleep(200);
+            Thread.Sleep(GlobalConfig.Common.wordSelectionInterval);
             String text = NativeClipboard.GetText();
             return text;
         }

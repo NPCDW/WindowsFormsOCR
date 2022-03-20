@@ -4,7 +4,8 @@
     "defaultOcrType": "GeneralBasicOCR",
     "defaultTranslateProvide": "TencentCloud",
     "defaultTranslateSourceLanguage": "auto",
-    "defaultTranslateTargetLanguage": "zh"
+    "defaultTranslateTargetLanguage": "zh",
+    "WordSelectionInterval": 200
   },
   "Local": {},
   "BaiduCloud": {

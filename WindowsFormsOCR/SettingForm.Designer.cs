@@ -87,6 +87,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.wordSelectionIntervalBox = new System.Windows.Forms.NumericUpDown();
+            this.label18 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.defaultTranslateProvide.SuspendLayout();
@@ -99,6 +102,7 @@
             this.groupBox2.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.wordSelectionIntervalBox)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -121,6 +125,9 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.label18);
+            this.tabPage5.Controls.Add(this.wordSelectionIntervalBox);
+            this.tabPage5.Controls.Add(this.label17);
             this.tabPage5.Controls.Add(this.defaultTranslateProvide);
             this.tabPage5.Controls.Add(this.defaultOcrProvideGroupBox);
             this.tabPage5.Controls.Add(this.autoStartButton);
@@ -801,6 +808,52 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "版本 1.2.2 (2022.2.16)";
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(14, 190);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(56, 17);
+            this.label17.TabIndex = 4;
+            this.label17.Text = "取词间隔";
+            // 
+            // wordSelectionIntervalBox
+            // 
+            this.wordSelectionIntervalBox.Increment = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            this.wordSelectionIntervalBox.Location = new System.Drawing.Point(76, 188);
+            this.wordSelectionIntervalBox.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.wordSelectionIntervalBox.Minimum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            this.wordSelectionIntervalBox.Name = "wordSelectionIntervalBox";
+            this.wordSelectionIntervalBox.Size = new System.Drawing.Size(51, 23);
+            this.wordSelectionIntervalBox.TabIndex = 5;
+            this.wordSelectionIntervalBox.Value = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            this.wordSelectionIntervalBox.ValueChanged += new System.EventHandler(this.wordSelectionIntervalBox_ValueChanged);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(133, 190);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(25, 17);
+            this.label18.TabIndex = 6;
+            this.label18.Text = "ms";
+            // 
             // SettingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -840,6 +893,7 @@
             this.tabPage1.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.wordSelectionIntervalBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -904,5 +958,8 @@
         private System.Windows.Forms.TextBox ScreenshotTranslateHotKeyTextBox;
         private System.Windows.Forms.TextBox GetWordsTranslateHotKeyTextBox;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.NumericUpDown wordSelectionIntervalBox;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
     }
 }
