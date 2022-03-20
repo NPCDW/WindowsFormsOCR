@@ -21,6 +21,7 @@ namespace WindowsFormsOCR
             public static TranslateProvideEnum defaultTranslateProvide;
             public static String defaultTranslateSourceLanguage;
             public static String defaultTranslateTargetLanguage;
+            public static int wordSelectionInterval;
             public static bool autoStart = false;
         }
         public static class Local
@@ -112,6 +113,7 @@ namespace WindowsFormsOCR
                 Common.defaultTranslateProvide = (TranslateProvideEnum)Enum.Parse(typeof(TranslateProvideEnum), jsonObj["Common"]["defaultTranslateProvide"].ToString());
                 Common.defaultTranslateSourceLanguage = jsonObj["Common"]["defaultTranslateSourceLanguage"].ToString();
                 Common.defaultTranslateTargetLanguage = jsonObj["Common"]["defaultTranslateTargetLanguage"].ToString();
+                Common.wordSelectionInterval = int.Parse(jsonObj["Common"]["WordSelectionInterval"].ToString());
                 Common.autoStart = AutoStart.GetStatus();
 
                 BaiduCloud.access_token = jsonObj["BaiduCloud"]["access_token"].ToString();
@@ -153,6 +155,7 @@ namespace WindowsFormsOCR
             jsonObj["Common"]["defaultTranslateProvide"] = Common.defaultTranslateProvide.ToString();
             jsonObj["Common"]["defaultTranslateSourceLanguage"] = Common.defaultTranslateSourceLanguage;
             jsonObj["Common"]["defaultTranslateTargetLanguage"] = Common.defaultTranslateTargetLanguage;
+            jsonObj["Common"]["WordSelectionInterval"] = Common.wordSelectionInterval;
 
             jsonObj["BaiduCloud"] = new JObject();
             jsonObj["BaiduCloud"]["access_token"] = BaiduCloud.access_token;

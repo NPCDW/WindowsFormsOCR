@@ -86,6 +86,8 @@ namespace WindowsFormsOCR
                 }
             }
 
+            this.wordSelectionIntervalBox.Value = GlobalConfig.Common.wordSelectionInterval;
+
             this.BaiduCloud_APIKeyInput.Text = GlobalConfig.BaiduCloud.client_id;
             this.BaiduCloud_SecretKeyInput.Text = GlobalConfig.BaiduCloud.client_secret;
             this.BaiduAI_APPIDInput.Text = GlobalConfig.BaiduAI.app_id;
@@ -443,6 +445,11 @@ namespace WindowsFormsOCR
                 GlobalConfig.HotKeys.ScreenshotTranslate.Text = hotkeysText;
                 MainForm.mainForm.ScreenshotTranslationButton.ShortcutKeyDisplayString = hotkeysText.Replace(" ", "");
             }
+        }
+
+        private void wordSelectionIntervalBox_ValueChanged(object sender, EventArgs e)
+        {
+            GlobalConfig.Common.wordSelectionInterval = (int)this.wordSelectionIntervalBox.Value;
         }
     }
 }
