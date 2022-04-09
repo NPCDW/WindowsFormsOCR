@@ -104,6 +104,7 @@ namespace WindowsFormsOCR
                 return;
             }
             form.ocrTextBox.Text = getWordsResult;
+            Application.DoEvents();
             form.translate();
         }
 

@@ -95,6 +95,7 @@ namespace WindowsFormsOCR
                     return;
                 }
                 translateTextBox.Text = "翻译中，请稍等。。。";
+                Application.DoEvents();
 
                 translateTextBox.Text = TencentCloudHelper.translate(ocrTextBox.Text, sourceLanguage, targetLanguage);
             }
@@ -106,6 +107,7 @@ namespace WindowsFormsOCR
                     return;
                 }
                 translateTextBox.Text = "识别中，请稍等。。。";
+                Application.DoEvents();
 
                 translateTextBox.Text = BaiduAIHelper.translate(ocrTextBox.Text, sourceLanguage, targetLanguage);
             }
@@ -135,6 +137,7 @@ namespace WindowsFormsOCR
                     return;
                 }
                 ocrTextBox.Text = "识别中，请稍等。。。";
+                Application.DoEvents();
 
                 ocrTextBox.Text = TencentCloudHelper.ocr(bmp, ocrType);
             }
@@ -146,6 +149,7 @@ namespace WindowsFormsOCR
                     return;
                 }
                 ocrTextBox.Text = "识别中，请稍等。。。";
+                Application.DoEvents();
 
                 ocrTextBox.Text = BaiduCloudHelper.ocr(bmp, ocrType);
             }
@@ -163,6 +167,7 @@ namespace WindowsFormsOCR
                 }
                 ocrTextBox.Text = "识别中，请稍等。。。";
                 translateTextBox.Text = "翻译中，请稍等。。。";
+                Application.DoEvents();
 
                 Dictionary<String, String> keyValues = TencentCloudHelper.screenshotTranslate(bmp);
                 ocrTextBox.Text = keyValues["ocrText"];
@@ -177,6 +182,7 @@ namespace WindowsFormsOCR
                 }
                 ocrTextBox.Text = "识别中，请稍等。。。";
                 translateTextBox.Text = "翻译中，请稍等。。。";
+                Application.DoEvents();
 
                 Dictionary<String, String> keyValues = BaiduAIHelper.screenshotTranslate(bmp);
                 ocrTextBox.Text = keyValues["ocrText"];
