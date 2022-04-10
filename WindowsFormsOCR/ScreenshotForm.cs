@@ -44,7 +44,7 @@ namespace WindowsFormsOCR
             this.BackgroundImage = img;
 
             Cursor myCursor = new Cursor(Cursor.Current.Handle);
-            IntPtr colorCursorHandle = NativeMethod.LoadCursorFromFile(Application.StartupPath + "\\Resources\\Cross.cur");
+            IntPtr colorCursorHandle = NativeMethod.LoadCursorFromFile(GlobalConfig.crossCurPath);
             myCursor.GetType().InvokeMember("handle", BindingFlags.Public |
                 BindingFlags.NonPublic | BindingFlags.Instance |
                 BindingFlags.SetField, null, myCursor,

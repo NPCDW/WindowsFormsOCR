@@ -13,6 +13,7 @@ namespace WindowsFormsOCR
     public static class GlobalConfig
     {
         private static String configPath = Application.StartupPath + "\\Resources\\Setting.json";
+        public static String crossCurPath = Application.StartupPath + "\\Resources\\Cross.cur";
 
         public static class Common
         {
