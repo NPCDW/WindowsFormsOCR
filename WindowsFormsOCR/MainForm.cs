@@ -36,6 +36,7 @@ namespace WindowsFormsOCR
             {
                 if (form is SettingForm)
                 {
+                    form.WindowState = FormWindowState.Normal;
                     form.Activate();
                     return;
                 }
@@ -89,6 +90,7 @@ namespace WindowsFormsOCR
                 if (item is TranslateAndOcrForm)
                 {
                     form = (TranslateAndOcrForm)item;
+                    form.WindowState = FormWindowState.Normal;
                     form.Activate();
                     break;
                 }
@@ -110,14 +112,6 @@ namespace WindowsFormsOCR
 
         private void ScreenshotTranslation_Click(object sender, EventArgs e)
         {
-            foreach (Form form in Application.OpenForms)
-            {
-                if (form is ScreenshotForm)
-                {
-                    form.Activate();
-                    return;
-                }
-            }
             ScreenshotForm body = new ScreenshotForm("translate");
             body.Size = Screen.PrimaryScreen.Bounds.Size;
             body.Show();
@@ -125,14 +119,6 @@ namespace WindowsFormsOCR
 
         private void OcrButton_Click(object sender, EventArgs e)
         {
-            foreach (Form form in Application.OpenForms)
-            {
-                if (form is ScreenshotForm)
-                {
-                    form.Activate();
-                    return;
-                }
-            }
             ScreenshotForm body = new ScreenshotForm();
             body.Size = Screen.PrimaryScreen.Bounds.Size;
             body.Show();
