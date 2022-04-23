@@ -191,6 +191,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "TranslateAndOcrForm";
             this.Text = "文字识别和翻译";
             this.Load += new System.EventHandler(this.TranslateAndOcrForm_Load);

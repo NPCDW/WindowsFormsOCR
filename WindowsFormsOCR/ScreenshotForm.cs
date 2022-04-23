@@ -94,6 +94,7 @@ namespace WindowsFormsOCR
                 if (item is TranslateAndOcrForm)
                 {
                     form = (TranslateAndOcrForm)item;
+                    form.WindowState = FormWindowState.Normal;
                     form.Activate();
                     break;
                 }
