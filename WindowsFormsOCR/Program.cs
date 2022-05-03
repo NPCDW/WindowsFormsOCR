@@ -16,6 +16,10 @@ namespace WindowsFormsOCR
         [STAThread]
         static void Main()
         {
+            if (Environment.OSVersion.Version.Major >= 6)
+            {
+                NativeMethod.SetProcessDPIAware();
+            }
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             RunningInstance();
