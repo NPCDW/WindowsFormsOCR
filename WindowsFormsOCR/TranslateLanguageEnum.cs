@@ -43,7 +43,7 @@ namespace WindowsFormsOCR
         el,
         [TranslateLanguage("荷兰语", "nl", "")]
         nl,
-        [TranslateLanguage("波兰语", "	pl", "")]
+        [TranslateLanguage("波兰语", "pl", "")]
         pl,
         [TranslateLanguage("保加利亚语", "bul", "")]
         bul,

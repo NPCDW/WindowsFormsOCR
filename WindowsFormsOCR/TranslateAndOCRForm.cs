@@ -106,7 +106,7 @@ namespace WindowsFormsOCR
                     MessageBox.Show("请先设置云服务商提供的秘钥信息，可以到设置中点击链接免费领取");
                     return;
                 }
-                translateTextBox.Text = "识别中，请稍等。。。";
+                translateTextBox.Text = "翻译中，请稍等。。。";
                 Application.DoEvents();
 
                 translateTextBox.Text = BaiduAIHelper.translate(ocrTextBox.Text, sourceLanguage, targetLanguage);
