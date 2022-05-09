@@ -138,6 +138,13 @@ namespace WindowsFormsOCR
         internal static extern IntPtr SetClipboardData(int uFormat, IntPtr hMem);
 
         /// <summary>
+        /// 兼容Windows缩放情况
+        /// </summary>
+        /// <returns></returns>
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        public static extern bool SetProcessDPIAware();
+
+        /// <summary>
         /// 定义了辅助键的名称（将数字转变为字符以便于记忆，也可去除此枚举而直接使用数值）
         /// </summary>
         [Flags()]

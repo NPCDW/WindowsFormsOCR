@@ -36,6 +36,7 @@ namespace WindowsFormsOCR
 
             Image img = new Bitmap(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
             Graphics g = Graphics.FromImage(img);
+            g.CompositingQuality = CompositingQuality.HighQuality;
             g.CopyFromScreen(new Point(0, 0), new Point(0, 0), Screen.PrimaryScreen.Bounds.Size);
             baseImage = (Image)img.Clone();
 
