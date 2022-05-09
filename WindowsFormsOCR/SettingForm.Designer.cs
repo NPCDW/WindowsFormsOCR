@@ -144,7 +144,7 @@
             this.label18.AutoSize = true;
             this.label18.Location = new System.Drawing.Point(133, 190);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(25, 17);
+            this.label18.Size = new System.Drawing.Size(35, 24);
             this.label18.TabIndex = 6;
             this.label18.Text = "ms";
             // 
@@ -167,7 +167,7 @@
             0,
             0});
             this.wordSelectionIntervalBox.Name = "wordSelectionIntervalBox";
-            this.wordSelectionIntervalBox.Size = new System.Drawing.Size(51, 23);
+            this.wordSelectionIntervalBox.Size = new System.Drawing.Size(51, 31);
             this.wordSelectionIntervalBox.TabIndex = 5;
             this.wordSelectionIntervalBox.Value = new decimal(new int[] {
             200,
@@ -181,7 +181,7 @@
             this.label17.AutoSize = true;
             this.label17.Location = new System.Drawing.Point(14, 190);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(56, 17);
+            this.label17.Size = new System.Drawing.Size(82, 24);
             this.label17.TabIndex = 4;
             this.label17.Text = "取词间隔";
             // 
@@ -204,7 +204,7 @@
             this.targetLanguageComboBox.FormattingEnabled = true;
             this.targetLanguageComboBox.Location = new System.Drawing.Point(286, 22);
             this.targetLanguageComboBox.Name = "targetLanguageComboBox";
-            this.targetLanguageComboBox.Size = new System.Drawing.Size(121, 25);
+            this.targetLanguageComboBox.Size = new System.Drawing.Size(121, 32);
             this.targetLanguageComboBox.TabIndex = 4;
             this.targetLanguageComboBox.SelectedIndexChanged += new System.EventHandler(this.targetLanguageComboBox_SelectedIndexChanged);
             // 
@@ -214,7 +214,7 @@
             this.sourceLanguageComboBox.FormattingEnabled = true;
             this.sourceLanguageComboBox.Location = new System.Drawing.Point(159, 22);
             this.sourceLanguageComboBox.Name = "sourceLanguageComboBox";
-            this.sourceLanguageComboBox.Size = new System.Drawing.Size(121, 25);
+            this.sourceLanguageComboBox.Size = new System.Drawing.Size(121, 32);
             this.sourceLanguageComboBox.TabIndex = 4;
             this.sourceLanguageComboBox.SelectedIndexChanged += new System.EventHandler(this.sourceLanguageComboBox_SelectedIndexChanged);
             // 
@@ -223,7 +223,7 @@
             this.defaultTranslateTencentCloudRadio.AutoSize = true;
             this.defaultTranslateTencentCloudRadio.Location = new System.Drawing.Point(91, 23);
             this.defaultTranslateTencentCloudRadio.Name = "defaultTranslateTencentCloudRadio";
-            this.defaultTranslateTencentCloudRadio.Size = new System.Drawing.Size(62, 21);
+            this.defaultTranslateTencentCloudRadio.Size = new System.Drawing.Size(89, 28);
             this.defaultTranslateTencentCloudRadio.TabIndex = 1;
             this.defaultTranslateTencentCloudRadio.TabStop = true;
             this.defaultTranslateTencentCloudRadio.Tag = "TencentCloud";
@@ -236,7 +236,7 @@
             this.defaultTranslateBaiduAIRadio.AutoSize = true;
             this.defaultTranslateBaiduAIRadio.Location = new System.Drawing.Point(11, 23);
             this.defaultTranslateBaiduAIRadio.Name = "defaultTranslateBaiduAIRadio";
-            this.defaultTranslateBaiduAIRadio.Size = new System.Drawing.Size(74, 21);
+            this.defaultTranslateBaiduAIRadio.Size = new System.Drawing.Size(107, 28);
             this.defaultTranslateBaiduAIRadio.TabIndex = 0;
             this.defaultTranslateBaiduAIRadio.TabStop = true;
             this.defaultTranslateBaiduAIRadio.Tag = "BaiduAI";
@@ -262,7 +262,7 @@
             this.defaultOcrTypeComboBox.FormattingEnabled = true;
             this.defaultOcrTypeComboBox.Location = new System.Drawing.Point(159, 22);
             this.defaultOcrTypeComboBox.Name = "defaultOcrTypeComboBox";
-            this.defaultOcrTypeComboBox.Size = new System.Drawing.Size(294, 25);
+            this.defaultOcrTypeComboBox.Size = new System.Drawing.Size(294, 32);
             this.defaultOcrTypeComboBox.TabIndex = 4;
             this.defaultOcrTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.defaultOcrType_SelectedIndexChanged);
             // 
@@ -271,7 +271,7 @@
             this.defaultOcrTencentCloudRadio.AutoSize = true;
             this.defaultOcrTencentCloudRadio.Location = new System.Drawing.Point(91, 23);
             this.defaultOcrTencentCloudRadio.Name = "defaultOcrTencentCloudRadio";
-            this.defaultOcrTencentCloudRadio.Size = new System.Drawing.Size(62, 21);
+            this.defaultOcrTencentCloudRadio.Size = new System.Drawing.Size(89, 28);
             this.defaultOcrTencentCloudRadio.TabIndex = 1;
             this.defaultOcrTencentCloudRadio.TabStop = true;
             this.defaultOcrTencentCloudRadio.Tag = "TencentCloud";
@@ -284,7 +284,7 @@
             this.defaultOcrBaiduCloudRadio.AutoSize = true;
             this.defaultOcrBaiduCloudRadio.Location = new System.Drawing.Point(11, 23);
             this.defaultOcrBaiduCloudRadio.Name = "defaultOcrBaiduCloudRadio";
-            this.defaultOcrBaiduCloudRadio.Size = new System.Drawing.Size(62, 21);
+            this.defaultOcrBaiduCloudRadio.Size = new System.Drawing.Size(89, 28);
             this.defaultOcrBaiduCloudRadio.TabIndex = 0;
             this.defaultOcrBaiduCloudRadio.TabStop = true;
             this.defaultOcrBaiduCloudRadio.Tag = "BaiduCloud";
@@ -297,7 +297,7 @@
             this.autoStartButton.AutoSize = true;
             this.autoStartButton.Location = new System.Drawing.Point(17, 16);
             this.autoStartButton.Name = "autoStartButton";
-            this.autoStartButton.Size = new System.Drawing.Size(75, 21);
+            this.autoStartButton.Size = new System.Drawing.Size(108, 28);
             this.autoStartButton.TabIndex = 1;
             this.autoStartButton.Text = "开机启动";
             this.autoStartButton.UseVisualStyleBackColor = true;
@@ -324,7 +324,7 @@
             this.linkLabel3.AutoSize = true;
             this.linkLabel3.Location = new System.Drawing.Point(272, 373);
             this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(142, 17);
+            this.linkLabel3.Size = new System.Drawing.Size(211, 24);
             this.linkLabel3.TabIndex = 24;
             this.linkLabel3.TabStop = true;
             this.linkLabel3.Tag = "https://cloud.baidu.com/doc/OCR/s/fk3h7xu7h";
@@ -350,10 +350,10 @@
             this.BaiduCloud_SecretKeyPasswordShowCheckbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.BaiduCloud_SecretKeyPasswordShowCheckbox.AutoSize = true;
-            this.BaiduCloud_SecretKeyPasswordShowCheckbox.Location = new System.Drawing.Point(431, 59);
+            this.BaiduCloud_SecretKeyPasswordShowCheckbox.Location = new System.Drawing.Point(424, 59);
             this.BaiduCloud_SecretKeyPasswordShowCheckbox.Margin = new System.Windows.Forms.Padding(4);
             this.BaiduCloud_SecretKeyPasswordShowCheckbox.Name = "BaiduCloud_SecretKeyPasswordShowCheckbox";
-            this.BaiduCloud_SecretKeyPasswordShowCheckbox.Size = new System.Drawing.Size(15, 14);
+            this.BaiduCloud_SecretKeyPasswordShowCheckbox.Size = new System.Drawing.Size(22, 21);
             this.BaiduCloud_SecretKeyPasswordShowCheckbox.TabIndex = 12;
             this.BaiduCloud_SecretKeyPasswordShowCheckbox.UseVisualStyleBackColor = true;
             this.BaiduCloud_SecretKeyPasswordShowCheckbox.CheckedChanged += new System.EventHandler(this.BaiduCloud_SecretKeyPasswordShowCheckbox_CheckedChanged);
@@ -365,7 +365,7 @@
             this.BaiduCloud_APIKeyInput.Location = new System.Drawing.Point(131, 23);
             this.BaiduCloud_APIKeyInput.Margin = new System.Windows.Forms.Padding(4);
             this.BaiduCloud_APIKeyInput.Name = "BaiduCloud_APIKeyInput";
-            this.BaiduCloud_APIKeyInput.Size = new System.Drawing.Size(319, 23);
+            this.BaiduCloud_APIKeyInput.Size = new System.Drawing.Size(319, 31);
             this.BaiduCloud_APIKeyInput.TabIndex = 8;
             this.BaiduCloud_APIKeyInput.TextChanged += new System.EventHandler(this.BaiduCloud_APIKeyInput_TextChanged);
             // 
@@ -377,7 +377,7 @@
             this.BaiduCloud_SecretKeyInput.Margin = new System.Windows.Forms.Padding(4);
             this.BaiduCloud_SecretKeyInput.Name = "BaiduCloud_SecretKeyInput";
             this.BaiduCloud_SecretKeyInput.PasswordChar = '*';
-            this.BaiduCloud_SecretKeyInput.Size = new System.Drawing.Size(319, 23);
+            this.BaiduCloud_SecretKeyInput.Size = new System.Drawing.Size(319, 31);
             this.BaiduCloud_SecretKeyInput.TabIndex = 10;
             this.BaiduCloud_SecretKeyInput.TextChanged += new System.EventHandler(this.BaiduCloud_SecretKeyInput_TextChanged);
             // 
@@ -387,7 +387,7 @@
             this.label7.Location = new System.Drawing.Point(62, 26);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(52, 17);
+            this.label7.Size = new System.Drawing.Size(75, 24);
             this.label7.TabIndex = 6;
             this.label7.Text = "API Key";
             // 
@@ -397,7 +397,7 @@
             this.label8.Location = new System.Drawing.Point(45, 57);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(69, 17);
+            this.label8.Size = new System.Drawing.Size(99, 24);
             this.label8.TabIndex = 7;
             this.label8.Text = "Secret Key";
             // 
@@ -420,10 +420,10 @@
             this.TencentCloud_SecretKeyPasswordShow.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TencentCloud_SecretKeyPasswordShow.AutoSize = true;
-            this.TencentCloud_SecretKeyPasswordShow.Location = new System.Drawing.Point(431, 59);
+            this.TencentCloud_SecretKeyPasswordShow.Location = new System.Drawing.Point(424, 59);
             this.TencentCloud_SecretKeyPasswordShow.Margin = new System.Windows.Forms.Padding(4);
             this.TencentCloud_SecretKeyPasswordShow.Name = "TencentCloud_SecretKeyPasswordShow";
-            this.TencentCloud_SecretKeyPasswordShow.Size = new System.Drawing.Size(15, 14);
+            this.TencentCloud_SecretKeyPasswordShow.Size = new System.Drawing.Size(22, 21);
             this.TencentCloud_SecretKeyPasswordShow.TabIndex = 19;
             this.TencentCloud_SecretKeyPasswordShow.UseVisualStyleBackColor = true;
             this.TencentCloud_SecretKeyPasswordShow.CheckedChanged += new System.EventHandler(this.TencentCloud_SecretKeyPasswordShow_CheckedChanged);
@@ -436,7 +436,7 @@
             this.TencentCloud_SecretKeyInput.Margin = new System.Windows.Forms.Padding(4);
             this.TencentCloud_SecretKeyInput.Name = "TencentCloud_SecretKeyInput";
             this.TencentCloud_SecretKeyInput.PasswordChar = '*';
-            this.TencentCloud_SecretKeyInput.Size = new System.Drawing.Size(320, 23);
+            this.TencentCloud_SecretKeyInput.Size = new System.Drawing.Size(320, 31);
             this.TencentCloud_SecretKeyInput.TabIndex = 18;
             this.TencentCloud_SecretKeyInput.TextChanged += new System.EventHandler(this.TencentCloud_SecretKeyInput_TextChanged);
             // 
@@ -447,7 +447,7 @@
             this.TencentCloud_SecretIdInput.Location = new System.Drawing.Point(130, 23);
             this.TencentCloud_SecretIdInput.Margin = new System.Windows.Forms.Padding(4);
             this.TencentCloud_SecretIdInput.Name = "TencentCloud_SecretIdInput";
-            this.TencentCloud_SecretIdInput.Size = new System.Drawing.Size(320, 23);
+            this.TencentCloud_SecretIdInput.Size = new System.Drawing.Size(320, 31);
             this.TencentCloud_SecretIdInput.TabIndex = 17;
             this.TencentCloud_SecretIdInput.TextChanged += new System.EventHandler(this.TencentCloud_SecretIdInput_TextChanged);
             // 
@@ -457,7 +457,7 @@
             this.label11.Location = new System.Drawing.Point(53, 26);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(60, 17);
+            this.label11.Size = new System.Drawing.Size(85, 24);
             this.label11.TabIndex = 15;
             this.label11.Text = "Secret Id";
             // 
@@ -467,7 +467,7 @@
             this.label10.Location = new System.Drawing.Point(44, 57);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(69, 17);
+            this.label10.Size = new System.Drawing.Size(99, 24);
             this.label10.TabIndex = 16;
             this.label10.Text = "Secret Key";
             // 
@@ -476,7 +476,7 @@
             this.linkLabel6.AutoSize = true;
             this.linkLabel6.Location = new System.Drawing.Point(45, 373);
             this.linkLabel6.Name = "linkLabel6";
-            this.linkLabel6.Size = new System.Drawing.Size(142, 17);
+            this.linkLabel6.Size = new System.Drawing.Size(211, 24);
             this.linkLabel6.TabIndex = 20;
             this.linkLabel6.TabStop = true;
             this.linkLabel6.Tag = "https://cloud.tencent.com/document/product/866/35945";
@@ -504,7 +504,7 @@
             this.linkLabel5.AutoSize = true;
             this.linkLabel5.Location = new System.Drawing.Point(45, 373);
             this.linkLabel5.Name = "linkLabel5";
-            this.linkLabel5.Size = new System.Drawing.Size(140, 17);
+            this.linkLabel5.Size = new System.Drawing.Size(208, 24);
             this.linkLabel5.TabIndex = 24;
             this.linkLabel5.TabStop = true;
             this.linkLabel5.Tag = "https://cloud.tencent.com/document/product/551/35017";
@@ -530,10 +530,10 @@
             this.TencentCloudTranslate_SecretKeyPasswordShow.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TencentCloudTranslate_SecretKeyPasswordShow.AutoSize = true;
-            this.TencentCloudTranslate_SecretKeyPasswordShow.Location = new System.Drawing.Point(431, 59);
+            this.TencentCloudTranslate_SecretKeyPasswordShow.Location = new System.Drawing.Point(424, 59);
             this.TencentCloudTranslate_SecretKeyPasswordShow.Margin = new System.Windows.Forms.Padding(4);
             this.TencentCloudTranslate_SecretKeyPasswordShow.Name = "TencentCloudTranslate_SecretKeyPasswordShow";
-            this.TencentCloudTranslate_SecretKeyPasswordShow.Size = new System.Drawing.Size(15, 14);
+            this.TencentCloudTranslate_SecretKeyPasswordShow.Size = new System.Drawing.Size(22, 21);
             this.TencentCloudTranslate_SecretKeyPasswordShow.TabIndex = 19;
             this.TencentCloudTranslate_SecretKeyPasswordShow.UseVisualStyleBackColor = true;
             this.TencentCloudTranslate_SecretKeyPasswordShow.CheckedChanged += new System.EventHandler(this.TencentCloudTranslate_SecretKeyPasswordShow_CheckedChanged);
@@ -546,7 +546,7 @@
             this.TencentCloudTranslate_SecretKeyInput.Margin = new System.Windows.Forms.Padding(4);
             this.TencentCloudTranslate_SecretKeyInput.Name = "TencentCloudTranslate_SecretKeyInput";
             this.TencentCloudTranslate_SecretKeyInput.PasswordChar = '*';
-            this.TencentCloudTranslate_SecretKeyInput.Size = new System.Drawing.Size(320, 23);
+            this.TencentCloudTranslate_SecretKeyInput.Size = new System.Drawing.Size(320, 31);
             this.TencentCloudTranslate_SecretKeyInput.TabIndex = 18;
             this.TencentCloudTranslate_SecretKeyInput.TextChanged += new System.EventHandler(this.TencentCloudTranslate_SecretKeyInput_TextChanged);
             // 
@@ -557,7 +557,7 @@
             this.TencentCloudTranslate_SecretIdInput.Location = new System.Drawing.Point(130, 23);
             this.TencentCloudTranslate_SecretIdInput.Margin = new System.Windows.Forms.Padding(4);
             this.TencentCloudTranslate_SecretIdInput.Name = "TencentCloudTranslate_SecretIdInput";
-            this.TencentCloudTranslate_SecretIdInput.Size = new System.Drawing.Size(320, 23);
+            this.TencentCloudTranslate_SecretIdInput.Size = new System.Drawing.Size(320, 31);
             this.TencentCloudTranslate_SecretIdInput.TabIndex = 17;
             this.TencentCloudTranslate_SecretIdInput.TextChanged += new System.EventHandler(this.TencentCloudTranslate_SecretIdInput_TextChanged);
             // 
@@ -567,7 +567,7 @@
             this.label14.Location = new System.Drawing.Point(53, 26);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(60, 17);
+            this.label14.Size = new System.Drawing.Size(85, 24);
             this.label14.TabIndex = 15;
             this.label14.Text = "Secret Id";
             // 
@@ -577,7 +577,7 @@
             this.label15.Location = new System.Drawing.Point(44, 57);
             this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(69, 17);
+            this.label15.Size = new System.Drawing.Size(99, 24);
             this.label15.TabIndex = 16;
             this.label15.Text = "Secret Key";
             // 
@@ -600,10 +600,10 @@
             this.BaiduAI_APPSecretPasswordShowCheckbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.BaiduAI_APPSecretPasswordShowCheckbox.AutoSize = true;
-            this.BaiduAI_APPSecretPasswordShowCheckbox.Location = new System.Drawing.Point(431, 59);
+            this.BaiduAI_APPSecretPasswordShowCheckbox.Location = new System.Drawing.Point(424, 59);
             this.BaiduAI_APPSecretPasswordShowCheckbox.Margin = new System.Windows.Forms.Padding(4);
             this.BaiduAI_APPSecretPasswordShowCheckbox.Name = "BaiduAI_APPSecretPasswordShowCheckbox";
-            this.BaiduAI_APPSecretPasswordShowCheckbox.Size = new System.Drawing.Size(15, 14);
+            this.BaiduAI_APPSecretPasswordShowCheckbox.Size = new System.Drawing.Size(22, 21);
             this.BaiduAI_APPSecretPasswordShowCheckbox.TabIndex = 12;
             this.BaiduAI_APPSecretPasswordShowCheckbox.UseVisualStyleBackColor = true;
             this.BaiduAI_APPSecretPasswordShowCheckbox.CheckedChanged += new System.EventHandler(this.BaiduAI_APPSecretPasswordShowCheckbox_CheckedChanged);
@@ -615,7 +615,7 @@
             this.BaiduAI_APPIDInput.Location = new System.Drawing.Point(131, 23);
             this.BaiduAI_APPIDInput.Margin = new System.Windows.Forms.Padding(4);
             this.BaiduAI_APPIDInput.Name = "BaiduAI_APPIDInput";
-            this.BaiduAI_APPIDInput.Size = new System.Drawing.Size(319, 23);
+            this.BaiduAI_APPIDInput.Size = new System.Drawing.Size(319, 31);
             this.BaiduAI_APPIDInput.TabIndex = 8;
             this.BaiduAI_APPIDInput.TextChanged += new System.EventHandler(this.BaiduAI_APPIDInput_TextChanged);
             // 
@@ -627,7 +627,7 @@
             this.BaiduAI_APPSecretInput.Margin = new System.Windows.Forms.Padding(4);
             this.BaiduAI_APPSecretInput.Name = "BaiduAI_APPSecretInput";
             this.BaiduAI_APPSecretInput.PasswordChar = '*';
-            this.BaiduAI_APPSecretInput.Size = new System.Drawing.Size(319, 23);
+            this.BaiduAI_APPSecretInput.Size = new System.Drawing.Size(319, 31);
             this.BaiduAI_APPSecretInput.TabIndex = 10;
             this.BaiduAI_APPSecretInput.TextChanged += new System.EventHandler(this.BaiduAI_APPSecretInput_TextChanged);
             // 
@@ -637,7 +637,7 @@
             this.label12.Location = new System.Drawing.Point(70, 26);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(44, 17);
+            this.label12.Size = new System.Drawing.Size(63, 24);
             this.label12.TabIndex = 6;
             this.label12.Text = "API ID";
             // 
@@ -647,7 +647,7 @@
             this.label13.Location = new System.Drawing.Point(82, 57);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(32, 17);
+            this.label13.Size = new System.Drawing.Size(46, 24);
             this.label13.TabIndex = 7;
             this.label13.Text = "密钥";
             // 
@@ -656,7 +656,7 @@
             this.linkLabel4.AutoSize = true;
             this.linkLabel4.Location = new System.Drawing.Point(272, 373);
             this.linkLabel4.Name = "linkLabel4";
-            this.linkLabel4.Size = new System.Drawing.Size(152, 17);
+            this.linkLabel4.Size = new System.Drawing.Size(226, 24);
             this.linkLabel4.TabIndex = 15;
             this.linkLabel4.TabStop = true;
             this.linkLabel4.Tag = "https://fanyi-api.baidu.com/product/113";
@@ -686,7 +686,7 @@
             this.label16.ForeColor = System.Drawing.Color.Red;
             this.label16.Location = new System.Drawing.Point(61, 375);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(143, 17);
+            this.label16.Size = new System.Drawing.Size(210, 24);
             this.label16.TabIndex = 7;
             this.label16.Text = "*注：请不要使用 WIN 键";
             // 
@@ -708,7 +708,7 @@
             this.ScreenshotTranslateHotKeyTextBox.Location = new System.Drawing.Point(123, 115);
             this.ScreenshotTranslateHotKeyTextBox.Name = "ScreenshotTranslateHotKeyTextBox";
             this.ScreenshotTranslateHotKeyTextBox.ReadOnly = true;
-            this.ScreenshotTranslateHotKeyTextBox.Size = new System.Drawing.Size(296, 23);
+            this.ScreenshotTranslateHotKeyTextBox.Size = new System.Drawing.Size(296, 31);
             this.ScreenshotTranslateHotKeyTextBox.TabIndex = 5;
             this.ScreenshotTranslateHotKeyTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.ScreenshotTranslateHotKeyTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.HotKeyTextBox_KeyDown);
@@ -722,7 +722,7 @@
             this.GetWordsTranslateHotKeyTextBox.Location = new System.Drawing.Point(123, 78);
             this.GetWordsTranslateHotKeyTextBox.Name = "GetWordsTranslateHotKeyTextBox";
             this.GetWordsTranslateHotKeyTextBox.ReadOnly = true;
-            this.GetWordsTranslateHotKeyTextBox.Size = new System.Drawing.Size(296, 23);
+            this.GetWordsTranslateHotKeyTextBox.Size = new System.Drawing.Size(296, 31);
             this.GetWordsTranslateHotKeyTextBox.TabIndex = 4;
             this.GetWordsTranslateHotKeyTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.GetWordsTranslateHotKeyTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.HotKeyTextBox_KeyDown);
@@ -736,7 +736,7 @@
             this.ocrHotKeyTextBox.Location = new System.Drawing.Point(123, 40);
             this.ocrHotKeyTextBox.Name = "ocrHotKeyTextBox";
             this.ocrHotKeyTextBox.ReadOnly = true;
-            this.ocrHotKeyTextBox.Size = new System.Drawing.Size(296, 23);
+            this.ocrHotKeyTextBox.Size = new System.Drawing.Size(296, 31);
             this.ocrHotKeyTextBox.TabIndex = 3;
             this.ocrHotKeyTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.ocrHotKeyTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.HotKeyTextBox_KeyDown);
@@ -747,7 +747,7 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(61, 117);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(56, 17);
+            this.label9.Size = new System.Drawing.Size(82, 24);
             this.label9.TabIndex = 2;
             this.label9.Text = "截图翻译";
             // 
@@ -756,7 +756,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(61, 80);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 17);
+            this.label6.Size = new System.Drawing.Size(82, 24);
             this.label6.TabIndex = 1;
             this.label6.Text = "划词翻译";
             // 
@@ -765,7 +765,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(61, 42);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 17);
+            this.label5.Size = new System.Drawing.Size(82, 24);
             this.label5.TabIndex = 0;
             this.label5.Text = "文字识别";
             // 
@@ -793,7 +793,7 @@
             this.emailLink.Location = new System.Drawing.Point(68, 154);
             this.emailLink.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.emailLink.Name = "emailLink";
-            this.emailLink.Size = new System.Drawing.Size(154, 17);
+            this.emailLink.Size = new System.Drawing.Size(233, 24);
             this.emailLink.TabIndex = 5;
             this.emailLink.TabStop = true;
             this.emailLink.Text = "chenyongli0520@qq.com";
@@ -805,7 +805,7 @@
             this.label4.Location = new System.Drawing.Point(21, 154);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 17);
+            this.label4.Size = new System.Drawing.Size(64, 24);
             this.label4.TabIndex = 4;
             this.label4.Text = "反馈 - ";
             // 
@@ -815,7 +815,7 @@
             this.linkLabel1.Location = new System.Drawing.Point(68, 113);
             this.linkLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(286, 17);
+            this.linkLabel1.Size = new System.Drawing.Size(431, 24);
             this.linkLabel1.TabIndex = 3;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Tag = "https://github.com/NPCDW/WindowsFormsOCR";
@@ -828,7 +828,7 @@
             this.label3.Location = new System.Drawing.Point(21, 113);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 17);
+            this.label3.Size = new System.Drawing.Size(64, 24);
             this.label3.TabIndex = 2;
             this.label3.Text = "源码 - ";
             // 
@@ -839,7 +839,7 @@
             this.label2.Location = new System.Drawing.Point(21, 74);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(193, 17);
+            this.label2.Size = new System.Drawing.Size(287, 24);
             this.label2.TabIndex = 1;
             this.label2.Text = "版权所有 © 2022-至今 0520.com";
             // 
@@ -850,13 +850,13 @@
             this.label1.Location = new System.Drawing.Point(21, 35);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 17);
+            this.label1.Size = new System.Drawing.Size(183, 24);
             this.label1.TabIndex = 0;
-            this.label1.Text = "版本 1.3.2 (2022.4.23)";
+            this.label1.Text = "版本 1.3.3 (2022.5.3)";
             // 
             // SettingForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(479, 453);
             this.Controls.Add(this.tabControl1);
