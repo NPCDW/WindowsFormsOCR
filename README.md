@@ -1,11 +1,10 @@
-由于 `WindowsForms` 平台的限制，此项目不得不告一段落
+由于 `WindowsForms` 平台的限制，导致用户体验非常差，此项目不得不告一段落，已经使用 `WPF` 重写此项目 `https://github.com/NPCDW/WpfTool`
 
 受限制的问题只要有两块
 
 1. `WindowsForms` 采用 `CPU` 进行渲染计算，而非 `GPU` ，在截屏时会有非常明显的卡顿现象
 2. `WindowsForms` 不支持控件的矢量布局，如果不使用 `DPI` 适应，窗口和字体会变得非常模糊，如果使用，系统超过 `100%` 的缩放窗口控件布局就会挤在一起
-
-此外 `WindowsForms` 也没有漂亮的 UI 框架
+3. `WindowsForms` 也没有漂亮的 UI 框架
 
 
 此项目调用 `TencentCloud` 和 `BaiduCloud` 实现的 `OCR` 以及翻译
